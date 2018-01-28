@@ -27,6 +27,7 @@
 * View > Cell Toolbar > Slideshow: bring up slide cell menu
 * jupyter nbconvert notebook.ipynb --to slides: convert to slideshow from file
 * jupyter nbconvert notebook.ipynb --to slides --post serve: convert to slideshow and immediately see
+
 # Numpy Cheatsheet
 * `x = v[None, :]` ~ add new dimension to array
 
