@@ -18,6 +18,12 @@
 * takes in all real numbers and outputs a probability between 0 and 1 
 * allows a continuous error function
 
+# Softmax Function
+* allows you to take linear set of scores for multiple classes and generate probabilities for each class that sum to 0
+* exponent function used to avoid negative values (which can cause division by 0 if allowed)
+* softmax equation: ![softmax equation](https://livingprogram.github.io/ml-notes/images/ml-notes_3.jpg)
+* softmax with 2 classes: ![softmax 2 classes](https://livingprogram.github.io/ml-notes/images/ml-notes_4.jpg)
+
 # Jupyter Cheatsheet
 * tab: allows you to complete variable names or list functions of a package within code cell
 * shift + tab: lets you see function documentation, variable values 
@@ -50,4 +56,3 @@
 
 # Numpy Cheatsheet
 * `x = v[None, :]` ~ add new dimension to array
-
