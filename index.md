@@ -14,8 +14,9 @@
 * must be continuous, not discrete, there should always be a direction towards a more optimal error 
 
 ## Sigmoid Activation Function
-* ![sigmoid function](https://livingprogram.github.io/ml-notes/images/ml-notes_2.jpg)
+* sigmoid graph and equation: ![sigmoid function](https://livingprogram.github.io/ml-notes/images/ml-notes_2.jpg)
 * takes in all real numbers and outputs a probability between 0 and 1 
+* allows a continuous error function
 
 # Jupyter Cheatsheet
 * tab: allows you to complete variable names or list functions of a package within code cell
