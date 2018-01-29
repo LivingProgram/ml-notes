@@ -9,6 +9,14 @@
   * If the point is classified positive, but it has a negative label, subtract αp, αq, and α from w_1, w_2, and b respectively.
   * If the point is classified negative, but it has a positive label, add αp, αq, and α to w_1, w_2, b respectively.
 
+# Error Function
+* measures the model's performance
+* must be continuous, not discrete, there should always be a direction towards a more optimal error 
+
+## Sigmoid Activation Function
+* ![sigmoid function](https://livingprogram.github.io/ml-notes/images/ml-notes_2.jpg)
+* takes in all real numbers and outputs a probability between 0 and 1 
+
 # Jupyter Cheatsheet
 * tab: allows you to complete variable names or list functions of a package within code cell
 * shift + tab: lets you see function documentation, variable values 
