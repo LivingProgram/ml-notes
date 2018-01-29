@@ -1,6 +1,14 @@
 # Perceptron
 * single unit that takes in a set of input nodes, multiplies those inputs by weights, and adds a bias node, returning an output of 1 or 0
 * perceptron visualization: ![perceptron visualization](https://livingprogram.github.io/ml-notes/images/ml-notes_1.jpg)
+
+## Perceptron Algorithm
+* For all points (p,q) with label y:
+  * Calculate y_hat = step(w_1 * x_1 + w_2 * x_2 + b)
+  * If the point is correctly classified, do nothing.
+  * If the point is classified positive, but it has a negative label, subtract αp, αq, and α from w_1, w_2, and b respectively.
+  * If the point is classified negative, but it has a positive label, add αp, αq, and α to w_1, w_2, b respectively.
+
 # Jupyter Cheatsheet
 * tab: allows you to complete variable names or list functions of a package within code cell
 * shift + tab: lets you see function documentation, variable values 
