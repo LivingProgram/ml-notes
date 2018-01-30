@@ -40,9 +40,10 @@
   * log(number_between_0_and_1) = negative numbers (instead use -log() = positive)
   * if we use -log(), minimizing -log() = best model (because before, larger product = better model, and log(large_product) = small number, so now we need to minimize)
 * Cross Entropy (2 classes): ![cross entropy 2 classes](https://livingprogram.github.io/ml-notes/images/ml-notes_5.jpg)
-  * y = 1 or 0, therefore only one term in the summation is chosen, and that term will calculate the ln() of the correct probability, then sum the negative ln’s
 * Cross Entropy (2 classes, with W = weights, b = bias): ![cross entropy 2 classes weights bias](https://livingprogram.github.io/ml-notes/images/ml-notes_6.jpg)
 * Cross Entropy (n classes): ![cross entropy n classes](https://livingprogram.github.io/ml-notes/images/ml-notes_7.jpg)
+* Explanations:
+  * y = 1 or 0, therefore only one term in the summation is chosen, and that term will calculate the ln() of the correct probability, then sum the negative ln’s
   * only take -ln() of probabilities that matter, formula when n = 2 turns out to be cross entropy formula for 2 classes
 
 # Jupyter Cheatsheet
