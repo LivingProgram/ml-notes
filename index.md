@@ -24,6 +24,9 @@
 * softmax equation: ![softmax equation](https://livingprogram.github.io/ml-notes/images/ml-notes_3.jpg)
 * softmax with 2 classes: ![softmax 2 classes](https://livingprogram.github.io/ml-notes/images/ml-notes_4.jpg)
 
+# One-Hot Encoding
+* with data that has multiple classes, assign a vector to each class (such that there is a 1 in the row that corresponds to the presence of the class, and the rest are all 0s)
+
 # Jupyter Cheatsheet
 * tab: allows you to complete variable names or list functions of a package within code cell
 * shift + tab: lets you see function documentation, variable values 
