@@ -27,6 +27,21 @@
 # One-Hot Encoding
 * with data that has multiple classes, assign a vector to each class (such that there is a 1 in the row that corresponds to the presence of the class, and the rest are all 0s)
 
+# Maximum Likelihood
+* method of picking the model that gives the existing labels the highest probability
+* how likely a model's predictions are correct = product of the probabilities that every point is its labeled class
+* maximizing the product of probabilities = best model
+
+## Cross-Entropy Error Function
+* Motivation for creating cross entropy function:
+  * maximum likelihood is able to measure a model's performance
+  * products = hard to compute and yield small numbers (instead use sums = easy to calculate)
+  * use logs, because of the property log(ab) = log(a) + log(b) (allows our products to turn into sums)
+  * log(number_between_0_and_1) = negative numbers (instead use -log() = positive)
+  * if we use -log(), minimizing -log() = best model (because before, larger product = better model, and log(large_product) = small number, so now we need to minimize)
+* Cross Entropy (2 classes): 
+* Cross Entropy (m classes): 
+
 # Jupyter Cheatsheet
 * tab: allows you to complete variable names or list functions of a package within code cell
 * shift + tab: lets you see function documentation, variable values 
