@@ -46,6 +46,30 @@
   * y = 1 or 0, therefore only one term in the summation is chosen, and that term will calculate the ln() of the correct probability, then sum the negative ln’s
   * only take -ln() of probabilities that matter, formula when n = 2 turns out to be cross entropy formula for 2 classes
 
+# Gradient Descent
+
+## Gradient Descent Motivation: 
+* we want to minimize the cross-entropy error to find the best model
+* we need to find the lowest valley in the graph of error function and weights as that is where the error is least
+* by taking negative partial derivative of error function with respect to each weight that is the direction to move in towards a lower error and a better model
+* therefore we simply need to calculate the gradient of the error
+
+## Gradient Descent Calculation
+* Goal = Calculate the gradient of the error = ∇E
+* Given m points labeled:
+* Predictions are calculated by the model using: 
+* The error for an individual point is:
+* The overall error is simply the average of individual point errors:
+* The gradient of the error = partial derivatives of error for each weight:
+* First calculate:
+* Then calculate:
+* Similarly:
+* In summary:
+  * For a point:
+* Significance: 
+  * gradient = scalar x coordinates of point (scalar = label - prediction)
+  * implies, label close to the prediction = small gradient
+
 # Jupyter Cheatsheet
 * tab: allows you to complete variable names or list functions of a package within code cell
 * shift + tab: lets you see function documentation, variable values 
