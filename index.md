@@ -70,7 +70,7 @@
   * Conclusion: ![gradient of error formula](https://livingprogram.github.io/ml-notes/images/ml-notes_18.jpg)
 * Significance: 
   * gradient = scalar x coordinates of point (scalar = label - prediction)
-  * implies, label close to the prediction = small gradient
+  * implies: label close to the prediction = small gradient
 
 # Jupyter Cheatsheet
 * tab: allows you to complete variable names or list functions of a package within code cell
