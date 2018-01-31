@@ -56,13 +56,14 @@
 
 ## Gradient Descent Calculation
 * Goal = Calculate the gradient of the error = ∇E
-* Given m points labeled:
-* Predictions are calculated by the model using: 
-* The error for an individual point is:
-* The overall error is simply the average of individual point errors:
-* The gradient of the error = partial derivatives of error for each weight:
-* First calculate:
+* Given m points labeled: ![m points](https://livingprogram.github.io/ml-notes/images/ml-notes_8.jpg)
+* Predictions are calculated by the model using: ![prediction formula](https://livingprogram.github.io/ml-notes/images/ml-notes_9.jpg)
+* The error for an individual point is: ![individual point error](https://livingprogram.github.io/ml-notes/images/ml-notes_10.jpg)
+* The overall error is simply the average of individual point errors: ![overall error](https://livingprogram.github.io/ml-notes/images/ml-notes_11.jpg)
+* The gradient of the error = partial derivatives of error for each weight: ![partial derivatives of error](https://livingprogram.github.io/ml-notes/images/ml-notes_12.jpg)
+* First calculate: ![sigmoid derivative proof](https://livingprogram.github.io/ml-notes/images/ml-notes_13.jpg)
 * Then calculate:
+* And finally: 
 * Similarly:
 * In summary:
   * For a point:
