@@ -58,15 +58,16 @@
 * Goal = Calculate the gradient of the error = ∇E
 * Given m points labeled: ![m points](https://livingprogram.github.io/ml-notes/images/ml-notes_8.jpg)
 * Predictions are calculated by the model using: ![prediction formula](https://livingprogram.github.io/ml-notes/images/ml-notes_9.jpg)
-* The error for an individual point is: ![individual point error](https://livingprogram.github.io/ml-notes/images/ml-notes_10.jpg)
-* The overall error is simply the average of individual point errors: ![overall error](https://livingprogram.github.io/ml-notes/images/ml-notes_11.jpg)
+* The error for an individual point is: ![individual point error formula](https://livingprogram.github.io/ml-notes/images/ml-notes_10.jpg)
+* The overall error is simply the average of individual point errors: ![overall error formula](https://livingprogram.github.io/ml-notes/images/ml-notes_11.jpg)
 * The gradient of the error = partial derivatives of error for each weight: ![partial derivatives of error](https://livingprogram.github.io/ml-notes/images/ml-notes_12.jpg)
 * First calculate: ![sigmoid derivative proof](https://livingprogram.github.io/ml-notes/images/ml-notes_13.jpg)
-* Then calculate:
-* And finally: 
-* Similarly:
+* Then calculate: ![prediction partial derivative](https://livingprogram.github.io/ml-notes/images/ml-notes_14.jpg)
+* And finally: ![error partial derivative weights](https://livingprogram.github.io/ml-notes/images/ml-notes_15.jpg)
+* Similarly: ![error partial derivative bias](https://livingprogram.github.io/ml-notes/images/ml-notes_16.jpg)
 * In summary:
-  * For a point:
+  * For a point: ![for a point](https://livingprogram.github.io/ml-notes/images/ml-notes_17.jpg)
+  * Conclusion: ![gradient of error formula](https://livingprogram.github.io/ml-notes/images/ml-notes_18.jpg)
 * Significance: 
   * gradient = scalar x coordinates of point (scalar = label - prediction)
   * implies, label close to the prediction = small gradient
