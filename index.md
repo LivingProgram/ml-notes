@@ -72,6 +72,13 @@
   * gradient = scalar x coordinates of point (scalar = label - prediction)
   * implies: label close to the prediction = small gradient
 
+# Logistic Regression Algorithm
+1. Initialize random weights: 
+2. For every point:
+   * Update weights:
+   * Update bias:
+3. Repeat until error is small
+
 # Jupyter Cheatsheet
 * tab: allows you to complete variable names or list functions of a package within code cell
 * shift + tab: lets you see function documentation, variable values 
