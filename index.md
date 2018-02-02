@@ -25,7 +25,8 @@
 * softmax equation: 
   * Given linear output of scores for $$n$$ classes: $$Z_{1},Z_{2},\ldots,Z_{n}$$
   * $$P(\text{class } i) = \frac{e^{Z_{i}}}{e^{Z_{1}}+e^{Z_{2}}+\ldots+e^{Z_{n}}}$$
-* softmax with 2 classes: ![softmax 2 classes](https://livingprogram.github.io/ml-notes/images/ml-notes_4.jpg)
+* softmax with 2 classes: $$\implies n=2 \\ \implies softmax(x) = \\ =sigmoid(x)
+* ![softmax 2 classes](https://livingprogram.github.io/ml-notes/images/ml-notes_4.jpg)
 
 # One-Hot Encoding
 * with data that has multiple classes, assign a vector to each class (such that there is a 1 in the row that corresponds to the presence of the class, and the rest are all 0s)
