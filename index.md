@@ -8,6 +8,7 @@
   * If the point is correctly classified: do nothing
   * If the point is classified positive, but it has a negative label: $$w_{1} - \alpha * p$$, $$w_{2} - \alpha * q$$, $$b - \alpha$$
   * If the point is classified negative, but it has a positive label: $$w_{1} + \alpha * p$$, $$w_{2} + \alpha * q$$, $$b + \alpha$$
+  * (Where $$\alpha = $$ learning rate)
 
 # Error Function
 * measures the model's performance
