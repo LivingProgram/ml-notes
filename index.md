@@ -5,16 +5,9 @@
 ## Perceptron Algorithm
 * For all points $$(p,q) \text{ with label } y $$:
   * Calculate $$\hat{y} = step(w_{1} * x_{1} + w_{2} * x_{2} + b)$$
-  * If the point is correctly classified:
-    * do nothing.
-  * If the point is classified positive, but it has a negative label:
-    * $$w_{1} -= \alpha * p$$
-    * $$w_{2} -= \alpha * q$$
-    * $$b -= \alpha$$
-  * If the point is classified negative, but it has a positive label:
-    * $$w_{1} += \alpha * p$$
-    * $$w_{2} += \alpha * q$$
-    * $$b += \alpha$$
+  * If the point is correctly classified: do nothing
+  * If the point is classified positive, but it has a negative label: $$w_{1} - \alpha * p$$, $$w_{2} - \alpha * q$$, $$b - \alpha$$
+  * If the point is classified negative, but it has a positive label: $$w_{1} + \alpha * p$$, $$w_{2} + \alpha * q$$, $$b + \alpha$$
 
 # Error Function
 * measures the model's performance
