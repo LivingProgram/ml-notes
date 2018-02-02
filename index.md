@@ -3,8 +3,8 @@
 * perceptron visualization: ![perceptron visualization](https://livingprogram.github.io/ml-notes/images/ml-notes_1.jpg)
 
 ## Perceptron Algorithm
-* For all points \((p,q)\) with label \(y\):
-  * Calculate \(\hat{y} = step(w_{1} * x_{1} + w_{2} * x_{2} + b)\)
+* For all points $$(p,q) \text{with label} y $$:
+  * Calculate $$\hat{y} = step(w_{1} * x_{1} + w_{2} * x_{2} + b)$$
   * If the point is correctly classified, do nothing.
   * If the point is classified positive, but it has a negative label, subtract αp, αq, and α from w_1, w_2, and b respectively.
   * If the point is classified negative, but it has a positive label, add αp, αq, and α to w_1, w_2, b respectively.
