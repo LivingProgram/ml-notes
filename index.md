@@ -11,7 +11,10 @@
     * $$w_{1} -= \alpha * p$$
     * $$w_{2} -= \alpha * q$$
     * $$b -= \alpha$$
-  * If the point is classified negative, but it has a positive label, add αp, αq, and α to w_1, w_2, b respectively.
+  * If the point is classified negative, but it has a positive label:
+    * $$w_{1} += \alpha * p$$
+    * $$w_{2} += \alpha * q$$
+    * $$b += \alpha$$
 
 # Error Function
 * measures the model's performance
