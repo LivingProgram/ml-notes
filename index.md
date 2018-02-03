@@ -23,7 +23,8 @@
 * allows you to take linear set of scores for multiple classes and generate probabilities for each class that sum to 0
 * exponent function used to avoid negative values (which can cause division by 0 if allowed)
 * softmax equation: 
-  * Given linear output of scores for $$n$$ classes: $$Z_{1},Z_{2},\ldots,Z_{n}$$
+  * Given linear output of scores for $$n$$ classes: 
+    $$Z_{1},Z_{2},\ldots,Z_{n}$$
   * $$P(\text{class } i) = \frac{e^{Z_{i}}}{e^{Z_{1}}+e^{Z_{2}}+\ldots+e^{Z_{n}}}$$
 * softmax with 2 classes: $$\implies n=2 \\ \implies softmax(x) = \\ =sigmoid(x)$$
 * ![softmax 2 classes](https://livingprogram.github.io/ml-notes/images/ml-notes_4.jpg)
