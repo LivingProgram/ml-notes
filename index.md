@@ -42,7 +42,7 @@
   * use logs, because of the property log(ab) = log(a) + log(b) (allows our products to turn into sums)
   * log(number_between_0_and_1) = negative numbers (instead use -log() = positive)
   * if we use -log(), minimizing -log() = best model (because before, larger product = better model, and log(large_product) = small number, so now we need to minimize)
-* Cross Entropy (2 classes): ![cross entropy 2 classes](https://livingprogram.github.io/ml-notes/images/ml-notes_5.jpg)
+* Cross Entropy (2 classes): $$E=-\frac{1}{m}\sum_{i=1}^{m}y_{i}ln(p_{i})+(1-y_{i})ln(1-p_{i})$$![cross entropy 2 classes](https://livingprogram.github.io/ml-notes/images/ml-notes_5.jpg)
 * Cross Entropy (2 classes, with W = weights, b = bias): ![cross entropy 2 classes weights bias](https://livingprogram.github.io/ml-notes/images/ml-notes_6.jpg)
 * Cross Entropy (n classes): ![cross entropy n classes](https://livingprogram.github.io/ml-notes/images/ml-notes_7.jpg)
 * Explanations:
