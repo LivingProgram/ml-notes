@@ -94,7 +94,10 @@ $$\nabla E = (\frac{\partial}{\partial w_{1}}E,\ldots,\frac{\partial}{\partial w
 
 * First calculate: 
 
-$$$$
+$$\sigma'(x) &=\frac{d}{dx}\left(\frac{1}{1+e^{-x}}\right) \\
+&=\frac{e^{-x}}{(1+e^{-x})^{2}} &&\text{(quotient rule)} \\
+&=\frac{1}{1+e^{-x}}\cdot \frac{e^{-x}}{1+e^{-x}} \\
+&=\sigma(x)(1-\sigma(x))&&\text{(long division)}$$
 
 ![sigmoid derivative proof](https://livingprogram.github.io/ml-notes/images/ml-notes_13.jpg)
 * Then calculate: 
