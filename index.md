@@ -138,7 +138,7 @@ $$\begin{align}\text{features } &= (x_{1},\ldots,x_{n})\\
 \text{prediction } &= \hat{y}\end{align}$$
 
 $$\begin{align}\nabla E &= (\frac{\partial}{\partial w_{1}}E,\ldots,\frac{\partial}{\partial w_{n}}E,\frac{\partial}{\partial b}E)\\
-&= (-y(y-\hat{y})x_{1},\ldots,-y(-\hat{y})x_{n},-(y-\hat{y}))\\
+&= (-(y-\hat{y})x_{1},\ldots,-(y-\hat{y})x_{n},-(y-\hat{y}))\\
 &= -(y-\hat{y})(x_{1},\ldots,x_{n},1)\end{align}$$
 
 
