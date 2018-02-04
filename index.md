@@ -101,7 +101,12 @@ $$\begin{align}\sigma'(x) &=\frac{d}{dx}\left(\frac{1}{1+e^{-x}}\right) \\
 
 * Then calculate: 
 
-$$$$
+$$\frac{\partial}{\partial w_{i}}\hat{y}&=\frac{\partial}{\partial w_{i}}(\sigma(Wx+b)) &&\text{(\hat{y}_{i} formula)} \\
+&= \sigma(Wx+b)(1-\sigma(Wx+b))\cdot\frac{\partial}{\partial w_{i}}(Wx+b) &&\text{(\sigma'(x) formula)}\\
+&= \hat{y}(1-\hat{y})\cdot\frac{\partial}{\partial w_{i}}(Wx+b) \\
+&= \hat{y}(1-\hat{y})\cdot\frac{\partial}{\partial w_{i}}(w_{1}x_{1}+\ldots+w_{i}x_{i}+\ldots+w_{m}x_{m} \\
+&= \\
+&=$$
 
 ![prediction partial derivative](https://livingprogram.github.io/ml-notes/images/ml-notes_14.jpg)
 * And finally: 
