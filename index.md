@@ -180,9 +180,20 @@ $$\hat{y}_{i}=\sigma(W^{(3)}(\sigma(W^{(2)}(\sigma(W^{(1)}X_{i})))))$$
 $$E=-\frac{1}{m}\sum_{i=1}^{m}y_{i}ln(\hat{y}_{i})+(1-y_{i})ln(1-\hat{y}_{i})$$
 
 ## Backpropagation
-* intuitive understanding: 
+* Overview:
+  * Perform feedforward
+  * Calculate error
+  * Propagate error backwards (spread error to all weights)
+  * Update all weights using propagated error
+  * Loop until satisfied with error
+* Intuitive Understanding: 
   * given a model's error, propagate error backwards by decreasing the weights of neurons that had stronger connections over those that had weaker connections
   * the error is caused more by those neurons with strong connections (or large weights), and decreasing their weights will reduce the effects of the erroneous neuron
+  * same as single perceptrons, calculate gradient of error function (which is more complex now) and use the gradient to update weights to descend to local minima
+* Goal = Calculate the gradient of the error \\(= \nabla E\\)
+* The gradient of the error = partial derivatives of error with respect to each weight: 
+
+$$\nabla E = (\frac{\partial}{\partial W^{(1)}_{11}}E,\ldots,\partial W^{(k)}_{ij}}E,\ldots,\frac{\partial}{\partial W^{(n)}}E)$$
 
 # Jupyter Cheatsheet
 * tab: allows you to complete variable names or list functions of a package within code cell
