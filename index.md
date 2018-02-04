@@ -42,11 +42,19 @@
   * use logs, because of the property \\(log(ab) = log(a) + log(b)\\) (allows our products to turn into sums)
   * log(number_between_0_and_1) = negative numbers (instead use -log() = positive)
   * if we use -log(), minimizing -log() = best model (because before, larger product = better model, and log(large_product) = small number, so now we need to minimize)
+* Calculate predictions:
+
+$$\hat{y}_{i}=\sigma(Wx_{i}+b)$$
+
 * Cross Entropy (2 classes): 
 
 $$E=-\frac{1}{m}\sum_{i=1}^{m}y_{i}ln(\hat{y}_{i})+(1-y_{i})ln(1-\hat{y}_{i})$$
 
-* Cross Entropy (2 classes, with W = weights, b = bias): $$\hat{y}_{i}=\sigma(Wx_{i}+b)\\E(W,b)=-\frac{1}{m}\sum_{i=1}^{m}y_{i}ln(\sigma(Wx_{i}+b))+(1-y_{i})ln(1-\sigma(Wx_{i}+b))$$![cross entropy 2 classes weights bias](https://livingprogram.github.io/ml-notes/images/ml-notes_6.jpg)
+* Cross Entropy (2 classes, with W = weights, b = bias): 
+
+$$E(W,b)=-\frac{1}{m}\sum_{i=1}^{m}y_{i}ln(\sigma(Wx_{i}+b))+(1-y_{i})ln(1-\sigma(Wx_{i}+b))$$
+
+![cross entropy 2 classes weights bias](https://livingprogram.github.io/ml-notes/images/ml-notes_6.jpg)
 * Cross Entropy (n classes): $$E=-\sum_{i=1}^{m}$$![cross entropy n classes](https://livingprogram.github.io/ml-notes/images/ml-notes_7.jpg)
 * Explanations:
   * y = 1 or 0, therefore only one term in the summation is chosen, and that term will calculate the ln() of the correct probability, then sum the negative ln’s
