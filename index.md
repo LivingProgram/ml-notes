@@ -193,7 +193,7 @@ $$E=-\frac{1}{m}\sum_{i=1}^{m}y_{i}ln(\hat{y}_{i})+(1-y_{i})ln(1-\hat{y}_{i})$$
 * Goal = Calculate the gradient of the error \\(= \nabla E\\)
 * The gradient of the error = partial derivatives of error with respect to each weight: 
 
-$$\nabla E = (\frac{\partial}{\partial W^{(1)}_{11}}E,\ldots,\frac{\partial}{\partial W^{(k)}_{ij}}E,\ldots,\frac{\partial}{\partial W^{(n)}}E)$$
+$$\nabla E = \left(\frac{\partial}{\partial W^{(1)}_{11}}E,\ldots,\frac{\partial}{\partial W^{(k)}_{ij}}E,\ldots,\frac{\partial}{\partial W^{(n)}}E\right)$$
 
 # Jupyter Cheatsheet
 * tab: allows you to complete variable names or list functions of a package within code cell
