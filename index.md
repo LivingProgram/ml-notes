@@ -4,10 +4,10 @@
 
 ## Perceptron Algorithm
 * For all points \\((p,q) \text{ with label } y \\):
-  * Calculate \\(\hat{y} = step(w_{1} * x_{1} + w_{2} * x_{2} + b)\\)
+  * Calculate \\(\hat{y} = step(w_{1} \cdot x_{1} + w_{2} \cdot x_{2} + b)\\)
   * If the point is correctly classified: do nothing
-  * If the point is classified positive, but it has a negative label: \\(w_{1} - \alpha * p\\), \\(w_{2} - \alpha * q\\), \\(b - \alpha\\)
-  * If the point is classified negative, but it has a positive label: \\(w_{1} + \alpha * p\\), \\(w_{2} + \alpha * q\\), \\(b + \alpha\\)
+  * If the point is classified positive, but it has a negative label: \\(w_{1} - \alpha \cdot p\\), \\(w_{2} - \alpha \cdot q\\), \\(b - \alpha\\)
+  * If the point is classified negative, but it has a positive label: \\(w_{1} + \alpha \cdot p\\), \\(w_{2} + \alpha \cdot q\\), \\(b + \alpha\\)
   * (Where \\(\alpha = \\) learning rate)
 
 # Error Function
@@ -99,7 +99,6 @@ $$\begin{align}\sigma'(x) &=\frac{d}{dx}\left(\frac{1}{1+e^{-x}}\right) \\
 &=\frac{1}{1+e^{-x}}\cdot \frac{e^{-x}}{1+e^{-x}} \\
 &=\sigma(x)(1-\sigma(x))&&\text{(long division)}\end{align}$$
 
-![sigmoid derivative proof](https://livingprogram.github.io/ml-notes/images/ml-notes_13.jpg)
 * Then calculate: 
 
 $$$$
