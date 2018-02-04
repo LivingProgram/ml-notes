@@ -139,17 +139,18 @@ $$\begin{align}\text{features } &= (x_{1},\ldots,x_{n})\\
 
 $$\begin{align}\nabla E &= (\frac{\partial}{\partial w_{1}}E,\ldots,\frac{\partial}{\partial w_{n}}E,\frac{\partial}{\partial b}E)\\
 &= (-(y-\hat{y})x_{1},\ldots,-(y-\hat{y})x_{n},-(y-\hat{y}))\\
-&= -(y-\hat{y})(x_{1},\ldots,x_{n},1)\end{align}$$
+&= -(y-\hat{y})(x_{1},\ldots,x_{n},1)\\
+&= (\hat{y}-y)(x_{1},\ldots,x_{n},1)\end{align}$$
 
 * Significance: 
   * gradient = scalar x coordinates of point (scalar = label - prediction)
   * implies: label close to the prediction = small gradient
 
 # Logistic Regression Algorithm
-1. Initialize random weights: 
-2. For every point:
-   * Update weights:
-   * Update bias:
+1. Initialize random weights: \\(w_{1},\ldots,w_{n},b\\)
+2. For every point: \\(X_{1},\ldots,X_{m}\\)
+   * Update weights: \\(w_{j}\leftarrow w_{j}-\alpha(\hat{y}-y)x_{j}\\)
+   * Update bias: \\(b\leftarrow b-\alpha(\hat{y}-y)\\)
 3. Repeat until error is small
 
 # Jupyter Cheatsheet
