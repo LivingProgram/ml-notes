@@ -117,10 +117,15 @@ $$\begin{align}\frac{\partial}{\partial w_{j}}\hat{y}&=\frac{\partial}{\partial 
 &= \hat{y}(1-\hat{y})\cdot(0+\ldots+x_{j}+\ldots+0) &&\text{(partial derivative)}\\
 &= \hat{y}(1-\hat{y})\cdot x_{j}\end{align}$$
 
-![prediction partial derivative](https://livingprogram.github.io/ml-notes/images/ml-notes_14.jpg)
 * And finally: 
 
-$$$$
+$$\begin{align}\frac{\partial}{\partial w_{j}}E&=\frac{\partial}{\partial w_{j}}(-yln(\hat{y})-(1-y)ln(1-\hat{y})) &&\text{(E formula)}
+&= -y(\frac{\partial}{\partial w_{j}}(ln(\hat{y})))-(1-y)(\frac{\partial}{\partial w_{j}}(ln(1-\hat{y})))\\
+&= -y(\frac{1}{\hat{y}}\cdot\frac{\partial}{\partial w_{j}}(\hat{y}))-(1-y)(\frac{1}{1-\hat{y}}\cdot\frac{\partial}{\partial w_{j}}(1-\hat{y})) &&\text{(chain rule)}\\
+&= -y(\frac{1}{\hat{y}}\cdot\hat{y}(1-\hat{y})x_{j})-(1-y)(\frac{1}{1-\hat{y}}\cdot(-1)\hat{y}(1-\hat{y})x_{j})&&(\frac{\partial}{\partial w_{j}}\hat{y}\text{ formula)}\\
+&= -y(1-\hat{y})x_{j}+(1-y)\hat{y}\cdot x_{j}\\
+&= (-y+y\hat{y}+\hat{y}-y\hat{y})x_{j}\\
+&= -(y-\hat{y})x_{j}\end{align}$$
 
 ![error partial derivative weights](https://livingprogram.github.io/ml-notes/images/ml-notes_15.jpg)
 * Similarly: 
