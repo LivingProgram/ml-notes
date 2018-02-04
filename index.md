@@ -44,7 +44,9 @@
   * if we use -log(), minimizing -log() = best model (because before, larger product = better model, and log(large_product) = small number, so now we need to minimize)
 * Calculate predictions:
 
-$$\hat{y}_{i}=\sigma(Wx_{i}+b)$$
+$$\hat{y}_{i}=\sigma(WX_{i}+b)$$
+$$\hat{y}_{i}=\sigma(\sum_{j=1}{n}w_{j}x_{j}+b)$$
+$$\hat{y}_{i}=\sigma(w_{1}x_{1}+\ldots+w_{n}x_{n}+b)$$
 
 * Cross Entropy (2 classes): 
 
@@ -52,7 +54,7 @@ $$E=-\frac{1}{m}\sum_{i=1}^{m}y_{i}ln(\hat{y}_{i})+(1-y_{i})ln(1-\hat{y}_{i})$$
 
 * Cross Entropy (2 classes, with W = weights, b = bias): 
 
-$$E(W,b)=-\frac{1}{m}\sum_{i=1}^{m}y_{i}ln(\sigma(Wx_{i}+b))+(1-y_{i})ln(1-\sigma(Wx_{i}+b))$$
+$$E(W,b)=-\frac{1}{m}\sum_{i=1}^{m}y_{i}ln(\sigma(WX_{i}+b))+(1-y_{i})ln(1-\sigma(WX_{i}+b))$$
 
 * Cross Entropy (n classes): 
 
