@@ -174,11 +174,6 @@ $$\hat{y}_{i}=\sigma(W^{(n)}(\sigma(W^{(n-1)}(\ldots(\sigma(W^{(1)}X_{i}))))))$$
 
 $$\hat{y}_{i}=\sigma(W^{(3)}(\sigma(W^{(2)}(\sigma(W^{(1)}X_{i})))))$$
 
-## NN Error Function
-* Same error function as perceptron (with more complex prediction):
-
-$$E=-\frac{1}{m}\sum_{i=1}^{m}y_{i}ln(\hat{y}_{i})+(1-y_{i})ln(1-\hat{y}_{i})$$
-
 ## Backpropagation
 * Overview:
   * Perform feedforward
@@ -194,6 +189,11 @@ $$E=-\frac{1}{m}\sum_{i=1}^{m}y_{i}ln(\hat{y}_{i})+(1-y_{i})ln(1-\hat{y}_{i})$$
 * The gradient of the error = partial derivatives of error with respect to each weight: 
 
 $$\nabla E = \left(\frac{\partial}{\partial W^{(1)}_{11}}E,\ldots,\frac{\partial}{\partial W^{(k)}_{ij}}E,\ldots,\frac{\partial}{\partial W^{(n)}}E\right)$$
+
+* Same error function as perceptron (just with a more complex prediction):
+
+$$\begin{align}E(W)&=-\frac{1}{m}\sum_{i=1}^{m}y_{i}ln(\hat{y}_{i})+(1-y_{i})ln(1-\hat{y}_{i})\\
+&=E(W^{(1)}_{11},W^{(1)}_{12},\ldots,W^{(k)}_{ij},\ldots,W^{(n)})\end{align}$$
 
 * Recall chain rule:
 
