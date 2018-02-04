@@ -160,6 +160,12 @@ $$\begin{align}\nabla E &= (\frac{\partial}{\partial w_{1}}E,\ldots,\frac{\parti
 * Multi-Class Classification: apply softmax to the scores of multiple output perceptrons (bounds sum of probabilities for each class between 0 and 1)
 
 ## Feedforward
+* Notation:
+  * \\(m\\) denotes number of training samples
+  * \\(X_{i}\\) denotes a specific train sample \\(i\\)
+  * \\(\hat{y}_{i}\\) denotes prediction for a specific train sample \\(i\\)
+  * \\(W^(k)_{ij}\\) denotes weight of layer \\(k\\) that connects input neuron \\(i\\) to output neuron \\(j\\)
+  
 
 ## Backpropagation
 * intuitive understanding: 
