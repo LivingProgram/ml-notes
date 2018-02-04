@@ -3,7 +3,7 @@
 * perceptron visualization: ![perceptron visualization](https://livingprogram.github.io/ml-notes/images/ml-notes_1.jpg)
 
 ## Perceptron Algorithm
-* For all points $$(p,q) \text{ with label } y $$:
+* For all points \\((p,q) \text{ with label } y \\):
   * Calculate $$\hat{y} = step(w_{1} * x_{1} + w_{2} * x_{2} + b)$$
   * If the point is correctly classified: do nothing
   * If the point is classified positive, but it has a negative label: $$w_{1} - \alpha * p$$, $$w_{2} - \alpha * q$$, $$b - \alpha$$
@@ -42,7 +42,10 @@
   * use logs, because of the property log(ab) = log(a) + log(b) (allows our products to turn into sums)
   * log(number_between_0_and_1) = negative numbers (instead use -log() = positive)
   * if we use -log(), minimizing -log() = best model (because before, larger product = better model, and log(large_product) = small number, so now we need to minimize)
-* Cross Entropy (2 classes): $$E=-\frac{1}{m}\sum_{i=1}^{m}y_{i}ln(\hat{y}_{i})+(1-y_{i})ln(1-\hat{y}_{i})$$![cross entropy 2 classes](https://livingprogram.github.io/ml-notes/images/ml-notes_5.jpg)
+* Cross Entropy (2 classes): 
+
+$$E=-\frac{1}{m}\sum_{i=1}^{m}y_{i}ln(\hat{y}_{i})+(1-y_{i})ln(1-\hat{y}_{i})$$
+![cross entropy 2 classes](https://livingprogram.github.io/ml-notes/images/ml-notes_5.jpg)
 * Cross Entropy (2 classes, with W = weights, b = bias): $$\hat{y}_{i}=\sigma(Wx_{i}+b)\\E(W,b)=-\frac{1}{m}\sum_{i=1}^{m}y_{i}ln(\sigma(Wx_{i}+b))+(1-y_{i})ln(1-\sigma(Wx_{i}+b))$$![cross entropy 2 classes weights bias](https://livingprogram.github.io/ml-notes/images/ml-notes_6.jpg)
 * Cross Entropy (n classes): $$E=-\sum_{i=1}^{m}$$![cross entropy n classes](https://livingprogram.github.io/ml-notes/images/ml-notes_7.jpg)
 * Explanations:
