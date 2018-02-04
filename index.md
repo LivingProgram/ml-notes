@@ -54,8 +54,11 @@ $$E=-\frac{1}{m}\sum_{i=1}^{m}y_{i}ln(\hat{y}_{i})+(1-y_{i})ln(1-\hat{y}_{i})$$
 
 $$E(W,b)=-\frac{1}{m}\sum_{i=1}^{m}y_{i}ln(\sigma(Wx_{i}+b))+(1-y_{i})ln(1-\sigma(Wx_{i}+b))$$
 
-![cross entropy 2 classes weights bias](https://livingprogram.github.io/ml-notes/images/ml-notes_6.jpg)
-* Cross Entropy (n classes): $$E=-\sum_{i=1}^{m}$$![cross entropy n classes](https://livingprogram.github.io/ml-notes/images/ml-notes_7.jpg)
+* Cross Entropy (n classes): 
+
+$$E=-\sum_{i=1}^{m}\sum_{j=1}^{n}y_{ij}ln(\hat{y}_{ij})$$
+
+![cross entropy n classes](https://livingprogram.github.io/ml-notes/images/ml-notes_7.jpg)
 * Explanations:
   * y = 1 or 0, therefore only one term in the summation is chosen, and that term will calculate the ln() of the correct probability, then sum the negative ln’s
   * only take -ln() of probabilities that matter, formula when n = 2 turns out to be cross entropy formula for 2 classes
