@@ -71,7 +71,7 @@ $$E=-\sum_{i=1}^{m}\sum_{j=1}^{n}y_{ij}ln(\hat{y}_{ij})$$
 * therefore we simply need to calculate the gradient of the error
 
 ## Gradient Descent Calculation
-* Goal = Calculate the gradient of the error \\(= \delta E\\)
+* Goal = Calculate the gradient of the error \\(= \Delta E\\)
 * Given m points labeled: 
 
 $$x_{1},x_{2},\ldots,x_{m}$$
@@ -94,7 +94,7 @@ $$E=-\frac{1}{m}\sum_{i=1}^{m}y_{i}ln(\hat{y}_{i})+(1-y_{i})ln(1-\hat{y}_{i})$$
 ![overall error formula](https://livingprogram.github.io/ml-notes/images/ml-notes_11.jpg)
 * The gradient of the error = partial derivatives of error for each weight: 
 
-$$\delta E = (\frac{\partial}{\partial w_{1}}E,\ldots,\frac{\partial}{\partial w_{n}}E,\frac{\partial}{\partial b}E)$$
+$$\Delta E = (\frac{\partial}{\partial w_{1}}E,\ldots,\frac{\partial}{\partial w_{n}}E,\frac{\partial}{\partial b}E)$$
 
 ![partial derivatives of error](https://livingprogram.github.io/ml-notes/images/ml-notes_12.jpg)
 * First calculate: 
