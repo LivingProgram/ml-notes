@@ -4,11 +4,11 @@
 
 ## Perceptron Algorithm
 * For all points \\((p,q) \text{ with label } y \\):
-  * Calculate $$\hat{y} = step(w_{1} * x_{1} + w_{2} * x_{2} + b)$$
+  * Calculate \\(\hat{y} = step(w_{1} * x_{1} + w_{2} * x_{2} + b)\\)
   * If the point is correctly classified: do nothing
-  * If the point is classified positive, but it has a negative label: $$w_{1} - \alpha * p$$, $$w_{2} - \alpha * q$$, $$b - \alpha$$
-  * If the point is classified negative, but it has a positive label: $$w_{1} + \alpha * p$$, $$w_{2} + \alpha * q$$, $$b + \alpha$$
-  * (Where $$\alpha = $$ learning rate)
+  * If the point is classified positive, but it has a negative label: \\(w_{1} - \alpha * p\\), \\(w_{2} - \alpha * q\\), \\(b - \alpha\\)
+  * If the point is classified negative, but it has a positive label: \\(w_{1} + \alpha * p\\), \\(w_{2} + \alpha * q\\), \\(b + \alpha\\)
+  * (Where \\(\alpha = \\) learning rate)
 
 # Error Function
 * measures the model's performance
@@ -23,9 +23,9 @@
 * allows you to take linear set of scores for multiple classes and generate probabilities for each class that sum to 0
 * exponent function used to avoid negative values (which can cause division by 0 if allowed)
 * softmax equation: 
-  * Linear output of scores for $$n$$ classes: $$Z_{1},Z_{2},\ldots,Z_{n}$$
+  * Linear output of scores for \\(n\\) classes: \\(Z_{1},Z_{2},\ldots,Z_{n}\\)
   * $$P(\text{class } i) = \frac{e^{Z_{i}}}{e^{Z_{1}}+e^{Z_{2}}+\ldots+e^{Z_{n}}}$$
-* softmax with 2 classes: $$n=2 \implies softmax(x)=sigmoid(x)$$
+* softmax with 2 classes: \\(n=2 \implies softmax(x)=sigmoid(x)\\)
 
 # One-Hot Encoding
 * with data that has multiple classes, assign a vector to each class (such that there is a 1 in the row that corresponds to the presence of the class, and the rest are all 0s)
@@ -39,14 +39,13 @@
 * Motivation for creating cross entropy function:
   * maximum likelihood is able to measure a model's performance
   * products = hard to compute and yield small numbers (instead use sums = easy to calculate)
-  * use logs, because of the property log(ab) = log(a) + log(b) (allows our products to turn into sums)
+  * use logs, because of the property \\(log(ab) = log(a) + log(b)\\) (allows our products to turn into sums)
   * log(number_between_0_and_1) = negative numbers (instead use -log() = positive)
   * if we use -log(), minimizing -log() = best model (because before, larger product = better model, and log(large_product) = small number, so now we need to minimize)
 * Cross Entropy (2 classes): 
 
 $$E=-\frac{1}{m}\sum_{i=1}^{m}y_{i}ln(\hat{y}_{i})+(1-y_{i})ln(1-\hat{y}_{i})$$
 
-![cross entropy 2 classes](https://livingprogram.github.io/ml-notes/images/ml-notes_5.jpg)
 * Cross Entropy (2 classes, with W = weights, b = bias): $$\hat{y}_{i}=\sigma(Wx_{i}+b)\\E(W,b)=-\frac{1}{m}\sum_{i=1}^{m}y_{i}ln(\sigma(Wx_{i}+b))+(1-y_{i})ln(1-\sigma(Wx_{i}+b))$$![cross entropy 2 classes weights bias](https://livingprogram.github.io/ml-notes/images/ml-notes_6.jpg)
 * Cross Entropy (n classes): $$E=-\sum_{i=1}^{m}$$![cross entropy n classes](https://livingprogram.github.io/ml-notes/images/ml-notes_7.jpg)
 * Explanations:
