@@ -71,32 +71,27 @@ $$E=-\sum_{i=1}^{m}\sum_{j=1}^{n}y_{ij}ln(\hat{y}_{ij})$$
 * therefore we simply need to calculate the gradient of the error
 
 ## Gradient Descent Calculation
-* Goal = Calculate the gradient of the error \\(= \Delta E\\)
+* Goal = Calculate the gradient of the error \\(= \nabla E\\)
 * Given m points labeled: 
 
 $$x_{1},x_{2},\ldots,x_{m}$$
 
-![m points](https://livingprogram.github.io/ml-notes/images/ml-notes_8.jpg)
 * Predictions are calculated by the model using: 
 
 $$\hat{y}_{i}=\sigma(Wx_{i}+b)$$
 
-![prediction formula](https://livingprogram.github.io/ml-notes/images/ml-notes_9.jpg)
 * The error for an individual point is: 
 
 $$E=-yln(\hat{y})-(1-y)ln(1-\hat{y})$$
 
-![individual point error formula](https://livingprogram.github.io/ml-notes/images/ml-notes_10.jpg)
 * The overall error is simply the average of individual point errors: 
 
 $$E=-\frac{1}{m}\sum_{i=1}^{m}y_{i}ln(\hat{y}_{i})+(1-y_{i})ln(1-\hat{y}_{i})$$
 
-![overall error formula](https://livingprogram.github.io/ml-notes/images/ml-notes_11.jpg)
 * The gradient of the error = partial derivatives of error for each weight: 
 
-$$\Delta E = (\frac{\partial}{\partial w_{1}}E,\ldots,\frac{\partial}{\partial w_{n}}E,\frac{\partial}{\partial b}E)$$
+$$\nabla E = (\frac{\partial}{\partial w_{1}}E,\ldots,\frac{\partial}{\partial w_{n}}E,\frac{\partial}{\partial b}E)$$
 
-![partial derivatives of error](https://livingprogram.github.io/ml-notes/images/ml-notes_12.jpg)
 * First calculate: 
 
 $$$$
