@@ -164,7 +164,7 @@ $$\begin{align}\nabla E &= (\frac{\partial}{\partial w_{1}}E,\ldots,\frac{\parti
   * \\(m\\) denotes number of training samples
   * \\(X_{i}\\) denotes a specific train sample \\(i\\)
   * \\(\hat{y}_{i}\\) denotes prediction for a specific train sample \\(i\\)
-  * \\(W^{k}_{ij}\\) denotes weight of layer \\(k\\) that connects input neuron \\(i\\) to output neuron \\(j\\)
+  * \\(W^{(k)}_{ij}\\) denotes weight of layer \\(k\\) that connects input neuron \\(i\\) to output neuron \\(j\\)
   
 
 ## Backpropagation
