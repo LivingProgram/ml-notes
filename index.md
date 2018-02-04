@@ -159,7 +159,7 @@ $$\begin{align}\nabla E &= (\frac{\partial}{\partial w_{1}}E,\ldots,\frac{\parti
 * Deep Neural Network: has many layers of neurons
 * Multi-Class Classification: apply softmax to the scores of multiple output perceptrons (bounds sum of probabilities for each class between 0 and 1)
 
-## Feedforward
+## NN Feedforward
 * Notation:
   * \\(m\\) denotes number of training samples
   * \\(X_{i}\\) denotes a specific train sample \\(i\\)
@@ -173,6 +173,11 @@ $$\hat{y}_{i}=\sigma(W^{(n)}(\sigma(W^{(n-1)}(\ldots(\sigma(W^{(1)}X_{i}))))))$$
 * Example \\(n=3\\):
 
 $$\hat{y}_{i}=\sigma(W^{(3)}(\sigma(W^{(2)}(\sigma(W^{(1)}X_{i})))))$$
+
+## NN Error Function
+* Same error function as perceptron (with more complex prediction):
+
+$$E=-\frac{1}{m}\sum_{i=1}^{m}y_{i}ln(\hat{y}_{i})+(1-y_{i})ln(1-\hat{y}_{i})$$
 
 ## Backpropagation
 * intuitive understanding: 
