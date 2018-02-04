@@ -193,7 +193,7 @@ $$\nabla E = \left(\frac{\partial}{\partial W^{(1)}_{11}}E,\ldots,\frac{\partial
 * Same error function as perceptron (just with a more complex prediction):
 
 $$\begin{align}E(W)&=-\frac{1}{m}\sum_{i=1}^{m}y_{i}ln(\hat{y}_{i})+(1-y_{i})ln(1-\hat{y}_{i})\\
-&=E(W^{(1)}_{11},W^{(1)}_{12},\ldots,W^{(k)}_{ij},\ldots,W^{(n)})\end{align}$$
+&=E\left(W^{(1)}_{11},W^{(1)}_{12},\ldots,W^{(k)}_{ij},\ldots,W^{(n)}\right)\end{align}$$
 
 * Recall chain rule:
 
