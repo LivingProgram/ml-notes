@@ -43,11 +43,12 @@
   * log(number_between_0_and_1) = negative numbers (instead use -log() = positive)
   * if we use -log(), minimizing -log() = best model (because before, larger product = better model, and log(large_product) = small number, so now we need to minimize)
 * Notation:
-  * \\(m\\) denotes number of points, or number of training samples
-  * \\(X_{i}\\) denotes a specific training sample \\(i\\)
-  * \\(n\\) denotes number of coordinates, or number of features
-  * \\(w_{j}\\) denotes a specific feature weight, and \\(x_{j}\\) a specific input feature
-  * \\(\hat{y}_{i}\\) denotes the prediction for a specific train sample \\(i\\)
+  * \\(m\\) denotes number of training samples
+  * \\(X_{i}\\) denotes a specific train sample \\(i\\)
+  * \\(n\\) denotes number of features
+  * \\(w_{j}\\) denotes a specific feature weight
+  * \\(x_{j}\\) denotes a specific input feature
+  * \\(\hat{y}_{i}\\) denotes prediction for a specific train sample \\(i\\)
 * Calculate predictions:
 
 $$\begin{align}\hat{y}_{i}&=\sigma(WX_{i}+b) \\
@@ -80,17 +81,17 @@ $$E=-\sum_{i=1}^{m}\sum_{j=1}^{n}y_{ij}ln(\hat{y}_{ij})$$
 
 ## Gradient Descent Calculation
 * Goal = Calculate the gradient of the error \\(= \nabla E\\)
-* Given m points labeled: 
+* Given m training samples labeled: 
 
-$$x_{1},x_{2},\ldots,x_{m}$$
+$$X_{1},X_{2},\ldots,X_{m}$$
 
 * Predictions are calculated by the model using: 
 
-$$\hat{y}_{i}=\sigma(Wx_{i}+b)$$
+$$\hat{y}_{i}=\sigma(WX_{i}+b)$$
 
-* The error for an individual point is: 
+* The error for an individual training sample is: 
 
-$$E=-yln(\hat{y})-(1-y)ln(1-\hat{y})$$
+$$E_{i}=-y_{i}ln(\hat{y}_{i})-(1-y_{i})ln(1-\hat{y}_{i})$$
 
 * The overall error is simply the average of individual point errors: 
 
