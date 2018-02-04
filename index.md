@@ -170,6 +170,10 @@ $$\begin{align}\nabla E &= (\frac{\partial}{\partial w_{1}}E,\ldots,\frac{\parti
 
 $$\hat{y}_{i}=\sigma(W^{(n)}(\sigma(W^{(n-1)}(\ldots(\sigma(W^{(1)}X_{i}))))))$$
 
+* Example \\(n=3\\):
+
+$$\hat{y}_{i}=\sigma(W^{(3)}(\sigma(W^{(2)}(\sigma(W^{(1)}X_{i})))))$$
+
 ## Backpropagation
 * intuitive understanding: 
   * given a model's error, propagate error backwards by decreasing the weights of neurons that had stronger connections over those that had weaker connections
