@@ -43,11 +43,15 @@
   * log(number_between_0_and_1) = negative numbers (instead use -log() = positive)
   * if we use -log(), minimizing -log() = best model (because before, larger product = better model, and log(large_product) = small number, so now we need to minimize)
 * Notation:
-  * 
+  * \\(m\\) denotes number of points, or number of training samples
+  * \\(X_{i}\\) denotes a specific training sample \\(i\\)
+  * \\(n\\) denotes number of coordinates, or number of features
+  * \\(w_{j}\\) denotes a specific feature weight, and \\(x_{j}\\) a specific input feature
+  * \\(\hat{y}_{i}\\) denotes the prediction for a specific train sample \\(i\\)
 * Calculate predictions:
 
 $$\begin{align}\hat{y}_{i}&=\sigma(WX_{i}+b) \\
-\hat{y}_{i}&=\sigma(\sum_{j=1}{n}w_{j}x_{j}+b) \\
+\hat{y}_{i}&=\sigma(\sum_{j=1}^{n}w_{j}x_{j}+b) \\
 \hat{y}_{i}&=\sigma(w_{1}x_{1}+\ldots+w_{n}x_{n}+b)\end{align}$$
 
 * Cross Entropy (2 classes): 
