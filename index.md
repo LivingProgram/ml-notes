@@ -199,7 +199,12 @@ $$\begin{align}E(W)&=-\frac{1}{m}\sum_{i=1}^{m}y_{i}ln(\hat{y}_{i})+(1-y_{i})ln(
 
 $$\frac{\partial C}{\partial x}=\frac{\partial A}{\partial x}\cdot\frac{\partial B}{\partial A}\cdot\frac{\partial C}{\partial B}$$
 
-* After calculating gradient, Update weight:
+* Insert diagram of sample neural network, and understanding of what h denotes
+* Show how the chain rule helps to calculate partial derivative of error with respect to specific weight
+* Calculate the value of each partial derivative
+* Multiply them together to find the partial derivative you want and show what it is equal to
+
+* (insert this in detailed section of overview with math included) After calculating gradient, Update weight:
 
 $$W^{(k)}_{ij}\leftarrow W^{(k)}_{ij}-\alpha\frac{\partial}{\partial W^{(k)}_{ij}}E$$
 
