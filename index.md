@@ -127,21 +127,23 @@ $$\begin{align}\frac{\partial}{\partial w_{j}}E&=\frac{\partial}{\partial w_{j}}
 &= (-y+y\hat{y}+\hat{y}-y\hat{y})x_{j}\\
 &= -(y-\hat{y})x_{j}\end{align}$$
 
-![error partial derivative weights](https://livingprogram.github.io/ml-notes/images/ml-notes_15.jpg)
 * Similarly: 
 
-$$$$
+$$\frac{\partial}{\partial b}E=-(y-\hat{y})$$
 
 ![error partial derivative bias](https://livingprogram.github.io/ml-notes/images/ml-notes_16.jpg)
-* In summary:
-  * For a point: 
+* In summary, for a training sample with: 
 
-$$$$
+$$\begin{align}\text{features } &= (x_{1},\ldots,x_{n})\\
+\text{label } &= y \\
+\text{prediction } &= \hat{y}\end{align}$$
 
 ![for a point](https://livingprogram.github.io/ml-notes/images/ml-notes_17.jpg)
-  * Conclusion: 
 
-$$$$
+$$\nabla E = (\frac{\partial}{\partial w_{1}}E,\ldots,\frac{\partial}{\partial w_{n}}E,\frac{\partial}{\partial b}E)\\
+&= (-y(y-\hat{y})x_{1},\ldots,-y(-\hat{y})x_{n},-(y-\hat{y}))\\
+&= -(y-\hat{y})(x_{1},\ldots,x_{n},1)$$
+
 
 ![gradient of error formula](https://livingprogram.github.io/ml-notes/images/ml-notes_18.jpg)
 * Significance: 
