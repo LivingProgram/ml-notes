@@ -153,6 +153,19 @@ $$\begin{align}\nabla E &= (\frac{\partial}{\partial w_{1}}E,\ldots,\frac{\parti
    * Update bias: \\(b\leftarrow b-\alpha(\hat{y}-y)\\)
 3. Repeat until error is small
 
+# Neural Networks
+* Built using Multi-Layer Perceptrons: essentially many layers of perceptrons feeding into one another such that each successive perceptron multiplies it's input perceptrons by a learned weight
+* Allows us to obtain non-linear models from linear models
+* Deep Neural Network: has many layers of neurons
+* Multi-Class Classification: apply softmax to the scores of multiple output perceptrons (bounds sum of probabilities for each class between 0 and 1)
+
+## Feedforward
+
+## Backpropagation
+* intuitive understanding: 
+  * given a model's error, propagate error backwards by decreasing the weights of neurons that had stronger connections over those that had weaker connections
+  * the error is caused more by those neurons with strong connections (or large weights), and decreasing their weights will reduce the effects of the erroneous neuron
+
 # Jupyter Cheatsheet
 * tab: allows you to complete variable names or list functions of a package within code cell
 * shift + tab: lets you see function documentation, variable values 
