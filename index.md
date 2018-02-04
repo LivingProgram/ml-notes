@@ -119,7 +119,7 @@ $$\begin{align}\frac{\partial}{\partial w_{j}}\hat{y}&=\frac{\partial}{\partial 
 
 * And finally: 
 
-$$\begin{align}\frac{\partial}{\partial w_{j}}E&=\frac{\partial}{\partial w_{j}}(-yln(\hat{y})-(1-y)ln(1-\hat{y})) &&\text{(E formula)}
+$$\begin{align}\frac{\partial}{\partial w_{j}}E&=\frac{\partial}{\partial w_{j}}(-yln(\hat{y})-(1-y)ln(1-\hat{y})) &&\text{(E formula)}\\
 &= -y(\frac{\partial}{\partial w_{j}}(ln(\hat{y})))-(1-y)(\frac{\partial}{\partial w_{j}}(ln(1-\hat{y})))\\
 &= -y(\frac{1}{\hat{y}}\cdot\frac{\partial}{\partial w_{j}}(\hat{y}))-(1-y)(\frac{1}{1-\hat{y}}\cdot\frac{\partial}{\partial w_{j}}(1-\hat{y})) &&\text{(chain rule)}\\
 &= -y(\frac{1}{\hat{y}}\cdot\hat{y}(1-\hat{y})x_{j})-(1-y)(\frac{1}{1-\hat{y}}\cdot(-1)\hat{y}(1-\hat{y})x_{j})&&(\frac{\partial}{\partial w_{j}}\hat{y}\text{ formula)}\\
