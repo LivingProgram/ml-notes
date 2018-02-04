@@ -201,7 +201,7 @@ $$\frac{\partial C}{\partial x}=\frac{\partial A}{\partial x}\cdot\frac{\partial
 
 * After calculating gradient, Update weight:
 
-$$W^{k}_{ij}\leftarrow W^{k}_{ij}-\alpha\frac{\partial}{\partial W^{(k)}_{ij}}E$$
+$$W^{(k)}_{ij}\leftarrow W^{(k)}_{ij}-\alpha\frac{\partial}{\partial W^{(k)}_{ij}}E$$
 
 # Jupyter Cheatsheet
 * tab: allows you to complete variable names or list functions of a package within code cell
