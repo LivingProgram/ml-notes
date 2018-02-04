@@ -131,13 +131,13 @@ $$\begin{align}\frac{\partial}{\partial w_{j}}E&=\frac{\partial}{\partial w_{j}}
 
 $$\frac{\partial}{\partial b}E=-(y-\hat{y})$$
 
-* In summary, for a training sample, \\(X_{i}\\),with: 
+* In summary, for a training sample, \\(X_{i}\\), with: 
 
 $$\begin{align}\text{features } &= (x_{1},\ldots,x_{n})\\
 \text{label } &= y \\
 \text{prediction } &= \hat{y}\end{align}$$
 
-$$\begin{align}\nabla E = (\frac{\partial}{\partial w_{1}}E,\ldots,\frac{\partial}{\partial w_{n}}E,\frac{\partial}{\partial b}E)\\
+$$\begin{align}\nabla E &= (\frac{\partial}{\partial w_{1}}E,\ldots,\frac{\partial}{\partial w_{n}}E,\frac{\partial}{\partial b}E)\\
 &= (-y(y-\hat{y})x_{1},\ldots,-y(-\hat{y})x_{n},-(y-\hat{y}))\\
 &= -(y-\hat{y})(x_{1},\ldots,x_{n},1)\end{align}$$
 
