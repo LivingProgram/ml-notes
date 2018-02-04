@@ -58,7 +58,6 @@ $$E(W,b)=-\frac{1}{m}\sum_{i=1}^{m}y_{i}ln(\sigma(Wx_{i}+b))+(1-y_{i})ln(1-\sigm
 
 $$E=-\sum_{i=1}^{m}\sum_{j=1}^{n}y_{ij}ln(\hat{y}_{ij})$$
 
-![cross entropy n classes](https://livingprogram.github.io/ml-notes/images/ml-notes_7.jpg)
 * Explanations:
   * y = 1 or 0, therefore only one term in the summation is chosen, and that term will calculate the ln() of the correct probability, then sum the negative ln’s
   * only take -ln() of probabilities that matter, formula when n = 2 turns out to be cross entropy formula for 2 classes
@@ -72,19 +71,63 @@ $$E=-\sum_{i=1}^{m}\sum_{j=1}^{n}y_{ij}ln(\hat{y}_{ij})$$
 * therefore we simply need to calculate the gradient of the error
 
 ## Gradient Descent Calculation
-* Goal = Calculate the gradient of the error = ∇E
-* Given m points labeled: ![m points](https://livingprogram.github.io/ml-notes/images/ml-notes_8.jpg)
-* Predictions are calculated by the model using: ![prediction formula](https://livingprogram.github.io/ml-notes/images/ml-notes_9.jpg)
-* The error for an individual point is: ![individual point error formula](https://livingprogram.github.io/ml-notes/images/ml-notes_10.jpg)
-* The overall error is simply the average of individual point errors: ![overall error formula](https://livingprogram.github.io/ml-notes/images/ml-notes_11.jpg)
-* The gradient of the error = partial derivatives of error for each weight: ![partial derivatives of error](https://livingprogram.github.io/ml-notes/images/ml-notes_12.jpg)
-* First calculate: ![sigmoid derivative proof](https://livingprogram.github.io/ml-notes/images/ml-notes_13.jpg)
-* Then calculate: ![prediction partial derivative](https://livingprogram.github.io/ml-notes/images/ml-notes_14.jpg)
-* And finally: ![error partial derivative weights](https://livingprogram.github.io/ml-notes/images/ml-notes_15.jpg)
-* Similarly: ![error partial derivative bias](https://livingprogram.github.io/ml-notes/images/ml-notes_16.jpg)
+* Goal = Calculate the gradient of the error \\(= \delta E\\)
+* Given m points labeled: 
+
+$$x_{1},x_{2},\ldots,x_{m}$$
+
+![m points](https://livingprogram.github.io/ml-notes/images/ml-notes_8.jpg)
+* Predictions are calculated by the model using: 
+
+$$\hat{y}_{i}=\sigma(Wx_{i}+b)$$
+
+![prediction formula](https://livingprogram.github.io/ml-notes/images/ml-notes_9.jpg)
+* The error for an individual point is: 
+
+$$E=-yln(\hat{y})-(1-y)ln(1-\hat{y})$$
+
+![individual point error formula](https://livingprogram.github.io/ml-notes/images/ml-notes_10.jpg)
+* The overall error is simply the average of individual point errors: 
+
+$$E=-\frac{1}{m}\sum_{i=1}^{m}y_{i}ln(\hat{y}_{i})+(1-y_{i})ln(1-\hat{y}_{i})$$
+
+![overall error formula](https://livingprogram.github.io/ml-notes/images/ml-notes_11.jpg)
+* The gradient of the error = partial derivatives of error for each weight: 
+
+$$\delta E = (\frac{\partial}{\partial w_{1}}E,\ldots,\frac{\partial}{\partial w_{n}}E,\frac{\partial}{\partial b}E)$$
+
+![partial derivatives of error](https://livingprogram.github.io/ml-notes/images/ml-notes_12.jpg)
+* First calculate: 
+
+$$$$
+
+![sigmoid derivative proof](https://livingprogram.github.io/ml-notes/images/ml-notes_13.jpg)
+* Then calculate: 
+
+$$$$
+
+![prediction partial derivative](https://livingprogram.github.io/ml-notes/images/ml-notes_14.jpg)
+* And finally: 
+
+$$$$
+
+![error partial derivative weights](https://livingprogram.github.io/ml-notes/images/ml-notes_15.jpg)
+* Similarly: 
+
+$$$$
+
+![error partial derivative bias](https://livingprogram.github.io/ml-notes/images/ml-notes_16.jpg)
 * In summary:
-  * For a point: ![for a point](https://livingprogram.github.io/ml-notes/images/ml-notes_17.jpg)
-  * Conclusion: ![gradient of error formula](https://livingprogram.github.io/ml-notes/images/ml-notes_18.jpg)
+  * For a point: 
+
+$$$$
+
+![for a point](https://livingprogram.github.io/ml-notes/images/ml-notes_17.jpg)
+  * Conclusion: 
+
+$$$$
+
+![gradient of error formula](https://livingprogram.github.io/ml-notes/images/ml-notes_18.jpg)
 * Significance: 
   * gradient = scalar x coordinates of point (scalar = label - prediction)
   * implies: label close to the prediction = small gradient
