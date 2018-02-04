@@ -44,9 +44,9 @@
   * if we use -log(), minimizing -log() = best model (because before, larger product = better model, and log(large_product) = small number, so now we need to minimize)
 * Calculate predictions:
 
-$$\hat{y}_{i}=\sigma(WX_{i}+b)$$
-$$\hat{y}_{i}=\sigma(\sum_{j=1}{n}w_{j}x_{j}+b)$$
-$$\hat{y}_{i}=\sigma(w_{1}x_{1}+\ldots+w_{n}x_{n}+b)$$
+$$\hat{y}_{i}&=\sigma(WX_{i}+b) \\
+\hat{y}_{i}&=\sigma(\sum_{j=1}{n}w_{j}x_{j}+b) \\
+\hat{y}_{i}&=\sigma(w_{1}x_{1}+\ldots+w_{n}x_{n}+b)$$
 
 * Cross Entropy (2 classes): 
 
