@@ -141,8 +141,6 @@ $$\begin{align}\nabla E &= (\frac{\partial}{\partial w_{1}}E,\ldots,\frac{\parti
 &= (-(y-\hat{y})x_{1},\ldots,-(y-\hat{y})x_{n},-(y-\hat{y}))\\
 &= -(y-\hat{y})(x_{1},\ldots,x_{n},1)\end{align}$$
 
-
-![gradient of error formula](https://livingprogram.github.io/ml-notes/images/ml-notes_18.jpg)
 * Significance: 
   * gradient = scalar x coordinates of point (scalar = label - prediction)
   * implies: label close to the prediction = small gradient
