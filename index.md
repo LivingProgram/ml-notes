@@ -165,7 +165,10 @@ $$\begin{align}\nabla E &= (\frac{\partial}{\partial w_{1}}E,\ldots,\frac{\parti
   * \\(X_{i}\\) denotes a specific train sample \\(i\\)
   * \\(\hat{y}_{i}\\) denotes prediction for a specific train sample \\(i\\)
   * \\(W^{(k)}_{ij}\\) denotes weight of layer \\(k\\) that connects input neuron \\(i\\) to output neuron \\(j\\)
-  
+  * \\(n\\) denotes number of layers in NN
+* Calculating NN predictions for train sample \\(X_{i}\\):
+
+$$\hat{y}_{i}=\sigma(W^{(n)}(\sigma(W^{(n-1)}(\ldots(\sigma(W^{(1)}X_{i}))))))$$
 
 ## Backpropagation
 * intuitive understanding: 
