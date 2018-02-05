@@ -177,16 +177,8 @@ $$\begin{align}\nabla E &= \frac{1}{m}\sum_{i=1}^{m}\nabla E_{i}\\
 ## Batch Size \\(=m\\)
 1. Initialize random weights: \\(w_{1},\ldots,w_{n},b\\)
 2. For every batch: 
-   * Update weights: 
-   
-   $$\begin{align}w_{j}&\leftarrow w_{j}-\alpha\frac{1}{m}\sum_{i=1}^{m}\frac{\partial}{\partial w_{j}}E_{i}\\
-   w_{j}&\leftarrow w_{j}-\alpha\frac{1}{m}\sum_{i=1}^{m}(\hat{y}-y)x_{j}&&(\frac{\partial}{\partial w_{j}}E_{i}\text{ formula)}\end{align}$$
-   
-   * Update bias:
-   
-   $$\begin{align}b&\leftarrow b-\alpha\frac{1}{m}\sum_{i=1}^{m}\frac{\partial}{\partial b}E_{i}\\
-   b&\leftarrow b-\alpha\frac{1}{m}\sum_{i=1}^{m}(\hat{y}-y)&&(\frac{\partial}{\partial b}E_{i}\text{ formula)}\end{align}$$
-   
+   * Update weights:\\(\begin{align}w_{j}&\leftarrow w_{j}-\alpha\frac{1}{m}\sum_{i=1}^{m}\frac{\partial}{\partial w_{j}}E_{i}\\)
+   * Update bias:\\(\begin{align}b&\leftarrow b-\alpha\frac{1}{m}\sum_{i=1}^{m}\frac{\partial}{\partial b}E_{i}\\)
 3. Repeat until error is small
 
 # Neural Networks
