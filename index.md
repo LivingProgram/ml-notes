@@ -134,7 +134,7 @@ $$\begin{align}\text{features } &= (x_{1},\ldots,x_{n})\\
 \text{prediction } &= \hat{y}_{i}\end{align}$$
 
 $$\begin{align}\nabla E_{i} &= (\frac{\partial}{\partial w_{1}}E_{i},\ldots,\frac{\partial}{\partial w_{n}}E_{i},\frac{\partial}{\partial b}E_{i})\\
-&= (-(y_{i}-\hat{y}_{i})x_{1},\ldots,-(y_{i}-\hat{y}_{i})x_{n},-(y_{i}-\hat{y}_{i}))\\
+&= \left(-(y_{i}-\hat{y}_{i})x_{1},\ldots,-(y_{i}-\hat{y}_{i})x_{n},-(y_{i}-\hat{y}_{i})\right)\\
 &= -(y_{i}-\hat{y}_{i})(x_{1},\ldots,x_{n},1)\\
 &= (\hat{y}_{i}-y_{i})(x_{1},\ldots,x_{n},1)\end{align}$$
 
