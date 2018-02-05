@@ -106,12 +106,12 @@ $$\begin{align}\sigma'(x) &=\frac{d}{dx}\left(\frac{1}{1+e^{-x}}\right) \\
 
 * Then calculate: 
 
-$$\begin{align}\frac{\partial}{\partial w_{j}}\hat{y}&=\frac{\partial}{\partial w_{j}}(\sigma(WX+b)) &&(\hat{y}_{i}\text{ formula)} \\
-&= \sigma(WX+b)(1-\sigma(WX+b))\cdot\frac{\partial}{\partial w_{j}}(WX+b) &&(\sigma'(x) \text{ formula)}\\
-&= \hat{y}(1-\hat{y})\cdot\frac{\partial}{\partial w_{j}}(WX+b) \\
-&= \hat{y}(1-\hat{y})\cdot\frac{\partial}{\partial w_{j}}(w_{1}x_{1}+\ldots+w_{j}x_{j}+\ldots+w_{n}x_{n}+b) \\
-&= \hat{y}(1-\hat{y})\cdot(0+\ldots+x_{j}+\ldots+0) &&\text{(partial derivative)}\\
-&= \hat{y}(1-\hat{y})\cdot x_{j}\end{align}$$
+$$\begin{align}\frac{\partial}{\partial w_{j}}\hat{y}_{i}&=\frac{\partial}{\partial w_{j}}(\sigma(WX_{i}+b)) &&(\hat{y}_{i}\text{ formula)} \\
+&= \sigma(WX_{i}+b)(1-\sigma(WX_{i}+b))\cdot\frac{\partial}{\partial w_{j}}(WX_{i}+b) &&(\sigma'(x) \text{ formula)}\\
+&= \hat{y}_{i}(1-\hat{y}_{i})\cdot\frac{\partial}{\partial w_{j}}(WX_{i}+b) \\
+&= \hat{y}_{i}(1-\hat{y}_{i})\cdot\frac{\partial}{\partial w_{j}}(w_{1}x_{1}+\ldots+w_{j}x_{j}+\ldots+w_{n}x_{n}+b) \\
+&= \hat{y}_{i}(1-\hat{y}_{i})\cdot(0+\ldots+x_{j}+\ldots+0) &&\text{(partial derivative)}\\
+&= \hat{y}_{i}(1-\hat{y}_{i})\cdot x_{j}\end{align}$$
 
 * And finally: 
 
