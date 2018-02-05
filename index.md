@@ -115,13 +115,13 @@ $$\begin{align}\frac{\partial}{\partial w_{j}}\hat{y}_{i}&=\frac{\partial}{\part
 
 * And finally: 
 
-$$\begin{align}\frac{\partial}{\partial w_{j}}E&=\frac{\partial}{\partial w_{j}}(-yln(\hat{y})-(1-y)ln(1-\hat{y})) &&\text{(E formula)}\\
-&= -y(\frac{\partial}{\partial w_{j}}(ln(\hat{y})))-(1-y)(\frac{\partial}{\partial w_{j}}(ln(1-\hat{y})))\\
-&= -y(\frac{1}{\hat{y}}\cdot\frac{\partial}{\partial w_{j}}(\hat{y}))-(1-y)(\frac{1}{1-\hat{y}}\cdot\frac{\partial}{\partial w_{j}}(1-\hat{y})) &&\text{(chain rule)}\\
-&= -y(\frac{1}{\hat{y}}\cdot\hat{y}(1-\hat{y})x_{j})-(1-y)(\frac{1}{1-\hat{y}}\cdot(-1)\hat{y}(1-\hat{y})x_{j})&&(\frac{\partial}{\partial w_{j}}\hat{y}\text{ formula)}\\
-&= -y(1-\hat{y})x_{j}+(1-y)\hat{y}\cdot x_{j}\\
-&= (-y+y\hat{y}+\hat{y}-y\hat{y})x_{j}\\
-&= -(y-\hat{y})x_{j}\end{align}$$
+$$\begin{align}\frac{\partial}{\partial w_{j}}E_{i}&=\frac{\partial}{\partial w_{j}}(-y_{i}ln(\hat{y}_{i})-(1-y_{i})ln(1-\hat{y}_{i})) &&\text{(E_{i} formula)}\\
+&= -y_{i}(\frac{\partial}{\partial w_{j}}(ln(\hat{y}_{i})))-(1-y_{i})(\frac{\partial}{\partial w_{j}}(ln(1-\hat{y}_{i})))\\
+&= -y_{i}(\frac{1}{\hat{y}_{i}}\cdot\frac{\partial}{\partial w_{j}}(\hat{y}_{i}))-(1-y_{i})(\frac{1}{1-\hat{y}_{i}}\cdot\frac{\partial}{\partial w_{j}}(1-\hat{y}_{i})) &&\text{(chain rule)}\\
+&= -y_{i}(\frac{1}{\hat{y}_{i}}\cdot\hat{y}_{i}(1-\hat{y}_{i})x_{j})-(1-y_{i})(\frac{1}{1-\hat{y}_{i}}\cdot(-1)\hat{y}_{i}(1-\hat{y}_{i})x_{j})&&(\frac{\partial}{\partial w_{j}}\hat{y}_{i}\text{ formula)}\\
+&= -y_{i}(1-\hat{y}_{i})x_{j}+(1-y_{i})\hat{y}_{i}\cdot x_{j}\\
+&= (-y_{i}+y_{i}\hat{y}_{i}+\hat{y}_{i}-y_{i}\hat{y}_{i})x_{j}\\
+&= -(y_{i}-\hat{y}_{i})x_{j}\end{align}$$
 
 * Similarly: 
 
