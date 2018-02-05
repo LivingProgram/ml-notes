@@ -168,6 +168,11 @@ $$\begin{align}\nabla E &= \frac{1}{m}\sum_{i=1}^{m}\nabla E_{i}\\
    w_{j}&\leftarrow w_{j}-\alpha(\hat{y}-y)x_{j}&&(\frac{\partial}{\partial w_{j}}E_{i}\text{ formula)}\end{align}$$
    
    * Update bias: \\(b\leftarrow b-\alpha(\hat{y}-y)\\)
+   
+   $$\begin{align}b&\leftarrow b-\alpha\frac{\partial}{\partial b}E_{i}\\
+   b&\leftarrow b-\alpha(\hat{y}-y)&&(\frac{\partial}{\partial b}E_{i}\text{ formula)}\end{align}$$
+   
+   
 3. Repeat until error is small
 
 ## Batch Size \\(=m\\)
