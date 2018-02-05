@@ -125,18 +125,18 @@ $$\begin{align}\frac{\partial}{\partial w_{j}}E_{i}&=\frac{\partial}{\partial w_
 
 * Similarly: 
 
-$$\frac{\partial}{\partial b}E=-(y-\hat{y})$$
+$$\frac{\partial}{\partial b}E_{i}=-(y_{i}-\hat{y}_{i})$$
 
 * In summary, for a training sample, \\(X_{i}\\), with: 
 
 $$\begin{align}\text{features } &= (x_{1},\ldots,x_{n})\\
-\text{label } &= y \\
-\text{prediction } &= \hat{y}\end{align}$$
+\text{label } &= y_{i} \\
+\text{prediction } &= \hat{y}_{i}\end{align}$$
 
-$$\begin{align}\nabla E &= (\frac{\partial}{\partial w_{1}}E,\ldots,\frac{\partial}{\partial w_{n}}E,\frac{\partial}{\partial b}E)\\
-&= (-(y-\hat{y})x_{1},\ldots,-(y-\hat{y})x_{n},-(y-\hat{y}))\\
-&= -(y-\hat{y})(x_{1},\ldots,x_{n},1)\\
-&= (\hat{y}-y)(x_{1},\ldots,x_{n},1)\end{align}$$
+$$\begin{align}\nabla E_{i} &= (\frac{\partial}{\partial w_{1}}E_{i},\ldots,\frac{\partial}{\partial w_{n}}E_{i},\frac{\partial}{\partial b}E_{i})\\
+&= (-(y_{i}-\hat{y}_{i})x_{1},\ldots,-(y_{i}-\hat{y}_{i})x_{n},-(y_{i}-\hat{y}_{i}))\\
+&= -(y_{i}-\hat{y}_{i})(x_{1},\ldots,x_{n},1)\\
+&= (\hat{y}_{i}-y_{i})(x_{1},\ldots,x_{n},1)\end{align}$$
 
 * Significance: 
   * gradient = scalar x coordinates of point (scalar = label - prediction)
