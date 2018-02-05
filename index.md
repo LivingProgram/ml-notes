@@ -148,7 +148,7 @@ $$\begin{align}\nabla E &= (\frac{\partial}{\partial w_{1}}E,\ldots,\frac{\parti
 
 # Logistic Regression Algorithm
 1. Initialize random weights: \\(w_{1},\ldots,w_{n},b\\)
-2. For every point: \\(X_{1},\ldots,X_{m}\\)
+2. For every train sample: \\(X_{1},\ldots,X_{m}\\)
    * Update weights: \\(w_{j}\leftarrow w_{j}-\alpha(\hat{y}-y)x_{j}\\)
    * Update bias: \\(b\leftarrow b-\alpha(\hat{y}-y)\\)
 3. Repeat until error is small
