@@ -155,11 +155,24 @@ $$E=\frac{1}{m}\sum_{i=1}^{m}E_{i}$$
 * Overall gradient of error = average of individual train sample gradients:
 
 $$\begin{align}\nabla E &= \frac{1}{m}\sum_{i=1}^{m}\nabla E_{i}\\
-&=(\hat{y}_{i}-y_{i})(x_{1},\ldots,x_{n},1)&&(\nabla E_{i}\text{ formula)}\end{align}$$
+&=\frac{1}{m}\sum_{i=1}^{m}(\hat{y}_{i}-y_{i})(x_{1},\ldots,x_{n},1)&&(\nabla E_{i}\text{ formula)}\end{align}$$
 
 # Logistic Regression Algorithm
+
+## Batch Size \\(=1\\)
 1. Initialize random weights: \\(w_{1},\ldots,w_{n},b\\)
 2. For every train sample: \\(X_{1},\ldots,X_{m}\\)
+   * Update weights: 
+   
+   $$\begin{align}w_{j}&\leftarrow w_{j}-\alpha\frac{\partial}{\partial w_{j}}E_{i}\\
+   w_{j}&\leftarrow w_{j}-\alpha(\hat{y}-y)x_{j}&&(\frac{\partial}{\partial w_{j}}E_{i}\text{ formula)}\end{align}$$
+   
+   * Update bias: \\(b\leftarrow b-\alpha(\hat{y}-y)\\)
+3. Repeat until error is small
+
+## Batch Size \\(=m\\)
+1. Initialize random weights: \\(w_{1},\ldots,w_{n},b\\)
+2. For every batch: 
    * Update weights: \\(w_{j}\leftarrow w_{j}-\alpha(\hat{y}-y)x_{j}\\)
    * Update bias: \\(b\leftarrow b-\alpha(\hat{y}-y)\\)
 3. Repeat until error is small
