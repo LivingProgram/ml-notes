@@ -143,9 +143,19 @@ $$\begin{align}\nabla E_{i} &= (\frac{\partial}{\partial w_{1}}E_{i},\ldots,\fra
   * implies: label close to the prediction = small gradient
 
 ## Overall \\(\nabla E\\)
-* The overall error is simply the average of individual train sample errors: 
+* Goal = Calculate the gradient of the error for over all train samples, \\(= \nabla E\\)
+* Given m training samples labeled: 
 
-$$E=-\frac{1}{m}\sum_{i=1}^{m}y_{i}ln(\hat{y}_{i})+(1-y_{i})ln(1-\hat{y}_{i})$$
+$$X_{1},X_{2},\ldots,X_{m}$$
+
+* Overall error = average of individual train sample errors: 
+
+$$E=\frac{1}{m}\sum_{i=1}^{m}E_{i}$$
+
+* Overall gradient of error = average of individual train sample gradients:
+
+$$\begin{align}\nabla E &= \frac{1}{m}\sum_{i=1}^{m}\nabla E_{i}\\
+&=(\hat{y}_{i}-y_{i})(x_{1},\ldots,x_{n},1)&&(\nabla E_{i}\text{ formula)}\end{align}$$
 
 # Logistic Regression Algorithm
 1. Initialize random weights: \\(w_{1},\ldots,w_{n},b\\)
