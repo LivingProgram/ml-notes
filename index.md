@@ -73,33 +73,29 @@ $$E=-\sum_{i=1}^{m}\sum_{j=1}^{n}y_{ij}ln(\hat{y}_{ij})$$
 
 # Gradient Descent
 
-## Gradient Descent Motivation: 
+## Gradient Descent Motivation
 * we want to minimize the cross-entropy error to find the best model
 * we need to find the lowest valley in the graph of error function and weights as that is where the error is least
 * by taking negative partial derivative of error function with respect to each weight that is the direction to move in towards a lower error and a better model
 * therefore we simply need to calculate the gradient of the error
 
-## Gradient Descent Calculation
-* Goal = Calculate the gradient of the error \\(= \nabla E\\)
+## Single Train Sample \\(\nabla E_{i}\\)
+* Goal = Calculate the gradient of the error for a single training sample, \\(X_{i}\\), \\(= \nabla E_{i}\\)
 * Given m training samples labeled: 
 
 $$X_{1},X_{2},\ldots,X_{m}$$
 
-* Predictions are calculated by the model using: 
+* Individual training sample predictions: 
 
 $$\hat{y}_{i}=\sigma(WX_{i}+b)$$
 
-* The error for an individual training sample is: 
+* Individual training sample error: 
 
 $$E_{i}=-y_{i}ln(\hat{y}_{i})-(1-y_{i})ln(1-\hat{y}_{i})$$
 
-* The overall error is simply the average of individual point errors: 
-
-$$E=-\frac{1}{m}\sum_{i=1}^{m}y_{i}ln(\hat{y}_{i})+(1-y_{i})ln(1-\hat{y}_{i})$$
-
 * The gradient of the error = partial derivatives of error for each weight: 
 
-$$\nabla E = (\frac{\partial}{\partial w_{1}}E,\ldots,\frac{\partial}{\partial w_{n}}E,\frac{\partial}{\partial b}E)$$
+$$\nabla E_{i} = (\frac{\partial}{\partial w_{1}}E_{i},\ldots,\frac{\partial}{\partial w_{n}}E_{i},\frac{\partial}{\partial b}E_{i})$$
 
 * First calculate: 
 
@@ -145,6 +141,11 @@ $$\begin{align}\nabla E &= (\frac{\partial}{\partial w_{1}}E,\ldots,\frac{\parti
 * Significance: 
   * gradient = scalar x coordinates of point (scalar = label - prediction)
   * implies: label close to the prediction = small gradient
+
+## 
+* The overall error is simply the average of individual train sample errors: 
+
+$$E=-\frac{1}{m}\sum_{i=1}^{m}y_{i}ln(\hat{y}_{i})+(1-y_{i})ln(1-\hat{y}_{i})$$
 
 # Logistic Regression Algorithm
 1. Initialize random weights: \\(w_{1},\ldots,w_{n},b\\)
