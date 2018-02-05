@@ -142,7 +142,7 @@ $$\begin{align}\nabla E &= (\frac{\partial}{\partial w_{1}}E,\ldots,\frac{\parti
   * gradient = scalar x coordinates of point (scalar = label - prediction)
   * implies: label close to the prediction = small gradient
 
-## 
+## Overall \\(\nabla E\\)
 * The overall error is simply the average of individual train sample errors: 
 
 $$E=-\frac{1}{m}\sum_{i=1}^{m}y_{i}ln(\hat{y}_{i})+(1-y_{i})ln(1-\hat{y}_{i})$$
