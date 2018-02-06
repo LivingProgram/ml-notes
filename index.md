@@ -207,11 +207,17 @@ $$\hat{y}_{i}=\sigma(W^{(3)}(\sigma(W^{(2)}(\sigma(W^{(1)}X_{i})))))$$
   * same as single perceptrons, calculate gradient of error function (which is more complex now) and use the gradient to update weights to descend to local minima
 
 ### Example NN \\(\nabla E\\) Calculation
-* Goal = Calculate the gradient of the error \\(= \nabla E\\)
+* Diagram of "Example NN": 
+* Notation:
+  * (notation explanation)
+* Goal = Calculate the overall gradient of the error \\(= \nabla E\\)
 * The gradient of the error = partial derivatives of error with respect to each weight: 
 
 $$\nabla E = \left(\frac{\partial}{\partial W^{(1)}_{11}}E,\ldots,\frac{\partial}{\partial W^{(k)}_{ij}}E,\ldots,\frac{\partial}{\partial W^{(n)}}E\right)$$
 
+* Goal = Calculate partial derivative of error with respect to sample weight: \\(\frac{\partial}{\partial W^{(k)}_{ij}}E\\)
+* Calculating for single train sample for simplicity:
+* Merge results for overall partial derivative which is just average
 * Same error function as perceptron (just with a more complex prediction):
 
 $$\begin{align}E(W)&=-\frac{1}{m}\sum_{i=1}^{m}y_{i}ln(\hat{y}_{i})+(1-y_{i})ln(1-\hat{y}_{i})\\
