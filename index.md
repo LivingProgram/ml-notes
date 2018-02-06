@@ -195,7 +195,7 @@ $$\hat{y}_{i}=\sigma(W^{(n)}(\sigma(W^{(n-1)}(\ldots(\sigma(W^{(1)}X_{i}))))))$$
 $$\hat{y}_{i}=\sigma(W^{(3)}(\sigma(W^{(2)}(\sigma(W^{(1)}X_{i})))))$$
 
 ## Backpropagation
-* Overview:
+* Method Overview:
   * Perform feedforward
   * Calculate error
   * Propagate error backwards (spread error to all weights)
@@ -205,6 +205,8 @@ $$\hat{y}_{i}=\sigma(W^{(3)}(\sigma(W^{(2)}(\sigma(W^{(1)}X_{i})))))$$
   * given a model's error, propagate error backwards by decreasing the weights of neurons that had stronger connections over those that had weaker connections
   * the error is caused more by those neurons with strong connections (or large weights), and decreasing their weights will reduce the effects of the erroneous neuron
   * same as single perceptrons, calculate gradient of error function (which is more complex now) and use the gradient to update weights to descend to local minima
+
+### Example NN \\(\nabla E\\) Calculation
 * Goal = Calculate the gradient of the error \\(= \nabla E\\)
 * The gradient of the error = partial derivatives of error with respect to each weight: 
 
@@ -218,11 +220,6 @@ $$\begin{align}E(W)&=-\frac{1}{m}\sum_{i=1}^{m}y_{i}ln(\hat{y}_{i})+(1-y_{i})ln(
 * Recall chain rule:
 
 $$\frac{\partial C}{\partial x}=\frac{\partial A}{\partial x}\cdot\frac{\partial B}{\partial A}\cdot\frac{\partial C}{\partial B}$$
-
-* Insert diagram of sample neural network, and understanding of what h denotes
-* Show how the chain rule helps to calculate partial derivative of error with respect to specific weight
-* Calculate the value of each partial derivative
-* Multiply them together to find the partial derivative you want and show what it is equal to
 
 * (insert this in detailed section of overview with math included) After calculating gradient, Update weight:
 
