@@ -216,8 +216,8 @@ $$\hat{y}_{i}=\sigma(W^{(3)}(\sigma(W^{(2)}(\sigma(W^{(1)}X_{i})))))$$
 $$\nabla E = \left(\frac{\partial}{\partial W^{(1)}_{11}}E,\ldots,\frac{\partial}{\partial W^{(k)}_{ij}}E,\ldots,\frac{\partial}{\partial W^{(n)}}E\right)$$
 
 * Goal = Calculate partial derivative of error with respect to sample weight: \\(\frac{\partial}{\partial W^{(k)}_{ij}}E\\)
-* Calculating for single train sample for simplicity:
-* Merge results for overall partial derivative which is just average
+* Goal = Calculate partial derivative of error with respect to sample weight: \\(\frac{\partial}{\partial W^{(k)}_{ij}}E_{i}\\) for single training sample
+* Overall partial derivative = average of single sample calculation
 * Same error function as perceptron (just with a more complex prediction):
 
 $$\begin{align}E(W)&=-\frac{1}{m}\sum_{i=1}^{m}y_{i}ln(\hat{y}_{i})+(1-y_{i})ln(1-\hat{y}_{i})\\
