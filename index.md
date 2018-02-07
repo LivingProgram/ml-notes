@@ -215,7 +215,14 @@ $$\hat{y}_{i}=\sigma(W^{(3)}(\sigma(W^{(2)}(\sigma(W^{(1)}X_{i})))))$$
   * \\(h_{j}\\) denotes the \\(j^{\text{th}}\\) neuron in the hidden layer 
   * \\(h\\) denotes the output layer without applying sigmoid
   * \\(\hat{y}\\) denotes final output prediction
-* From the diagram, we have: (insert equations here)
+* From the diagram, we have:
+
+$$\begin{align}h_{1}&=W^{(1)}_{11}x_{1}+W^{(1)}_{21}x_{2}+W^{(1)}_{31}\\
+h_{2}&=W^{(1)}_{12}x_{1}+W^{(1)}_{22}x_{2}+W^{(1)}_{32}\\
+h&=W^{(2)}_{11}\sigmoid(h_{1})+W^{(2)}_{21}\sigmoid(h_{2})+W^{(2)}_{31}\\
+\hat{y}&=\sigmoid(h)\\
+\hat{y}&=\sigmoid(W^{(2)}(\sigmoid(W^{(1)}x)))\end{align}$$
+
 * Goal = Calculate the overall gradient of the error \\(= \nabla E\\)
 * The gradient of the error = partial derivatives of error with respect to each weight: 
 
