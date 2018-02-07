@@ -232,6 +232,7 @@ $$\frac{\partial}{\partial W^{(k)}_{ij}}E$$
 
 $$\frac{\partial}{\partial W^{(k)}_{ij}} E_{i}$$
 
+* (All subscript i's will be removed to simplify calculation of partial derivatives)
 * From the diagram, we have:
 
 $$\begin{align}h_{1}&=W^{(1)}_{11}x_{1}+W^{(1)}_{21}x_{2}+W^{(1)}_{31}\\
