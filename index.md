@@ -229,7 +229,10 @@ h&=W^{(2)}_{11}\sigma(h_{1})+W^{(2)}_{21}\sigma(h_{2})+W^{(2)}_{31}\\
 $$\nabla E = \left(\frac{\partial}{\partial W^{(1)}_{11}}E,\ldots,\frac{\partial}{\partial W^{(k)}_{ij}}E,\ldots,\frac{\partial}{\partial W^{(n)}}E\right)$$
 
 * Intermediate Goal = Calculate partial derivative of error with respect to sample weight: \\(\frac{\partial}{\partial W^{(k)}_{ij}}E\\)
-* Intermediate Goal = Calculate partial derivative of error with respect to sample weight for single training sample: $$\frac{\partial}{\partial W^{(k)}_{ij}} E_{i}$$
+* Intermediate Goal = Calculate partial derivative of error with respect to sample weight for single training sample: 
+
+$$\frac{\partial}{\partial W^{(k)}_{ij}} E_{i}$$
+
 * Overall partial derivative = average of single sample calculation
 * Same error function as perceptron (just with a more complex prediction):
 
