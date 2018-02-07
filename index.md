@@ -207,7 +207,7 @@ $$\hat{y}_{i}=\sigma(W^{(3)}(\sigma(W^{(2)}(\sigma(W^{(1)}X_{i})))))$$
   * same as single perceptrons, calculate gradient of error function (which is more complex now) and use the gradient to update weights to descend to local minima
 
 ### Example NN \\(\nabla E\\) Calculation
-* Diagram of "Example NN": 
+* Diagram of "Example NN": ![Example NN](https://livingprogram.github.io/ml-notes/images/ml-notes_19.jpg)
 * Notation:
   * (notation explanation)
 * From the diagram, we have: (insert equations here)
