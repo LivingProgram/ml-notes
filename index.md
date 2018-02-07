@@ -242,7 +242,7 @@ h&=W^{(2)}_{11}\sigma(h_{1})+W^{(2)}_{21}\sigma(h_{2})+W^{(2)}_{31}\\
 
 * Same error function as perceptron (just with a more complex prediction):
 
-$$E_{i}=-\frac{1}{m}\sum_{i=1}^{m}y_{i}ln(\hat{y}_{i})+(1-y_{i})ln(1-\hat{y}_{i})$$
+$$E_{i}=-y_{i}ln(\hat{y}_{i})-(1-y_{i})ln(1-\hat{y}_{i})$$
 
 * Recall chain rule:
 
