@@ -223,12 +223,18 @@ h&=W^{(2)}_{11}\sigma(h_{1})+W^{(2)}_{21}\sigma(h_{2})+W^{(2)}_{31}\\
 \hat{y}&=\sigma(h)\\
 \hat{y}&=\sigma(W^{(2)}(\sigma(W^{(1)}x)))\end{align}$$
 
-* Final Goal = Calculate the overall gradient of the error \\(= \nabla E\\)
+* Final Goal = Calculate the overall gradient of the error:
+
+$$\nabla E$$
+
 * The gradient of the error = partial derivatives of error with respect to each weight: 
 
 $$\nabla E = \left(\frac{\partial}{\partial W^{(1)}_{11}}E,\ldots,\frac{\partial}{\partial W^{(k)}_{ij}}E,\ldots,\frac{\partial}{\partial W^{(n)}}E\right)$$
 
-* Intermediate Goal = Calculate partial derivative of error with respect to sample weight: \\(\frac{\partial}{\partial W^{(k)}_{ij}}E\\)
+* Intermediate Goal = Calculate partial derivative of error with respect to sample weight: 
+
+$$\frac{\partial}{\partial W^{(k)}_{ij}}E$$
+
 * Intermediate Goal = Calculate partial derivative of error with respect to sample weight for single training sample: 
 
 $$\frac{\partial}{\partial W^{(k)}_{ij}} E_{i}$$
