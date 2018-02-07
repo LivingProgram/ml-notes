@@ -210,6 +210,7 @@ $$\hat{y}_{i}=\sigma(W^{(3)}(\sigma(W^{(2)}(\sigma(W^{(1)}X_{i})))))$$
 * Diagram of "Example NN": 
 * Notation:
   * (notation explanation)
+* From the diagram, we have: (insert equations here)
 * Goal = Calculate the overall gradient of the error \\(= \nabla E\\)
 * The gradient of the error = partial derivatives of error with respect to each weight: 
 
