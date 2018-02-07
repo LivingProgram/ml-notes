@@ -215,13 +215,6 @@ $$\hat{y}_{i}=\sigma(W^{(3)}(\sigma(W^{(2)}(\sigma(W^{(1)}X_{i})))))$$
   * \\(h_{j}\\) denotes the \\(j^{\text{th}}\\) neuron in the hidden layer 
   * \\(h\\) denotes the output layer without applying sigmoid function
   * \\(\hat{y}\\) denotes final output prediction
-* From the diagram, we have:
-
-$$\begin{align}h_{1}&=W^{(1)}_{11}x_{1}+W^{(1)}_{21}x_{2}+W^{(1)}_{31}\\
-h_{2}&=W^{(1)}_{12}x_{1}+W^{(1)}_{22}x_{2}+W^{(1)}_{32}\\
-h&=W^{(2)}_{11}\sigma(h_{1})+W^{(2)}_{21}\sigma(h_{2})+W^{(2)}_{31}\\
-\hat{y}&=\sigma(h)\\
-\hat{y}&=\sigma(W^{(2)}(\sigma(W^{(1)}x)))\end{align}$$
 
 * Final Goal = Calculate the overall gradient of the error:
 
@@ -239,15 +232,23 @@ $$\frac{\partial}{\partial W^{(k)}_{ij}}E$$
 
 $$\frac{\partial}{\partial W^{(k)}_{ij}} E_{i}$$
 
-* Overall partial derivative = average of single sample calculation
+* From the diagram, we have:
+
+$$\begin{align}h_{1}&=W^{(1)}_{11}x_{1}+W^{(1)}_{21}x_{2}+W^{(1)}_{31}\\
+h_{2}&=W^{(1)}_{12}x_{1}+W^{(1)}_{22}x_{2}+W^{(1)}_{32}\\
+h&=W^{(2)}_{11}\sigma(h_{1})+W^{(2)}_{21}\sigma(h_{2})+W^{(2)}_{31}\\
+\hat{y}&=\sigma(h)\\
+\hat{y}&=\sigma(W^{(2)}(\sigma(W^{(1)}x)))\end{align}$$
+
 * Same error function as perceptron (just with a more complex prediction):
 
-$$\begin{align}E(W)&=-\frac{1}{m}\sum_{i=1}^{m}y_{i}ln(\hat{y}_{i})+(1-y_{i})ln(1-\hat{y}_{i})\\
-&=E\left(W^{(1)}_{11},W^{(1)}_{12},\ldots,W^{(k)}_{ij},\ldots,W^{(n)}\right)\end{align}$$
+$$E_{i}=-\frac{1}{m}\sum_{i=1}^{m}y_{i}ln(\hat{y}_{i})+(1-y_{i})ln(1-\hat{y}_{i})$$
 
 * Recall chain rule:
 
 $$\frac{\partial C}{\partial x}=\frac{\partial A}{\partial x}\cdot\frac{\partial B}{\partial A}\cdot\frac{\partial C}{\partial B}$$
+
+### (Unfinished)
 
 * (insert this in detailed section of overview with math included) After calculating gradient, Update weight:
 
