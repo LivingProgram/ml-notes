@@ -228,7 +228,7 @@ $$\nabla E = \left(\frac{\partial}{\partial W^{(1)}_{11}}E,\ldots,\frac{\partial
 
 $$\frac{\partial}{\partial W^{(k)}_{ij}}E$$
 
-* Intermediate Goal = Calculate partial derivative of error with respect to sample weight for single training sample: {% raw %}$$\frac{\partial}{\partial W^{(k)}_{ij}} E_{i}$${% endraw %}
+* Intermediate Goal = Calculate partial derivative of error with respect to sample weight for single training sample: $$\frac{\partial}{\partial W^{(k)}_{ij}} E_{i}$$t
 
 * (All subscript i's will be removed to simplify calculation of partial derivatives)
 * From the diagram, we have:
