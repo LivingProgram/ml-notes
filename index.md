@@ -232,11 +232,11 @@ $$\frac{\partial}{\partial W^{(k)}_{ij}}E$$
 
 * (All subscript i's will be removed to simplify calculation of partial derivatives)
 * From the diagram, we have:
-$$\begin{align}h_{1}&=W^{(1)}_{11}x_{1}+W^{(1)}_{21}x_{2}+W^{(1)}_{31}\\
+{% raw %}$$\begin{align}h_{1}&=W^{(1)}_{11}x_{1}+W^{(1)}_{21}x_{2}+W^{(1)}_{31}\\
 h_{2}&=W^{(1)}_{12}x_{1}+W^{(1)}_{22}x_{2}+W^{(1)}_{32}\\
 h&=W^{(2)}_{11}\sigma(h_{1})+W^{(2)}_{21}\sigma(h_{2})+W^{(2)}_{31}\\
 \hat{y}&=\sigma(h)\\
-\hat{y}&=\sigma(W^{(2)}(\sigma(W^{(1)}x)))\end{align}$$
+\hat{y}&=\sigma(W^{(2)}(\sigma(W^{(1)}x)))\end{align}$${% endraw %}
 * Same error function as perceptron (just with a more complex prediction):
 
 $$E=-yln(\hat{y})-(1-y)ln(1-\hat{y})$$
