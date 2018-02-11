@@ -12,17 +12,17 @@
 
 # Error Function
 * measures the model's performance
-* must be continuous, not discrete, there should always be a direction towards a more optimal error 
+* must be continuous, not discrete, there should always be a direction towards a more optimal error
 
 ## Sigmoid Activation Function
 * sigmoid graph and equation: ![sigmoid function](https://livingprogram.github.io/ml-notes/images/ml-notes_2.jpg)
-* takes in all real numbers and outputs a probability between 0 and 1 
+* takes in all real numbers and outputs a probability between 0 and 1
 * allows a continuous error function
 
 # Softmax Function
 * allows you to take linear set of scores for multiple classes and generate probabilities for each class that sum to 0
 * exponent function used to avoid negative values (which can cause division by 0 if allowed)
-* softmax equation: 
+* softmax equation:
   * Linear output of scores for \\(n\\) classes: \\(Z_{1},Z_{2},\ldots,Z_{n}\\)
   * $$P(\text{class } i) = \frac{e^{Z_{i}}}{e^{Z_{1}}+e^{Z_{2}}+\ldots+e^{Z_{n}}}$$
 * softmax with 2 classes: \\(n=2 \implies softmax(x)=sigmoid(x)\\)
@@ -55,15 +55,15 @@ $$\begin{align}\hat{y}_{i}&=\sigma(WX_{i}+b) \\
 \hat{y}_{i}&=\sigma(\sum_{j=1}^{n}w_{j}x_{j}+b) \\
 \hat{y}_{i}&=\sigma(w_{1}x_{1}+\ldots+w_{n}x_{n}+b)\end{align}$$
 
-* Cross Entropy (2 classes): 
+* Cross Entropy (2 classes):
 
 $$E=-\frac{1}{m}\sum_{i=1}^{m}y_{i}ln(\hat{y}_{i})+(1-y_{i})ln(1-\hat{y}_{i})$$
 
-* Cross Entropy (2 classes, with W = weights, b = bias): 
+* Cross Entropy (2 classes, with W = weights, b = bias):
 
 $$E(W,b)=-\frac{1}{m}\sum_{i=1}^{m}y_{i}ln(\sigma(WX_{i}+b))+(1-y_{i})ln(1-\sigma(WX_{i}+b))$$
 
-* Cross Entropy (n classes): 
+* Cross Entropy (n classes):
 
 $$E=-\sum_{i=1}^{m}\sum_{j=1}^{n}y_{ij}ln(\hat{y}_{ij})$$
 
@@ -81,30 +81,30 @@ $$E=-\sum_{i=1}^{m}\sum_{j=1}^{n}y_{ij}ln(\hat{y}_{ij})$$
 
 ## Single Train Sample \\(\nabla E_{i}\\)
 * Goal = Calculate the gradient of the error for a single training sample, \\(X_{i}\\), \\(= \nabla E_{i}\\)
-* Given m training samples labeled: 
+* Given m training samples labeled:
 
 $$X_{1},X_{2},\ldots,X_{m}$$
 
-* Individual training sample predictions: 
+* Individual training sample predictions:
 
 $$\hat{y}_{i}=\sigma(WX_{i}+b)$$
 
-* Individual training sample error: 
+* Individual training sample error:
 
 $$E_{i}=-y_{i}ln(\hat{y}_{i})-(1-y_{i})ln(1-\hat{y}_{i})$$
 
-* The gradient of the error = partial derivatives of error for each weight: 
+* The gradient of the error = partial derivatives of error for each weight:
 
 $$\nabla E_{i} = (\frac{\partial}{\partial w_{1}}E_{i},\ldots,\frac{\partial}{\partial w_{n}}E_{i},\frac{\partial}{\partial b}E_{i})$$
 
-* First calculate: 
+* First calculate:
 
 $$\begin{align}\sigma'(x) &=\frac{d}{dx}\left(\frac{1}{1+e^{-x}}\right) \\
 &=\frac{e^{-x}}{(1+e^{-x})^{2}} &&\text{(quotient rule)} \\
 &=\frac{1}{1+e^{-x}}\cdot \frac{e^{-x}}{1+e^{-x}} \\
 &=\sigma(x)(1-\sigma(x))&&\text{(long division)}\end{align}$$
 
-* Then calculate: 
+* Then calculate:
 
 $$\begin{align}\frac{\partial}{\partial w_{j}}\hat{y}_{i}&=\frac{\partial}{\partial w_{j}}(\sigma(WX_{i}+b)) &&(\hat{y}_{i}\text{ formula)} \\
 &= \sigma(WX_{i}+b)(1-\sigma(WX_{i}+b))\cdot\frac{\partial}{\partial w_{j}}(WX_{i}+b) &&(\sigma'(x) \text{ formula)}\\
@@ -113,7 +113,7 @@ $$\begin{align}\frac{\partial}{\partial w_{j}}\hat{y}_{i}&=\frac{\partial}{\part
 &= \hat{y}_{i}(1-\hat{y}_{i})\cdot(0+\ldots+x_{j}+\ldots+0) &&\text{(partial derivative)}\\
 &= \hat{y}_{i}(1-\hat{y}_{i})\cdot x_{j}\end{align}$$
 
-* And finally: 
+* And finally:
 
 $$\begin{align}\frac{\partial}{\partial w_{j}}E_{i}&=\frac{\partial}{\partial w_{j}}(-y_{i}ln(\hat{y}_{i})-(1-y_{i})ln(1-\hat{y}_{i})) &&(E_{i}\text{ formula)}\\
 &= -y_{i}(\frac{\partial}{\partial w_{j}}(ln(\hat{y}_{i})))-(1-y_{i})(\frac{\partial}{\partial w_{j}}(ln(1-\hat{y}_{i})))\\
@@ -123,11 +123,11 @@ $$\begin{align}\frac{\partial}{\partial w_{j}}E_{i}&=\frac{\partial}{\partial w_
 &= (-y_{i}+y_{i}\hat{y}_{i}+\hat{y}_{i}-y_{i}\hat{y}_{i})x_{j}\\
 &= -(y_{i}-\hat{y}_{i})x_{j}\end{align}$$
 
-* Similarly: 
+* Similarly:
 
 $$\frac{\partial}{\partial b}E_{i}=-(y_{i}-\hat{y}_{i})$$
 
-* In summary, for a training sample, \\(X_{i}\\), with: 
+* In summary, for a training sample, \\(X_{i}\\), with:
 
 $$\begin{align}\text{features } &= (x_{1},\ldots,x_{n})\\
 \text{label } &= y_{i} \\
@@ -138,17 +138,17 @@ $$\begin{align}\nabla E_{i} &= (\frac{\partial}{\partial w_{1}}E_{i},\ldots,\fra
 &= -(y_{i}-\hat{y}_{i})(x_{1},\ldots,x_{n},1)\\
 &= (\hat{y}_{i}-y_{i})(x_{1},\ldots,x_{n},1)\end{align}$$
 
-* Significance: 
+* Significance:
   * gradient = scalar x coordinates of point (scalar = label - prediction)
   * implies: label close to the prediction = small gradient
 
 ## Overall \\(\nabla E\\)
 * Goal = Calculate the gradient of the error for over all train samples, \\(= \nabla E\\)
-* Given m training samples labeled: 
+* Given m training samples labeled:
 
 $$X_{1},X_{2},\ldots,X_{m}$$
 
-* Overall error = average of individual train sample errors: 
+* Overall error = average of individual train sample errors:
 
 $$E=\frac{1}{m}\sum_{i=1}^{m}E_{i}$$
 
@@ -168,7 +168,7 @@ $$\begin{align}\nabla E &= \frac{1}{m}\sum_{i=1}^{m}\nabla E_{i}\\
 
 ## Batch Size \\(=m\\)
 1. Initialize random weights: \\(w_{1},\ldots,w_{n},b\\)
-2. For every batch: 
+2. For every batch:
    * Update weights:\\(w_{j}\leftarrow w_{j}-\alpha\frac{1}{m}\sum_{i=1}^{m}\frac{\partial}{\partial w_{j}}E_{i}\\)
    * Update bias:\\(b\leftarrow b-\alpha\frac{1}{m}\sum_{i=1}^{m}\frac{\partial}{\partial b}E_{i}\\)
 3. Repeat until error is small
@@ -201,18 +201,18 @@ $$\hat{y}_{i}=\sigma(W^{(3)}(\sigma(W^{(2)}(\sigma(W^{(1)}X_{i})))))$$
   * Propagate error backwards (spread error to all weights)
   * Update all weights using propagated error
   * Loop until satisfied with error
-* Intuitive Understanding: 
+* Intuitive Understanding:
   * given a model's error, propagate error backwards by decreasing the weights of neurons that had stronger connections over those that had weaker connections
   * the error is caused more by those neurons with strong connections (or large weights), and decreasing their weights will reduce the effects of the erroneous neuron
   * same as single perceptrons, calculate gradient of error function (which is more complex now) and use the gradient to update weights to descend to local minima
 
 ### Example NN \\(\nabla E\\) Calculation
-* Diagram of "Example NN": ![Example NN](https://livingprogram.github.io/ml-notes/images/ml-notes_19.jpg)
+* Diagram of "Example NN": ![Example NN](https://livingprogram.github.io/ml-notes/images/ml-notes_20.jpg)
 * Notation:
   * \\(x_{j}\\) denotes input feature \\(j\\)
   * \\(W^{(k)}_{ij}\\) denotes weight of layer \\(k\\) that connects input neuron \\(i\\) to output neuron \\(j\\)
   * \\((1)\\) denotes the bias unit
-  * \\(h_{j}\\) denotes the \\(j^{\text{th}}\\) neuron in the hidden layer 
+  * \\(h_{j}\\) denotes the \\(j^{\text{th}}\\) neuron in the hidden layer
   * \\(h\\) denotes the output layer without applying sigmoid function
   * \\(\hat{y}\\) denotes final output prediction
 
@@ -220,15 +220,15 @@ $$\hat{y}_{i}=\sigma(W^{(3)}(\sigma(W^{(2)}(\sigma(W^{(1)}X_{i})))))$$
 
 $$\nabla E$$
 
-* The gradient of the error = partial derivatives of error with respect to each weight: 
+* The gradient of the error = partial derivatives of error with respect to each weight:
 
 $$\nabla E = \left(\frac{\partial}{\partial W^{(1)}_{11}}E,\ldots,\frac{\partial}{\partial W^{(k)}_{ij}}E,\ldots,\frac{\partial}{\partial W^{(n)}}E\right)$$
 
-* Intermediate Goal = Calculate partial derivative of error with respect to sample weight: 
+* Intermediate Goal = Calculate partial derivative of error with respect to sample weight:
 
 $$\frac{\partial}{\partial W^{(k)}_{ij}}E$$
 
-* Intermediate Goal = Calculate partial derivative of error with respect to sample weight for single training sample: 
+* Intermediate Goal = Calculate partial derivative of error with respect to sample weight for single training sample:
 
 $$\frac{\partial}{\partial W^{(k)}_{ij}} E_{i}$$
 
@@ -257,12 +257,12 @@ $$W^{(k)}_{ij}\leftarrow W^{(k)}_{ij}-\alpha\frac{\partial}{\partial W^{(k)}_{ij
 
 # Jupyter Cheatsheet
 * tab: allows you to complete variable names or list functions of a package within code cell
-* shift + tab: lets you see function documentation, variable values 
+* shift + tab: lets you see function documentation, variable values
 * (shift + tab)x2: allows you to see more in-depth documentation
 * markdown + latex: $ or $$ and can insert latex
 * enter: enter edit mode
 * escape: enter command mode
-* h: show all commands 
+* h: show all commands
 * a: create cell above
 * b: create cell below
 * y: change to code cell
