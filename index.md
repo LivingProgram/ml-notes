@@ -212,8 +212,7 @@ $$\hat{y}_{i}=\sigma(W^{(3)}(\sigma(W^{(2)}(\sigma(W^{(1)}X_{i})))))$$
   * \\(x_{j}\\) denotes input feature \\(j\\)
   * \\(W^{(k)}_{ij}\\) denotes weight of layer \\(k\\) that connects input neuron \\(i\\) to output neuron \\(j\\)
   * \\((1)\\) denotes the bias unit
-  * \\(h_{j}\\) denotes the \\(j^{\text{th}}\\) neuron in the hidden layer
-  * \\(h\\) denotes the output layer without applying sigmoid function
+  * \\(a^{(k)}_{j}\\) denotes the \\(j^{\text{th}}\\) neuron in the $$k^{\text{th}}$$ layer
   * \\(\hat{y}\\) denotes final output prediction
 
 * Final Goal = Calculate the overall gradient of the error:
