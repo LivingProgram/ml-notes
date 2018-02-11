@@ -210,7 +210,9 @@ $$\hat{y}_{i}=\sigma(W^{(3)}(\sigma(W^{(2)}(\sigma(W^{(1)}X_{i})))))$$
 * Diagram of "Example NN": ![Example NN](https://livingprogram.github.io/ml-notes/images/ml-notes_20.jpg)
 * Notation:
   * \\(x_{j}\\) denotes input feature \\(j\\)
+  * $$X$$ denotes input vector
   * \\(W^{(k)}_{ij}\\) denotes weight of layer \\(k\\) that connects input neuron \\(i\\) to output neuron \\(j\\)
+  * $$W^{(k)}$$ denotes weights vector for layer $$k$$
   * \\((1)\\) denotes the bias unit
   * \\(a^{(k)}_{j}\\) denotes the \\(j^{\text{th}}\\) neuron in the $$k^{\text{th}}$$ layer
   * \\(\hat{y}\\) denotes final output prediction
@@ -221,7 +223,7 @@ $$\nabla E$$
 
 * The gradient of the error = partial derivatives of error with respect to each weight:
 
-$$\nabla E = \left(\frac{\partial}{\partial W^{(1)}_{11}}E,\ldots,\frac{\partial}{\partial W^{(k)}_{ij}}E,\ldots,\frac{\partial}{\partial W^{(n)}}E\right)$$
+$$\nabla E = \left(\frac{\partial}{\partial W^{(1)}_{11}}E,\ldots,\frac{\partial}{\partial W^{(k)}_{ij}}E,\ldots,\frac{\partial}{\partial W^{(3)}_{31}}E\right)$$
 
 * Intermediate Goal = Calculate partial derivative of error with respect to sample weight:
 
@@ -253,6 +255,17 @@ $$\frac{\partial C}{\partial x}=\frac{\partial A}{\partial x}\cdot\frac{\partial
 * (insert this in detailed section of overview with math included) After calculating gradient, Update weight:
 
 $$W^{(k)}_{ij}\leftarrow W^{(k)}_{ij}-\alpha\frac{\partial}{\partial W^{(k)}_{ij}}E$$
+
+### General NN \\(\nabla E\\) Calculation
+- Additional Notation:
+  - $$s_{k}$$ denotes number of neurons in layer $$k$$
+- Final Goal = Calculate the overall gradient of the error:
+
+$$\nabla E$$
+
+* The gradient of the error = partial derivatives of error with respect to each weight:
+
+$$\nabla E = \left(\frac{\partial}{\partial W^{(1)}_{11}}E,\ldots,\frac{\partial}{\partial W^{(k)}_{ij}}E,\ldots,\frac{\partial}{\partial W^{(n)}_{s_{n-1}s_{n}}}E\right)$$
 
 # Jupyter Cheatsheet
 * tab: allows you to complete variable names or list functions of a package within code cell
