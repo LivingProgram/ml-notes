@@ -244,8 +244,7 @@ z_{1}^{(3)}&=W^{(2)}a^{(2)}=W_{11}^{(2)}a_{1}^{(2)}+W_{21}^{(2)}a_{2}^{(2)}+W_{3
 a_{1}^{(3)}&=\sigma(z_{1}^{(3)})\\
 z_{1}^{(4)}&=W^{(3)}a^{(3)}=W_{11}^{(3)}a_{1}^{(3)}+W_{21}^{(3)}a_{2}^{(3)}+W_{31}^{(3)}\\
 \hat{y}&=\sigma(z_{1}^{(4)})\\
-\hat{y}&=\sigma(W^{(3)}(\sigma(W^{(2)}(\sigma(W^{(1)}X)))))\\
-E&=-yln(\hat{y})-(1-y)ln(1-\hat{y})\end{align}$$
+\hat{y}&=\sigma(W^{(3)}(\sigma(W^{(2)}(\sigma(W^{(1)}X)))))\end{align}$$
 
 - Same error function as perceptron (just with a more complex prediction):
 
@@ -254,6 +253,25 @@ $$E=-yln(\hat{y})-(1-y)ln(1-\hat{y})$$
 - Recall chain rule:
 
 $$\frac{\partial C}{\partial x}=\frac{\partial A}{\partial x}\cdot\frac{\partial B}{\partial A}\cdot\frac{\partial C}{\partial B}$$
+
+- From the chain rule:
+
+$$\frac{\partial}{\partial W^{(1)}_{11}}E=\frac{\partial E}{\partial \hat{y}}\cdot\frac{\partial \hat{y}}{\partial z_{1}^{(4)}}\cdot\frac{\partial z_{1}^{(4)}}{\partial a_{1}^{(3)}}\cdot\frac{\partial a_{1}^{(3)}}{\partial z_{1}^{(3)}}\cdot\frac{\partial z_{1}^{(3)}}{\partial a_{1}^{(2)}}\cdot\frac{\partial a_{1}^{(2)}}{\partial z_{1}^{(2)}}\cdot\frac{\partial z_{1}^{(2)}}{\partial W^{(1)}_{11}}$$
+
+- Calculating partial derivatives:
+
+$$\begin{align}\frac{\partial E}{\partial \hat{y}}&=\frac{\partial}{\partial \hat{y}}(-yln(\hat{y})-(1-y)ln(1-\hat{y}))\\
+&=\\
+\frac{\partial \hat{y}}{\partial z_{1}^{(4)}}&=\\
+\frac{\partial z_{1}^{(4)}}{\partial a_{1}^{(3)}}&=\\
+\frac{\partial a_{1}^{(3)}}{\partial z_{1}^{(3)}}&=\\
+\frac{\partial z_{1}^{(3)}}{\partial a_{1}^{(2)}}&=\\
+\frac{\partial a_{1}^{(2)}}{\partial z_{1}^{(2)}}&=\\
+\frac{\partial z_{1}^{(2)}}{\partial W^{(1)}_{11}}&=\end{align}$$
+
+- Multiplying to get:
+
+$$\frac{\partial}{\partial W^{(1)}_{11}}E=$$
 
 ### (Unfinished)
 
