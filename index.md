@@ -215,7 +215,8 @@ $$\hat{y}_{i}=\sigma(W^{(3)}(\sigma(W^{(2)}(\sigma(W^{(1)}X_{i})))))$$
   - $$W^{(k)}_{ij}$$ denotes weight of layer $$k$$ that connects input neuron $$i$$ to output neuron $$j$$
   - $$W^{(k)}$$ denotes weights vector for layer $$k$$
   - $$(1)$$ denotes the bias unit
-  - $$a^{(k)}_{j}$$ denotes the $$j^{\text{th}}$$ neuron in the $$k^{\text{th}}$$ layer
+  - $$z^{(k)}_{j}$$ denotes the output of the $$j^{\text{th}}$$ neuron in the $$k^{\text{th}}$$ layer before applying sigmoid function
+  - $$a^{(k)}_{j}$$ denotes the output of the $$j^{\text{th}}$$ neuron in the $$k^{\text{th}}$$ layer after applying sigmoid function
   - $$\hat{y}$$ denotes final output prediction
 
 - Final Goal = Calculate the overall gradient of the error:
@@ -228,20 +229,23 @@ $$\nabla E = \left(\frac{\partial}{\partial W^{(1)}_{11}}E,\ldots,\frac{\partial
 
 - Intermediate Goal = Calculate partial derivative of error with respect to sample weight:
 
-$$\frac{\partial}{\partial W^{(k)}_{ij}}E$$
+$$\frac{\partial}{\partial W^{(1)}_{11}}E$$
 
 - Intermediate Goal = Calculate partial derivative of error with respect to sample weight for single training sample:
 
-$$\frac{\partial}{\partial W^{(k)}_{ij}} E_{i}$$
+$$\frac{\partial}{\partial W^{(1)}_{11}} E_{i}$$
 
 - (All subscript i's will be removed to simplify calculation of partial derivatives)
 - From the diagram, we have:
 
-$$\begin{align}h_{1}&=W^{(1)}_{11}x_{1}+W^{(1)}_{21}x_{2}+W^{(1)}_{31}\\
-h_{2}&=W^{(1)}_{12}x_{1}+W^{(1)}_{22}x_{2}+W^{(1)}_{32}\\
-h&=W^{(2)}_{11}\sigma(h_{1})+W^{(2)}_{21}\sigma(h_{2})+W^{(2)}_{31}\\
-\hat{y}&=\sigma(h)\\
-\hat{y}&=\sigma(W^{(2)}(\sigma(W^{(1)}x)))\end{align}$$
+$$\begin{align}z_{1}^{(2)}&=W^{(1)}X=W_{11}^{(1)}x_{1}+W_{21}^{(1)}x_{2}+W_{31}^{(1)}\\
+a_{1}^{(2)}&=\sigma(z_{1}^{(2)})\\
+z_{1}^{(3)}&=W^{(2)}a^{(2)}=W_{11}^{(2)}a_{1}^{(2)}+W_{21}^{(2)}a_{2}^{(2)}+W_{31}^{(2)}a_{3}^{(2)}+W_{41}^{(2)}\\
+a_{1}^{(3)}&=\sigma(z_{1}^{(3)})\\
+z_{1}^{(4)}&=W^{(3)}a^{(3)}=W_{11}^{(3)}a_{1}^{(3)}+W_{21}^{(3)}a_{2}^{(3)}+W_{31}^{(3)}\\
+\hat{y}&=\sigma(z_{1}^{(4)})\\
+\hat{y}&=\sigma(W^{(3)}(\sigma(W^{(2)}(\sigma(W^{(1)}X)))))\\
+E&=-yln(\hat{y})-(1-y)ln(1-\hat{y})\end{align}$$
 
 - Same error function as perceptron (just with a more complex prediction):
 
