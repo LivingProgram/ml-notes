@@ -4,12 +4,12 @@
 - perceptron visualization: ![perceptron visualization](https://livingprogram.github.io/ml-notes/images/ml-notes_1.jpg)
 
 ## Perceptron Algorithm
-- For all points \\((p,q) \text{ with label } y \\):
-  - Calculate \\(\hat{y} = step(w_{1} \cdot x_{1} + w_{2} \cdot x_{2} + b)\\)
+- For all points $$(p,q) \text{ with label } y $$:
+  - Calculate $$\hat{y} = step(w_{1} \cdot x_{1} + w_{2} \cdot x_{2} + b)$$
   - If the point is correctly classified: do nothing
-  - If the point is classified positive, but it has a negative label: \\(w_{1} - \alpha \cdot p\\), \\(w_{2} - \alpha \cdot q\\), \\(b - \alpha\\)
-  - If the point is classified negative, but it has a positive label: \\(w_{1} + \alpha \cdot p\\), \\(w_{2} + \alpha \cdot q\\), \\(b + \alpha\\)
-  - (Where \\(\alpha = \\) learning rate)
+  - If the point is classified positive, but it has a negative label: $$w_{1} - \alpha \cdot p$$, $$w_{2} - \alpha \cdot q$$, $$b - \alpha$$
+  - If the point is classified negative, but it has a positive label: $$w_{1} + \alpha \cdot p$$, $$w_{2} + \alpha \cdot q$$, $$b + \alpha$$
+  - (Where $$\alpha = $$ learning rate)
 
 # Error Function
 - measures the model's performance
@@ -24,9 +24,9 @@
 - allows you to take linear set of scores for multiple classes and generate probabilities for each class that sum to 0
 - exponent function used to avoid negative values (which can cause division by 0 if allowed)
 - softmax equation:
-  - Linear output of scores for \\(n\\) classes: \\(Z_{1},Z_{2},\ldots,Z_{n}\\)
+  - Linear output of scores for $$n$$ classes: $$Z_{1},Z_{2},\ldots,Z_{n}$$
   - $$P(\text{class } i) = \frac{e^{Z_{i}}}{e^{Z_{1}}+e^{Z_{2}}+\ldots+e^{Z_{n}}}$$
-- softmax with 2 classes: \\(n=2 \implies softmax(x)=sigmoid(x)\\)
+- softmax with 2 classes: $$n=2 \implies softmax(x)=sigmoid(x)$$
 
 # One-Hot Encoding
 - with data that has multiple classes, assign a vector to each class (such that there is a 1 in the row that corresponds to the presence of the class, and the rest are all 0s)
@@ -40,16 +40,16 @@
 - Motivation for creating cross entropy function:
   - maximum likelihood is able to measure a model's performance
   - products = hard to compute and yield small numbers (instead use sums = easy to calculate)
-  - use logs, because of the property \\(log(ab) = log(a) + log(b)\\) (allows our products to turn into sums)
+  - use logs, because of the property $$log(ab) = log(a) + log(b)$$ (allows our products to turn into sums)
   - log(number_between_0_and_1) = negative numbers (instead use -log() = positive)
   - if we use -log(), minimizing -log() = best model (because before, larger product = better model, and log(large_product) = small number, so now we need to minimize)
 - Notation:
-  - \\(m\\) denotes number of training samples
-  - \\(X_{i}\\) denotes a specific train sample \\(i\\)
-  - \\(n\\) denotes number of features
-  - \\(w_{j}\\) denotes a specific feature weight
-  - \\(x_{j}\\) denotes a specific input feature
-  - \\(\hat{y}_{i}\\) denotes prediction for a specific train sample \\(i\\)
+  - $$m$$ denotes number of training samples
+  - $$X_{i}$$ denotes a specific train sample $$i$$
+  - $$n$$ denotes number of features
+  - $$w_{j}$$ denotes a specific feature weight
+  - $$x_{j}$$ denotes a specific input feature
+  - $$\hat{y}_{i}$$ denotes prediction for a specific train sample $$i$$
 - Calculate predictions:
 
 $$\begin{align}\hat{y}_{i}&=\sigma(WX_{i}+b) \\
@@ -80,8 +80,8 @@ $$E=-\sum_{i=1}^{m}\sum_{j=1}^{n}y_{ij}ln(\hat{y}_{ij})$$
 - by taking negative partial derivative of error function with respect to each weight that is the direction to move in towards a lower error and a better model
 - therefore we simply need to calculate the gradient of the error
 
-## Single Train Sample \\(\nabla E_{i}\\)
-- Goal = Calculate the gradient of the error for a single training sample, \\(X_{i}\\), \\(= \nabla E_{i}\\)
+## Single Train Sample $$\nabla E_{i}$$
+- Goal = Calculate the gradient of the error for a single training sample, $$X_{i}$$, $$= \nabla E_{i}$$
 - Given m training samples labeled:
 
 $$X_{1},X_{2},\ldots,X_{m}$$
@@ -128,7 +128,7 @@ $$\begin{align}\frac{\partial}{\partial w_{j}}E_{i}&=\frac{\partial}{\partial w_
 
 $$\frac{\partial}{\partial b}E_{i}=-(y_{i}-\hat{y}_{i})$$
 
-- In summary, for a training sample, \\(X_{i}\\), with:
+- In summary, for a training sample, $$X_{i}$$, with:
 
 $$\begin{align}\text{features } &= (x_{1},\ldots,x_{n})\\
 \text{label } &= y_{i} \\
@@ -143,8 +143,8 @@ $$\begin{align}\nabla E_{i} &= (\frac{\partial}{\partial w_{1}}E_{i},\ldots,\fra
   - gradient = scalar x coordinates of point (scalar = label - prediction)
   - implies: label close to the prediction = small gradient
 
-## Overall \\(\nabla E\\)
-- Goal = Calculate the gradient of the error for over all train samples, \\(= \nabla E\\)
+## Overall $$\nabla E$$
+- Goal = Calculate the gradient of the error for over all train samples, $$= \nabla E$$
 - Given m training samples labeled:
 
 $$X_{1},X_{2},\ldots,X_{m}$$
@@ -160,18 +160,18 @@ $$\begin{align}\nabla E &= \frac{1}{m}\sum_{i=1}^{m}\nabla E_{i}\\
 
 # Logistic Regression Algorithm
 
-## Batch Size \\(=1\\)
-1. Initialize random weights: \\(w_{1},\ldots,w_{n},b\\)
-2. For every train sample: \\(X_{1},\ldots,X_{m}\\)
-   - Update weights: \\(w_{j}\leftarrow w_{j}-\alpha\frac{\partial}{\partial w_{j}}E_{i}\\)
-   - Update bias: \\(b\leftarrow b-\alpha\frac{\partial}{\partial b}E_{i}\\)
+## Batch Size $$=1$$
+1. Initialize random weights: $$w_{1},\ldots,w_{n},b$$
+2. For every train sample: $$X_{1},\ldots,X_{m}$$
+   - Update weights: $$w_{j}\leftarrow w_{j}-\alpha\frac{\partial}{\partial w_{j}}E_{i}$$
+   - Update bias: $$b\leftarrow b-\alpha\frac{\partial}{\partial b}E_{i}$$
 3. Repeat until error is small
 
-## Batch Size \\(=m\\)
-1. Initialize random weights: \\(w_{1},\ldots,w_{n},b\\)
+## Batch Size $$=m$$
+1. Initialize random weights: $$w_{1},\ldots,w_{n},b$$
 2. For every batch:
-   - Update weights:\\(w_{j}\leftarrow w_{j}-\alpha\frac{1}{m}\sum_{i=1}^{m}\frac{\partial}{\partial w_{j}}E_{i}\\)
-   - Update bias:\\(b\leftarrow b-\alpha\frac{1}{m}\sum_{i=1}^{m}\frac{\partial}{\partial b}E_{i}\\)
+   - Update weights:$$w_{j}\leftarrow w_{j}-\alpha\frac{1}{m}\sum_{i=1}^{m}\frac{\partial}{\partial w_{j}}E_{i}$$
+   - Update bias:$$b\leftarrow b-\alpha\frac{1}{m}\sum_{i=1}^{m}\frac{\partial}{\partial b}E_{i}$$
 3. Repeat until error is small
 
 # Neural Networks
@@ -182,16 +182,16 @@ $$\begin{align}\nabla E &= \frac{1}{m}\sum_{i=1}^{m}\nabla E_{i}\\
 
 ## NN Feedforward
 - Notation:
-  - \\(m\\) denotes number of training samples
-  - \\(X_{i}\\) denotes a specific train sample \\(i\\)
-  - \\(\hat{y}_{i}\\) denotes prediction for a specific train sample \\(i\\)
-  - \\(W^{(k)}_{ij}\\) denotes weight of layer \\(k\\) that connects input neuron \\(i\\) to output neuron \\(j\\)
-  - \\(n\\) denotes number of layers in NN
-- Calculating NN predictions for train sample \\(X_{i}\\):
+  - $$m$$ denotes number of training samples
+  - $$X_{i}$$ denotes a specific train sample $$i$$
+  - $$\hat{y}_{i}$$ denotes prediction for a specific train sample $$i$$
+  - $$W^{(k)}_{ij}$$ denotes weight of layer $$k$$ that connects input neuron $$i$$ to output neuron $$j$$
+  - $$n$$ denotes number of layers in NN
+- Calculating NN predictions for train sample $$X_{i}$$:
 
 $$\hat{y}_{i}=\sigma(W^{(n)}(\sigma(W^{(n-1)}(\ldots(\sigma(W^{(1)}X_{i}))))))$$
 
-- Example \\(n=3\\):
+- Example $$n=3$$:
 
 $$\hat{y}_{i}=\sigma(W^{(3)}(\sigma(W^{(2)}(\sigma(W^{(1)}X_{i})))))$$
 
@@ -207,16 +207,16 @@ $$\hat{y}_{i}=\sigma(W^{(3)}(\sigma(W^{(2)}(\sigma(W^{(1)}X_{i})))))$$
   - the error is caused more by those neurons with strong connections (or large weights), and decreasing their weights will reduce the effects of the erroneous neuron
   - same as single perceptrons, calculate gradient of error function (which is more complex now) and use the gradient to update weights to descend to local minima
 
-### Example NN \\(\nabla E\\) Calculation
+### Example NN $$\nabla E$$ Calculation
 - Diagram of "Example NN": ![Example NN](https://livingprogram.github.io/ml-notes/images/ml-notes_20.jpg)
 - Notation:
-  - \\(x_{j}\\) denotes input feature \\(j\\)
+  - $$x_{j}$$ denotes input feature $$j$$
   - $$X$$ denotes input vector
-  - \\(W^{(k)}_{ij}\\) denotes weight of layer \\(k\\) that connects input neuron \\(i\\) to output neuron \\(j\\)
+  - $$W^{(k)}_{ij}$$ denotes weight of layer $$k$$ that connects input neuron $$i$$ to output neuron $$j$$
   - $$W^{(k)}$$ denotes weights vector for layer $$k$$
-  - \\((1)\\) denotes the bias unit
-  - \\(a^{(k)}_{j}\\) denotes the \\(j^{\text{th}}\\) neuron in the $$k^{\text{th}}$$ layer
-  - \\(\hat{y}\\) denotes final output prediction
+  - $$(1)$$ denotes the bias unit
+  - $$a^{(k)}_{j}$$ denotes the $$j^{\text{th}}$$ neuron in the $$k^{\text{th}}$$ layer
+  - $$\hat{y}$$ denotes final output prediction
 
 - Final Goal = Calculate the overall gradient of the error:
 
@@ -257,7 +257,7 @@ $$\frac{\partial C}{\partial x}=\frac{\partial A}{\partial x}\cdot\frac{\partial
 
 $$W^{(k)}_{ij}\leftarrow W^{(k)}_{ij}-\alpha\frac{\partial}{\partial W^{(k)}_{ij}}E$$
 
-### General NN \\(\nabla E\\) Calculation
+### General NN $$\nabla E$$ Calculation
 - Additional Notation:
   - $$s_{k}$$ denotes number of neurons in layer $$k$$
 - Final Goal = Calculate the overall gradient of the error:
