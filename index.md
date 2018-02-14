@@ -261,7 +261,9 @@ $$\frac{\partial}{\partial W^{(1)}_{11}}E=\frac{\partial E}{\partial \hat{y}}\cd
 - Calculating partial derivatives:
 
 $$\begin{align}\frac{\partial E}{\partial \hat{y}}&=\frac{\partial}{\partial \hat{y}}(-yln(\hat{y})-(1-y)ln(1-\hat{y}))\\
-&=\\
+&=-y\cdot\frac{\partial}{\partial \hat{y}}(ln(\hat{y})-(1-y)\cdot\frac{\partial}{\partial \hat{y}}(ln(1-\hat{y}))\\
+&=-y\cdot\frac{1}{\hat{y}}\cdot 1-(1-y)\cdot\frac{1}{1- \hat{y}}\cdot -1\\
+&=\frac{\hat{y}-y}{\hat{y}(1-\hat{y})}\\
 \frac{\partial \hat{y}}{\partial z_{1}^{(4)}}&=\\
 \frac{\partial z_{1}^{(4)}}{\partial a_{1}^{(3)}}&=\\
 \frac{\partial a_{1}^{(3)}}{\partial z_{1}^{(3)}}&=\\
