@@ -202,22 +202,24 @@ $$\begin{align}\nabla E &= \frac{1}{m}\sum_{i=1}^{m}\nabla E_{i}\\
 - Deep Neural Network: has many layers of neurons
 - Multi-Class Classification: apply softmax to the scores of multiple output perceptrons (bounds sum of probabilities for each class between 0 and 1)
 
-## NN Feedforward
-- Notation:
-  - $$m$$ denotes number of training samples
-  - $$X_{i}$$ denotes a specific train sample $$i$$
-  - $$\hat{y}_{i}$$ denotes prediction for a specific train sample $$i$$
-  - $$W^{(k)}_{ij}$$ denotes weight of layer $$k$$ that connects input neuron $$i$$ to output neuron $$j$$
-  - $$n$$ denotes number of layers in NN
+## NN Notation
+- $$m$$ denotes number of training samples
+- $$X_{i}$$ denotes a specific train sample $$i$$
+- $$\hat{y}_{i}$$ denotes prediction for a specific train sample $$i$$
+- $$W^{(k)}_{ij}$$ denotes weight of layer $$k$$ that connects input neuron $$i$$ to output neuron $$j$$
+- $$n$$ denotes number of layers in NN
+
+## NN Feedforward Equations
+
 - Calculating NN predictions for train sample $$X_{i}$$:
 
 $$\hat{y}_{i}=\sigma(W^{(n)}(\sigma(W^{(n-1)}(\ldots(\sigma(W^{(1)}X_{i}))))))$$
 
-- Example $$n=3$$:
+- Example when $$n=3$$:
 
 $$\hat{y}_{i}=\sigma(W^{(3)}(\sigma(W^{(2)}(\sigma(W^{(1)}X_{i})))))$$
 
-## Backpropagation
+## NN Backpropagation
 - Method Overview:
   - Perform feedforward
   - Calculate error
