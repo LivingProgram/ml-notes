@@ -82,71 +82,89 @@ $$E=-\sum_{i=1}^{m}\sum_{j=1}^{n}y_{ij}ln(\hat{y}_{ij})$$
 - we need to find the lowest valley in the graph of error function and weights as that is where the error is least
 - by taking negative partial derivative of error function with respect to each weight that is the direction to move in towards a lower error and a better model
 - therefore we simply need to calculate the gradient of the error
+- also gradient = scalar x coordinates of point (scalar = label - prediction), this means label close to the prediction = small gradient
 
-## Single Train Sample $$\nabla E_{i}$$
-- Goal = Calculate the gradient of the error for a single training sample, $$X_{i}$$, $$= \nabla E_{i}$$
-- Given m training samples labeled:
+## Gradient Descent Notation
+- $$(x_{1},\ldots,x_{n})$$ : features for a specific training sample
+- $$X$$ : vector of features
+- $$X_{1},X_{2},\ldots,X_{m}$$ : features vectors for $$m$$ training samples
+- $$y$$ : label for training samples
+- $$\hat{y}$$ : predictions from algorithm for training samples
+- $$E$$ : cross entropy error
+- $$\nabla E$$ : gradient of error
+- $$(w_{1},\ldots,w_{n})$$ : weights of algorithm
+- $$\sigma(x)$$ : sigmoid function
+- $$\text{subscript}\ \ i$$ : for specific training sample
 
-$$X_{1},X_{2},\ldots,X_{m}$$
+## GD Single Train Sample $$\nabla E_{i}$$
+For a single training sample, $$X_{i}$$:
 
-- Individual training sample predictions:
+$$\begin{align}\nabla E_{i} &= (\frac{\partial}{\partial w_{1}}E_{i},\ldots,\frac{\partial}{\partial w_{n}}E_{i},\frac{\partial}{\partial b}E_{i})\\
+&= (\hat{y}_{i}-y_{i})(x_{1},\ldots,x_{n},1)\end{align}$$
 
-$$\hat{y}_{i}=\sigma(WX_{i}+b)$$
+### Proof.
 
-- Individual training sample error:
+$$
+\text{Individual training sample predictions:}\\
+\hat{y}_{i}=\sigma(WX_{i}+b)
+$$
 
-$$E_{i}=-y_{i}ln(\hat{y}_{i})-(1-y_{i})ln(1-\hat{y}_{i})$$
+$$
+\text{Individual training sample error:}\\
+E_{i}=-y_{i}ln(\hat{y}_{i})-(1-y_{i})ln(1-\hat{y}_{i})
+$$
 
-- The gradient of the error = partial derivatives of error for each weight:
+$$
+\text{Gradient is equal to partial derivatives of error for each weight:}\\
+\nabla E_{i} = (\frac{\partial}{\partial w_{1}}E_{i},\ldots,\frac{\partial}{\partial w_{n}}E_{i},\frac{\partial}{\partial b}E_{i})\\\\
+$$
 
-$$\nabla E_{i} = (\frac{\partial}{\partial w_{1}}E_{i},\ldots,\frac{\partial}{\partial w_{n}}E_{i},\frac{\partial}{\partial b}E_{i})$$
-
-- First calculate:
-
-$$\begin{align}\sigma'(x) &=\frac{d}{dx}\left(\frac{1}{1+e^{-x}}\right) \\
+$$\text{Sigmoid function derivative:}\\
+\begin{align}
+\sigma'(x) &=\frac{d}{dx}\left(\frac{1}{1+e^{-x}}\right) \\
 &=\frac{e^{-x}}{(1+e^{-x})^{2}} &&\text{(quotient rule)} \\
 &=\frac{1}{1+e^{-x}}\cdot \frac{e^{-x}}{1+e^{-x}} \\
-&=\sigma(x)(1-\sigma(x))&&\text{(long division)}\end{align}$$
+&=\sigma(x)(1-\sigma(x))&&\text{(long division)}\\\\
+\end{align}$$
 
-- Then calculate:
+$$\text{Partial derivative of prediction:}$$
 
-$$\begin{align}\frac{\partial}{\partial w_{j}}\hat{y}_{i}&=\frac{\partial}{\partial w_{j}}(\sigma(WX_{i}+b)) &&(\hat{y}_{i}\text{ formula)} \\
+$$
+\begin{align}
+\frac{\partial}{\partial w_{j}}\hat{y}_{i}&=\frac{\partial}{\partial w_{j}}(\sigma(WX_{i}+b)) &&(\hat{y}_{i}\text{ formula)} \\
 &= \sigma(WX_{i}+b)(1-\sigma(WX_{i}+b))\cdot\frac{\partial}{\partial w_{j}}(WX_{i}+b) &&(\sigma'(x) \text{ formula)}\\
 &= \hat{y}_{i}(1-\hat{y}_{i})\cdot\frac{\partial}{\partial w_{j}}(WX_{i}+b) \\
 &= \hat{y}_{i}(1-\hat{y}_{i})\cdot\frac{\partial}{\partial w_{j}}(w_{1}x_{1}+\ldots+w_{j}x_{j}+\ldots+w_{n}x_{n}+b) \\
 &= \hat{y}_{i}(1-\hat{y}_{i})\cdot(0+\ldots+x_{j}+\ldots+0) &&\text{(partial derivative)}\\
-&= \hat{y}_{i}(1-\hat{y}_{i})\cdot x_{j}\end{align}$$
+&= \hat{y}_{i}(1-\hat{y}_{i})\cdot x_{j}\\\\
+\end{align}$$
 
-- And finally:
+$$\text{Partial derivative of error:}$$
 
-$$\begin{align}\frac{\partial}{\partial w_{j}}E_{i}&=\frac{\partial}{\partial w_{j}}(-y_{i}ln(\hat{y}_{i})-(1-y_{i})ln(1-\hat{y}_{i})) &&(E_{i}\text{ formula)}\\
+$$
+\begin{align}\frac{\partial}{\partial w_{j}}E_{i}&=\frac{\partial}{\partial w_{j}}(-y_{i}ln(\hat{y}_{i})-(1-y_{i})ln(1-\hat{y}_{i})) &&(E_{i}\text{ formula)}\\
 &= -y_{i}(\frac{\partial}{\partial w_{j}}(ln(\hat{y}_{i})))-(1-y_{i})(\frac{\partial}{\partial w_{j}}(ln(1-\hat{y}_{i})))\\
 &= -y_{i}(\frac{1}{\hat{y}_{i}}\cdot\frac{\partial}{\partial w_{j}}(\hat{y}_{i}))-(1-y_{i})(\frac{1}{1-\hat{y}_{i}}\cdot\frac{\partial}{\partial w_{j}}(1-\hat{y}_{i})) &&\text{(chain rule)}\\
 &= -y_{i}(\frac{1}{\hat{y}_{i}}\cdot\hat{y}_{i}(1-\hat{y}_{i})x_{j})-(1-y_{i})(\frac{1}{1-\hat{y}_{i}}\cdot(-1)\hat{y}_{i}(1-\hat{y}_{i})x_{j})&&(\frac{\partial}{\partial w_{j}}\hat{y}_{i}\text{ formula)}\\
 &= -y_{i}(1-\hat{y}_{i})x_{j}+(1-y_{i})\hat{y}_{i}\cdot x_{j}\\
 &= (-y_{i}+y_{i}\hat{y}_{i}+\hat{y}_{i}-y_{i}\hat{y}_{i})x_{j}\\
-&= -(y_{i}-\hat{y}_{i})x_{j}\end{align}$$
+&= -(y_{i}-\hat{y}_{i})x_{j}\\\\
+\end{align}$$
 
-- Similarly:
+$$\text{By a similar proof:}$$
 
-$$\frac{\partial}{\partial b}E_{i}=-(y_{i}-\hat{y}_{i})$$
+$$\frac{\partial}{\partial b}E_{i}=-(y_{i}-\hat{y}_{i})\\\\$$
 
-- In summary, for a training sample, $$X_{i}$$, with:
+$$\text{Gradient of error:}$$
 
-$$\begin{align}\text{features } &= (x_{1},\ldots,x_{n})\\
-\text{label } &= y_{i} \\
-\text{prediction } &= \hat{y}_{i}\end{align}$$
-
-$$\begin{align}\nabla E_{i} &= (\frac{\partial}{\partial w_{1}}E_{i},\ldots,\frac{\partial}{\partial w_{n}}E_{i},\frac{\partial}{\partial b}E_{i})\\
+$$\begin{align}
+\nabla E_{i} &= (\frac{\partial}{\partial w_{1}}E_{i},\ldots,\frac{\partial}{\partial w_{n}}E_{i},\frac{\partial}{\partial b}E_{i})\\
 &= \left(-(y_{i}-\hat{y}_{i})x_{1},\ldots,-(y_{i}-\hat{y}_{i})x_{n},-(y_{i}-\hat{y}_{i})\right)\\
 &= -(y_{i}-\hat{y}_{i})(x_{1},\ldots,x_{n},1)\\
-&= (\hat{y}_{i}-y_{i})(x_{1},\ldots,x_{n},1)\end{align}$$
+&= (\hat{y}_{i}-y_{i})(x_{1},\ldots,x_{n},1)\ \ \ \ \blacksquare\\\\
+\end{align}$$
 
-- Significance:
-  - gradient = scalar x coordinates of point (scalar = label - prediction)
-  - implies: label close to the prediction = small gradient
-
-## Overall $$\nabla E$$
+## GD Overall $$\nabla E$$
 - Goal = Calculate the gradient of the error for over all train samples, $$= \nabla E$$
 - Given m training samples labeled:
 
