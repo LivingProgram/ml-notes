@@ -182,14 +182,14 @@ $$\begin{align}\nabla E &= \frac{1}{m}\sum_{i=1}^{m}\nabla E_{i}\\
 
 # Logistic Regression Algorithm
 
-## Batch Size $$=1$$
+## When Batch Size $$=1$$
 1. Initialize random weights: $$w_{1},\ldots,w_{n},b$$
 2. For every train sample: $$X_{1},\ldots,X_{m}$$
    - Update weights: $$w_{j}\leftarrow w_{j}-\alpha\frac{\partial}{\partial w_{j}}E_{i}$$
    - Update bias: $$b\leftarrow b-\alpha\frac{\partial}{\partial b}E_{i}$$
 3. Repeat until error is small
 
-## Batch Size $$=m$$
+## When Batch Size $$=m$$
 1. Initialize random weights: $$w_{1},\ldots,w_{n},b$$
 2. For every batch:
    - Update weights:$$w_{j}\leftarrow w_{j}-\alpha\frac{1}{m}\sum_{i=1}^{m}\frac{\partial}{\partial w_{j}}E_{i}$$
