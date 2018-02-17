@@ -165,19 +165,20 @@ $$\begin{align}
 \end{align}$$
 
 ## GD Overall $$\nabla E$$
-- Goal = Calculate the gradient of the error for over all train samples, $$= \nabla E$$
-- Given m training samples labeled:
+For $$m$$ training samples:
 
-$$X_{1},X_{2},\ldots,X_{m}$$
+$$\nabla E = \frac{1}{m}\sum_{i=1}^{m}(\hat{y}_{i}-y_{i})(x_{1},\ldots,x_{n},1)$$
 
-- Overall error = average of individual train sample errors:
+### Proof.
+
+$$\text{Overall error = average of individual train sample errors:}$$
 
 $$E=\frac{1}{m}\sum_{i=1}^{m}E_{i}$$
 
-- Overall gradient of error = average of individual train sample gradients:
+$$\text{Overall gradient of error = average of individual train sample gradients:}$$
 
 $$\begin{align}\nabla E &= \frac{1}{m}\sum_{i=1}^{m}\nabla E_{i}\\
-&=\frac{1}{m}\sum_{i=1}^{m}(\hat{y}_{i}-y_{i})(x_{1},\ldots,x_{n},1)&&(\nabla E_{i}\text{ formula)}\end{align}$$
+&=\frac{1}{m}\sum_{i=1}^{m}(\hat{y}_{i}-y_{i})(x_{1},\ldots,x_{n},1)\ \ \ \ \blacksquare\\\\\end{align}$$
 
 # Logistic Regression Algorithm
 
