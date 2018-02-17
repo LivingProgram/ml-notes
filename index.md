@@ -15,7 +15,7 @@
 - measures the model's performance
 - must be continuous, not discrete, there should always be a direction towards a more optimal error
 
-## Sigmoid Activation Function
+# Sigmoid Activation Function
 - sigmoid graph and equation: ![sigmoid function](https://livingprogram.github.io/ml-notes/images/ml-notes_2.jpg)
 - takes in all real numbers and outputs a probability between 0 and 1
 - allows a continuous error function
@@ -36,20 +36,23 @@
 - how likely a model's predictions are correct = product of the probabilities that every point is its labeled class
 - maximizing the product of probabilities = best model
 
-## Cross-Entropy Error Function
-- Motivation for creating cross entropy function:
-  - maximum likelihood is able to measure a model's performance
-  - products = hard to compute and yield small numbers (instead use sums = easy to calculate)
-  - use logs, because of the property $$log(ab) = log(a) + log(b)$$ (allows our products to turn into sums)
-  - log(number_between_0_and_1) = negative numbers (instead use -log() = positive)
-  - if we use -log(), minimizing -log() = best model (because before, larger product = better model, and log(large_product) = small number, so now we need to minimize)
-- Notation:
-  - $$m$$ denotes number of training samples
-  - $$X_{i}$$ denotes a specific train sample $$i$$
-  - $$n$$ denotes number of features
-  - $$w_{j}$$ denotes a specific feature weight
-  - $$x_{j}$$ denotes a specific input feature
-  - $$\hat{y}_{i}$$ denotes prediction for a specific train sample $$i$$
+# Cross-Entropy Error Function
+## Cross-Entropy Motivation
+- maximum likelihood is able to measure a model's performance
+- products = hard to compute and yield small numbers (instead use sums = easy to calculate)
+- use logs, because of the property $$log(ab) = log(a) + log(b)$$ (allows our products to turn into sums)
+- log(number_between_0_and_1) = negative numbers (instead use -log() = positive)
+- if we use -log(), minimizing -log() = best model (because before, larger product = better model, and log(large_product) = small number, so now we need to minimize)
+
+## Cross-Entropy Notation
+- $$m$$ denotes number of training samples
+- $$X_{i}$$ denotes a specific train sample $$i$$
+- $$n$$ denotes number of features
+- $$w_{j}$$ denotes a specific feature weight
+- $$x_{j}$$ denotes a specific input feature
+- $$\hat{y}_{i}$$ denotes prediction for a specific train sample $$i$$
+
+## Cross-Entropy Equations
 - Calculate predictions:
 
 $$\begin{align}\hat{y}_{i}&=\sigma(WX_{i}+b) \\
@@ -68,9 +71,9 @@ $$E(W,b)=-\frac{1}{m}\sum_{i=1}^{m}y_{i}ln(\sigma(WX_{i}+b))+(1-y_{i})ln(1-\sigm
 
 $$E=-\sum_{i=1}^{m}\sum_{j=1}^{n}y_{ij}ln(\hat{y}_{ij})$$
 
-- Explanations:
-  - y = 1 or 0, therefore only one term in the summation is chosen, and that term will calculate the ln() of the correct probability, then sum the negative ln’s
-  - only take -ln() of probabilities that matter, formula when n = 2 turns out to be cross entropy formula for 2 classes
+## Cross-Entropy Explanations
+- y = 1 or 0, therefore only one term in the summation is chosen, and that term will calculate the ln() of the correct probability, then sum the negative ln’s
+- only take -ln() of probabilities that matter, formula when n = 2 turns out to be cross entropy formula for 2 classes
 
 # Gradient Descent
 
