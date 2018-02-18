@@ -444,14 +444,30 @@ $$
 $$
 
 ### (WIP) Backprop Algorithm Pseudo-Code
+#### Pseudo-Code Notation
+- same notation as NN Notation
+- `np.matmul()` : numpy matrix multiply function
+- `np.ndarray.T` : numpy matrix transpose
+- `*` : numpy element-wise multiplication
+- `np.ndarray.shape` : numpy array shape
+
+#### Actual Pseudo-Code
 - Given training data: $$(X_1,y_1),(X_2,y_2),\ldots,(X_m,y_m)$$
   - Where each training sample has features: $$(x_1,x_2,\ldots,x_n)$$
 - Given batch size $$= m$$
 - Number of NN layers $$= L$$
 - Number of neurons per layer is list = $$[s_1,s_2,\ldots,s_l,\ldots,s_L]$$
+- Weights shape: $$W^{(l)}.shape=(1,s_l)$$
+- X shape: $$X.shape=(1,s_1)$$
 - For every train sample $$(X_i,y_i)$$ in $$[(X_1,y_1),\ldots,(X_m,y_m)]$$:
   - Let $$a_1^{(1)}=x_1,\ a_2^{(1)}=x_2,\ \ldots,\ a_{s_1}^{(1)}=x_n$$
-  - Perform Forward Propagation
+  - Perform Forward Propagation to compute $$a^{(l)},\ \forall\ l\in\{2,3,\ldots,L\}$$
+    - (put feedforward formula here with proper matrix multiplications)
+  - Compute $$\delta^{(L)}=a^{(L)}-y_i$$
+  - Compute $$\delta^{(L-1)},\delta^{(L-2)},\ldots,\delta^{(2)}$$
+    - $$\delta^{(l)}=np.matmul(W^{(l)},\delta^{(l+1)}.T)*a^{(l)}*(1-a^{(l)})$$
+
+#### Proof.
 
 (put algorithm here with pseudo-code)
 
