@@ -360,6 +360,88 @@ $$\begin{align}
 &\phantom{0000} \cdot \left(a_1^{(1)}\right) \ \ \ \ \blacksquare\\\\
 \end{align}$$
 
+### Calculating $$\frac{\partial}{\partial W^{(1)}_{21}}E$$
+For the sample NN:
+
+$$\begin{align}
+\frac{\partial}{\partial W^{(1)}_{21}}E &= \left(\frac{a_1^{(4)}-y}{a_1^{(4)}(1-a_1^{(4)})}\right) \\
+&\phantom{0000} \cdot \left(a_1^{(4)}(1-a_1^{(4)})\right) \\
+&\phantom{0000} \cdot \left(\left(W_{11}^{(3)} \cdot a_1^{(3)}(1-a_1^{(3)}) \cdot W_{11}^{(2)}\right) + \left(W_{21}^{(3)} \cdot a_2^{(3)}(1-a_2^{(3)}) \cdot W_{12}^{(2)}\right) + \left(W_{31}^{(3)} \cdot a_3^{(3)}(1-a_3^{(3)}) \cdot W_{13}^{(2)}\right)\right) \\
+&\phantom{0000} \cdot \left(a_1^{(2)}(1-a_1^{(2)})\right) \\
+&\phantom{0000} \cdot \left(a_2^{(1)}\right)
+\end{align}$$
+
+#### Proof.
+
+$$\text{Virtually identical proof as $\frac{\partial}{\partial W^{(1)}_{11}}E$,} \\
+\text{Except for one partial derivative:}$$
+
+$$\frac{\partial E}{\partial W_{11}^{(1)}} = \frac{\partial E}{\partial a_1^{(4)}} \cdot \frac{\partial a_1^{(4)}}{\partial z_1^{(4)}} \cdot \frac{\partial z_1^{(4)}}{\partial a_1^{(2)}} \cdot \frac{\partial a_1^{(2)}}{\partial z_1^{(2)}} \cdot \frac{\partial z_1^{(2)}}{\partial W_{21}^{(1)}} \\\\
+$$
+
+$$\text{Calculating $\frac{\partial z_1^{(2)}}{\partial W_{21}^{(1)}}$:}$$
+
+$$\begin{align}
+\frac{\partial z_1^{(2)}}{\partial W_{21}^{(1)}} &= \frac{\partial }{\partial W_{21}^{(1)}}(W_{11}^{(1)}a_1^{(1)} + W_{21}^{(1)}a_2^{(1)} + W_{31}^{(1)}a_3^{(1)}) \\
+&= 0 + \frac{\partial }{\partial W_{21}^{(1)}}(W_{21}^{(1)}a_2^{(1)}) + 0 \\
+&= a_2^{(1)} \\\\
+\end{align}$$
+
+$$
+\text{Reusing previously calculated partial derivatives,} \\
+\text{and $\frac{\partial z_1^{(2)}}{\partial W_{21}^{(1)}}$, yields desired result} \ \ \ \ \blacksquare\\\\
+$$
+
+### Calculating $$\frac{\partial}{\partial W^{(3)}_{11}}E$$
+For the sample NN:
+
+$$\begin{align}
+\frac{\partial}{\partial W^{(1)}_{21}}E &= \left(\frac{a_1^{(4)}-y}{a_1^{(4)}(1-a_1^{(4)})}\right) \cdot \left(a_1^{(4)}(1-a_1^{(4)}\right) \cdot \left( a_1^{(3)}\right)
+\end{align}$$
+
+#### Proof.
+
+$$\text{For simplicity, Let:}$$
+
+$$\begin{align}
+x_1=a_1^{(1)},\ x_2&=a_2^{(1)},\ x_3=a_3^{(1)}, \\
+\hat{y}&=a_1^{(4)}
+\end{align}$$
+
+$$\text{Equations from sample NN:}$$
+
+$$\begin{align}
+z_1^{(4)} &= W_{11}^{(3)}a_1^{(3)} + W_{21}^{(3)}a_2^{(3)} + W_{31}^{(3)}a_3^{(3)} \\
+a_1^{(4)} &= \sigma(z_1^{(4)}) \\
+E &= -y\ln(a_1^{(4)})-(1-y)\ln(1-a_1^{(4)})\\\\
+\end{align}$$
+
+$$\text{Using chain rule:}$$
+
+$$
+\frac{\partial E}{\partial W_{11}^{(3)}} = \frac{\partial E}{\partial a_1^{(4)}} \cdot \frac{\partial a_1^{(4)}}{\partial z_1^{(4)}} \cdot \frac{\partial z_1^{(4)}}{\partial W_{11}^{(3)}} \\\\
+$$
+
+$$\text{From proof for $\frac{\partial}{\partial W^{(1)}_{11}}E$:}$$
+
+$$
+\frac{\partial E}{\partial a_1^{(4)}}=\frac{a_1^{(4)}-y}{a_1^{(4)}(1-a_1^{(4)})} \\\\
+$$
+
+$$
+\frac{\partial a_1^{(4)}}{\partial z_1^{(4)}} = a_1^{(4)}(1-a_1^{(4)}) \\\\
+$$
+
+$$\begin{align}
+\frac{\partial z_1^{(4)}}{\partial W_{11}^{(3)}} &= \frac{\partial }{\partial W_{11}^{(3)}}(W_{11}^{(3)}a_1^{(3)} + W_{21}^{(3)}a_2^{(3)} + W_{31}^{(3)}a_3^{(3)}) \\
+&= \frac{\partial }{\partial W_{11}^{(3)}}(W_{11}^{(3)}a_1^{(3)}) + 0 + 0 \\
+&= a_1^{(3)} \\\\
+\end{align}$$
+
+$$
+\frac{\partial E}{\partial W_{11}^{(3)}} = \left(\frac{a_1^{(4)}-y}{a_1^{(4)}(1-a_1^{(4)})}\right) \cdot \left(a_1^{(4)}(1-a_1^{(4)}\right) \cdot \left( a_1^{(3)}\right) \ \ \ \ \blacksquare\\\\
+$$
+
 (Work in Progress below... )
 
 - Final Goal = Calculate the overall gradient of the error:
