@@ -214,6 +214,7 @@ $$\begin{align}\nabla E &= \frac{1}{m}\sum_{i=1}^{m}\nabla E_{i}\\
 - $$\sigma(x)$$ : sigmoid function
 - $$W^{(l)}_{ij}$$ : weight of layer $$l$$ that connects input neuron $$i$$ to output neuron $$j$$
 - $$W^{(l)}$$ : weights vector for layer $$l$$
+- $$s_{l}$$ denotes number of neurons in layer $$l$$
 - $$L$$ : number of layers, including input layer
 - $$z^{(l)}_{j}$$ denotes the output of the $$j^{\text{th}}$$ neuron in the $$l^{\text{th}}$$ layer before applying sigmoid function
 - $$a^{(l)}_{j}$$ denotes the output of the $$j^{\text{th}}$$ neuron in the $$l^{\text{th}}$$ layer after applying sigmoid function
@@ -442,64 +443,6 @@ $$
 \frac{\partial E}{\partial W_{11}^{(3)}} = \left(\frac{a_1^{(4)}-y}{a_1^{(4)}(1-a_1^{(4)})}\right) \cdot \left(a_1^{(4)}(1-a_1^{(4)}\right) \cdot \left( a_1^{(3)}\right) \ \ \ \ \blacksquare\\\\
 $$
 
-(Work in Progress below... )
-
-- Final Goal = Calculate the overall gradient of the error:
-
-$$\nabla E$$
-
-- The gradient of the error = partial derivatives of error with respect to each weight:
-
-$$\nabla E = \left(\frac{\partial}{\partial W^{(1)}_{11}}E,\ldots,\frac{\partial}{\partial W^{(k)}_{ij}}E,\ldots,\frac{\partial}{\partial W^{(3)}_{31}}E\right)$$
-
-- Intermediate Goal = Calculate partial derivative of error with respect to sample weight:
-
-$$\frac{\partial}{\partial W^{(1)}_{11}}E$$
-
-- Intermediate Goal = Calculate partial derivative of error with respect to sample weight for single training sample:
-
-$$\frac{\partial}{\partial W^{(1)}_{11}} E_{i}$$
-
-- (All subscript i's will be removed to simplify calculation of partial derivatives)
-- From the diagram, we have:
-
-$$\begin{align}z_{1}^{(2)}&=W^{(1)}X=W_{11}^{(1)}x_{1}+W_{21}^{(1)}x_{2}+W_{31}^{(1)}\\
-a_{1}^{(2)}&=\sigma(z_{1}^{(2)})\\
-z_{1}^{(3)}&=W^{(2)}a^{(2)}=W_{11}^{(2)}a_{1}^{(2)}+W_{21}^{(2)}a_{2}^{(2)}+W_{31}^{(2)}a_{3}^{(2)}+W_{41}^{(2)}\\
-a_{1}^{(3)}&=\sigma(z_{1}^{(3)})\\
-z_{1}^{(4)}&=W^{(3)}a^{(3)}=W_{11}^{(3)}a_{1}^{(3)}+W_{21}^{(3)}a_{2}^{(3)}+W_{31}^{(3)}\\
-\hat{y}&=\sigma(z_{1}^{(4)})\\
-\hat{y}&=\sigma(W^{(3)}(\sigma(W^{(2)}(\sigma(W^{(1)}X)))))\end{align}$$
-
-- Same error function as perceptron (just with a more complex prediction):
-
-$$E=-yln(\hat{y})-(1-y)ln(1-\hat{y})$$
-
-- Recall chain rule:
-
-$$\frac{\partial C}{\partial x}=\frac{\partial A}{\partial x}\cdot\frac{\partial B}{\partial A}\cdot\frac{\partial C}{\partial B}$$
-
-- From the chain rule:
-
-$$\frac{\partial}{\partial W^{(1)}_{11}}E=\frac{\partial E}{\partial \hat{y}}\cdot\frac{\partial \hat{y}}{\partial z_{1}^{(4)}}\cdot\frac{\partial z_{1}^{(4)}}{\partial a_{1}^{(3)}}\cdot\frac{\partial a_{1}^{(3)}}{\partial z_{1}^{(3)}}\cdot\frac{\partial z_{1}^{(3)}}{\partial a_{1}^{(2)}}\cdot\frac{\partial a_{1}^{(2)}}{\partial z_{1}^{(2)}}\cdot\frac{\partial z_{1}^{(2)}}{\partial W^{(1)}_{11}}$$
-
-- Calculating partial derivatives:
-
-$$\begin{align}\frac{\partial E}{\partial \hat{y}}&=\frac{\partial}{\partial \hat{y}}(-yln(\hat{y})-(1-y)ln(1-\hat{y}))\\
-&=-y\cdot\frac{\partial}{\partial \hat{y}}(ln(\hat{y})-(1-y)\cdot\frac{\partial}{\partial \hat{y}}(ln(1-\hat{y}))\\
-&=-y\cdot\frac{1}{\hat{y}}\cdot 1-(1-y)\cdot\frac{1}{1- \hat{y}}\cdot -1\\
-&=\frac{\hat{y}-y}{\hat{y}(1-\hat{y})}\\
-\frac{\partial \hat{y}}{\partial z_{1}^{(4)}}&=\\
-\frac{\partial z_{1}^{(4)}}{\partial a_{1}^{(3)}}&=\\
-\frac{\partial a_{1}^{(3)}}{\partial z_{1}^{(3)}}&=\\
-\frac{\partial z_{1}^{(3)}}{\partial a_{1}^{(2)}}&=\\
-\frac{\partial a_{1}^{(2)}}{\partial z_{1}^{(2)}}&=\\
-\frac{\partial z_{1}^{(2)}}{\partial W^{(1)}_{11}}&=\end{align}$$
-
-- Multiplying to get:
-
-$$\frac{\partial}{\partial W^{(1)}_{11}}E=$$
-
 ### (WIP) Backprop Algorithm
 (put algorithm here with pseudo-code)
 
@@ -509,16 +452,7 @@ $$W^{(k)}_{ij}\leftarrow W^{(k)}_{ij}-\alpha\frac{\partial}{\partial W^{(k)}_{ij
 
 (put proof here with WWTP: partial derivative of E for any Wl,i,j)
 
-### General NN $$\nabla E$$ Calculation
-- Additional Notation:
-  - $$s_{k}$$ denotes number of neurons in layer $$k$$
-- Final Goal = Calculate the overall gradient of the error:
-
-$$\nabla E$$
-
-- The gradient of the error = partial derivatives of error with respect to each weight:
-
-$$\nabla E = \left(\frac{\partial}{\partial W^{(1)}_{11}}E,\ldots,\frac{\partial}{\partial W^{(k)}_{ij}}E,\ldots,\frac{\partial}{\partial W^{(n)}_{s_{n-1}s_{n}}}E\right)$$
+$$\nabla E = \left(\frac{\partial}{\partial W^{(1)}_{11}}E,\ldots,\frac{\partial}{\partial W^{(l)}_{ij}}E,\ldots,\frac{\partial}{\partial W^{(L)}_{s_{L-1}s_{L}}}E\right)$$
 
 # Jupyter Cheatsheet
 - tab: allows you to complete variable names or list functions of a package within code cell
