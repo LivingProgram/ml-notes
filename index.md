@@ -248,7 +248,13 @@ $$\hat{y}_{i}=\sigma(W^{(3)}(\sigma(W^{(2)}(\sigma(W^{(1)}X_{i})))))$$
 ### Calculating $$\frac{\partial}{\partial W^{(1)}_{11}}E$$
 For the sample NN:
 
-$$\frac{\partial}{\partial W^{(1)}_{11}}E=\ldots$$
+$$\begin{align}
+\frac{\partial}{\partial W^{(1)}_{11}}E &= \left(\frac{a_1^{(4)}-y}{a_1^{(4)}(1-a_1^{(4)})}\right) \\
+&\phantom{0000} \cdot \left(a_1^{(4)}(1-a_1^{(4)})\right) \\
+&\phantom{0000} \cdot \left(\left(W_{11}^{(3)} \cdot a_1^{(3)}(1-a_1^{(3)}) \cdot W_{11}^{(2)}\right) + \left(W_{21}^{(3)} \cdot a_2^{(3)}(1-a_2^{(3)}) \cdot W_{12}^{(2)}\right) + \left(W_{31}^{(3)} \cdot a_3^{(3)}(1-a_3^{(3)}) \cdot W_{13}^{(2)}\right)\right) \\
+&\phantom{0000} \cdot \left(a_1^{(2)}(1-a_1^{(2)})\right) \\
+&\phantom{0000} \cdot \left(a_1^{(1)}\right)
+\end{align}$$
 
 #### Proof.
 
