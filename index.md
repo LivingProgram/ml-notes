@@ -203,11 +203,21 @@ $$\begin{align}\nabla E &= \frac{1}{m}\sum_{i=1}^{m}\nabla E_{i}\\
 - Multi-Class Classification: apply softmax to the scores of multiple output perceptrons (bounds sum of probabilities for each class between 0 and 1)
 
 ## NN Notation
-- $$m$$ denotes number of training samples
-- $$X_{i}$$ denotes a specific train sample $$i$$
-- $$\hat{y}_{i}$$ denotes prediction for a specific train sample $$i$$
-- $$W^{(k)}_{ij}$$ denotes weight of layer $$k$$ that connects input neuron $$i$$ to output neuron $$j$$
-- $$n$$ denotes number of layers in NN
+- $$m$$ : number of training samples
+- $$(x_{1},\ldots,x_{n})$$ : features for a specific training sample
+- $$X$$ : vector of features
+- $$X_{1},X_{2},\ldots,X_{m}$$ : features vectors for $$m$$ training samples
+- $$y$$ : label for training samples
+- $$\hat{y}$$ : predictions from algorithm for training samples
+- $$E$$ : cross entropy error
+- $$\nabla E$$ : gradient of error
+- $$\sigma(x)$$ : sigmoid function
+- $$W^{(l)}_{ij}$$ : weight of layer $$l$$ that connects input neuron $$i$$ to output neuron $$j$$
+- $$W^{(l)}$$ : weights vector for layer $$l$$
+- $$L$$ : number of layers
+- $$z^{(l)}_{j}$$ denotes the output of the $$j^{\text{th}}$$ neuron in the $$l^{\text{th}}$$ layer before applying sigmoid function
+- $$a^{(l)}_{j}$$ denotes the output of the $$j^{\text{th}}$$ neuron in the $$l^{\text{th}}$$ layer after applying sigmoid function
+- $$\text{subscript}\ \ i$$ : for specific training sample
 
 ## NN Feedforward Equations
 
@@ -233,16 +243,6 @@ $$\hat{y}_{i}=\sigma(W^{(3)}(\sigma(W^{(2)}(\sigma(W^{(1)}X_{i})))))$$
 
 ### Sample NN Diagram
 ![Example NN](https://livingprogram.github.io/ml-notes/images/ml-notes_21.jpg)
-
-- Notation:
-  - $$x_{j}$$ denotes input feature $$j$$
-  - $$X$$ denotes input vector
-  - $$W^{(k)}_{ij}$$ denotes weight of layer $$k$$ that connects input neuron $$i$$ to output neuron $$j$$
-  - $$W^{(k)}$$ denotes weights vector for layer $$k$$
-  - $$(1)$$ denotes the bias unit
-  - $$z^{(k)}_{j}$$ denotes the output of the $$j^{\text{th}}$$ neuron in the $$k^{\text{th}}$$ layer before applying sigmoid function
-  - $$a^{(k)}_{j}$$ denotes the output of the $$j^{\text{th}}$$ neuron in the $$k^{\text{th}}$$ layer after applying sigmoid function
-  - $$\hat{y}$$ denotes final output prediction
 
 - Final Goal = Calculate the overall gradient of the error:
 
