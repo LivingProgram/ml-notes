@@ -312,6 +312,25 @@ $$\begin{align}
 &= a_1^{(4)}(1-a_1^{(4)}) &&(a_1^{(4)}=\sigma(z_1^{(4)})) \\\\
 \end{align}$$
 
+$$\begin{align}
+\frac{\partial z_1^{(4)}}{\partial a_1^{(2)}} &= \frac{\partial }{\partial a_1^{(2)}}(W_{11}^{(3)}a_1^{(3)} + W_{21}^{(3)}a_2^{(3)} + W_{31}^{(3)}a_3^{(3)}) \\
+&= \frac{\partial }{\partial a_1^{(2)}}(W_{11}^{(3)}\sigma(z_1^{(3)}) + W_{21}^{(3)}\sigma(z_2^{(3)}) + W_{31}^{(3)}\sigma(z_3^{(3)})) \\
+&= W_{11}^{(3)} \cdot \frac{\partial }{\partial a_1^{(2)}}(\sigma(z_1^{(3)})) + W_{21}^{(3)} \cdot \frac{\partial }{\partial a_1^{(2)}}(\sigma(z_2^{(3)})) + W_{31}^{(3)} \cdot \frac{\partial }{\partial a_1^{(2)}}(\sigma(z_3^{(3)})) \\
+&= W_{11}^{(3)} \cdot \sigma(z_1^{(3)})(1-\sigma(z_1^{(3)})) \cdot \frac{\partial }{\partial a_1^{(2)}}(z_1^{(3)}) \\
+&\phantom{0000} + W_{21}^{(3)} \cdot \sigma(z_2^{(3)})(1-\sigma(z_2^{(3)})) \cdot \frac{\partial }{\partial a_1^{(2)}}(z_2^{(3)}) \\
+&\phantom{0000} + W_{31}^{(3)} \cdot \sigma(z_3^{(3)})(1-\sigma(z_3^{(3)})) \cdot \frac{\partial }{\partial a_1^{(2)}}(z_3^{(3)}) \\
+&= W_{11}^{(3)} \cdot a_1^{(3)}(1-a_1^{(3)}) \cdot \frac{\partial }{\partial a_1^{(2)}}(z_1^{(3)}) \\
+&\phantom{0000} + W_{21}^{(3)} \cdot a_2^{(3)}(1-a_2^{(3)}) \cdot \frac{\partial }{\partial a_1^{(2)}}(z_2^{(3)}) \\
+&\phantom{0000} + W_{31}^{(3)} \cdot a_3^{(3)}(1-a_3^{(3)}) \cdot \frac{\partial }{\partial a_1^{(2)}}(z_3^{(3)}) \\
+&= W_{11}^{(3)} \cdot a_1^{(3)}(1-a_1^{(3)}) \cdot \frac{\partial }{\partial a_1^{(2)}}(W_{11}^{(2)}a_1^{(2)} + W_{21}^{(2)}a_2^{(2)} + W_{31}^{(2)}a_3^{(2)} + W_{41}^{(2)}a_4^{(2)}) \\
+&\phantom{0000} + W_{21}^{(3)} \cdot a_2^{(3)}(1-a_2^{(3)}) \cdot \frac{\partial }{\partial a_1^{(2)}}(W_{12}^{(2)}a_1^{(2)} + W_{22}^{(2)}a_2^{(2)} + W_{32}^{(2)}a_3^{(2)} + W_{42}^{(2)}a_4^{(2)}) \\
+&\phantom{0000} + W_{31}^{(3)} \cdot a_3^{(3)}(1-a_3^{(3)}) \cdot \frac{\partial }{\partial a_1^{(2)}}(W_{13}^{(2)}a_1^{(2)} + W_{23}^{(2)}a_2^{(2)} + W_{33}^{(2)}a_3^{(2)} + W_{43}^{(2)}a_4^{(2)}) \\
+&= W_{11}^{(3)} \cdot a_1^{(3)}(1-a_1^{(3)}) \cdot \left(\frac{\partial }{\partial a_1^{(2)}}(W_{11}^{(2)}a_1^{(2)}) + 0 + 0 + 0 \right) \\
+&\phantom{0000} + W_{21}^{(3)} \cdot a_2^{(3)}(1-a_2^{(3)}) \cdot \left(\frac{\partial }{\partial a_1^{(2)}}(W_{12}^{(2)}a_1^{(2)}) + 0 + 0 + 0 \right) \\
+&\phantom{0000} + W_{31}^{(3)} \cdot a_3^{(3)}(1-a_3^{(3)}) \cdot \left(\frac{\partial }{\partial a_1^{(2)}}(W_{13}^{(2)}a_1^{(2)}) + 0 + 0 + 0 \right) \\
+&= \left(W_{11}^{(3)} \cdot a_1^{(3)}(1-a_1^{(3)}) \cdot W_{11}^{(2)}\right) + \left(W_{21}^{(3)} \cdot a_2^{(3)}(1-a_2^{(3)}) \cdot W_{12}^{(2)}\right) + \left(W_{31}^{(3)} \cdot a_3^{(3)}(1-a_3^{(3)}) \cdot W_{13}^{(2)}\right) \\
+\end{align}$$
+
 (Work in Progress below... )
 
 - Final Goal = Calculate the overall gradient of the error:
