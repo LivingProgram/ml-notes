@@ -303,11 +303,14 @@ $$\begin{align}\frac{\partial E}{\partial \hat{y}}&=\frac{\partial}{\partial \ha
 
 $$\frac{\partial}{\partial W^{(1)}_{11}}E=$$
 
-### (Unfinished)
+### (WIP) Backprop Algorithm
+(put algorithm here with pseudo-code)
 
 - (insert this in detailed section of overview with math included) After calculating gradient, Update weight:
 
 $$W^{(k)}_{ij}\leftarrow W^{(k)}_{ij}-\alpha\frac{\partial}{\partial W^{(k)}_{ij}}E$$
+
+(put proof here with WWTP: partial derivative of E for any Wl,i,j)
 
 ### General NN $$\nabla E$$ Calculation
 - Additional Notation:
