@@ -443,7 +443,16 @@ $$
 \frac{\partial E}{\partial W_{11}^{(3)}} = \left(\frac{a_1^{(4)}-y}{a_1^{(4)}(1-a_1^{(4)})}\right) \cdot \left(a_1^{(4)}(1-a_1^{(4)}\right) \cdot \left( a_1^{(3)}\right) \ \ \ \ \blacksquare\\\\
 $$
 
-### (WIP) Backprop Algorithm
+### (WIP) Backprop Algorithm Pseudo-Code
+- Given training data: $$(X_1,y_1),(X_2,y_2),\ldots,(X_m,y_m)$$
+  - Where each training sample has features: $$(x_1,x_2,\ldots,x_n)$$
+- Given batch size $$= m$$
+- Number of NN layers $$= L$$
+- Number of neurons per layer is list = $$[s_1,s_2,\ldots,s_l,\ldots,s_L]$$
+- For every train sample $$(X_i,y_i)$$ in $$[(X_1,y_1),\ldots,(X_m,y_m)]$$:
+  - Let $$a_1^{(1)}=x_1,\ a_2^{(1)}=x_2,\ \ldots,\ a_{s_1}^{(1)}=x_n$$
+  - Perform feedforward
+
 (put algorithm here with pseudo-code)
 
 - (insert this in detailed section of overview with math included) After calculating gradient, Update weight:
