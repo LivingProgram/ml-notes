@@ -245,6 +245,8 @@ $$\hat{y}_{i}=\sigma(W^{(3)}(\sigma(W^{(2)}(\sigma(W^{(1)}X_{i})))))$$
 ### Sample NN Diagram
 ![Example NN](https://livingprogram.github.io/ml-notes/images/ml-notes_21.jpg)
 
+(Work in Progress below... )
+
 - Final Goal = Calculate the overall gradient of the error:
 
 $$\nabla E$$
