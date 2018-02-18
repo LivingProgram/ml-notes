@@ -282,13 +282,34 @@ $$\frac{\partial C}{\partial x} = \frac{\partial A}{\partial x} \cdot \frac{\par
 $$\text{The following is incorrect use of chain rule:}$$
 
 $$
-\frac{\partial E}{\partial W_{11}^{(1)}} = \frac{\partial E}{\partial a_1^{(4)}} \cdot \frac{\partial a_1^{(4)}}{\partial z_1^{(4)}} \cdot \frac{\partial z_1^{(4)}}{\partial a_1^{(3)}} \cdot \frac{\partial a_1^{(3)}}{\partial z_1^{(3)}} \cdot \frac{\partial z_1^{(3)}}{\partial a_1^{(2)}} \cdot \frac{\partial a_1^{(2)}}{\partial z_1^{(2)}} \cdot \frac{\partial z_1{(2)}}{\partial W_{11}^{(1)}} \\\\
+\frac{\partial E}{\partial W_{11}^{(1)}} = \frac{\partial E}{\partial a_1^{(4)}} \cdot \frac{\partial a_1^{(4)}}{\partial z_1^{(4)}} \cdot \frac{\partial z_1^{(4)}}{\partial a_1^{(3)}} \cdot \frac{\partial a_1^{(3)}}{\partial z_1^{(3)}} \cdot \frac{\partial z_1^{(3)}}{\partial a_1^{(2)}} \cdot \frac{\partial a_1^{(2)}}{\partial z_1^{(2)}} \cdot \frac{\partial z_1^{(2)}}{\partial W_{11}^{(1)}} \\\\
 $$
 
 $$\begin{align}
 \text{Incorrect because it only propagates error from }& a_1^{(4)}\to a_1^{(3)}\to a_1^{(2)}\to W_{11}^{(1)} \\
 \text{And neglects error that also propagates from }& a_1^{(4)}\to a_2^{(3)}\to a_1^{(2)}\to W_{11}^{(1)} \\
-\text{as well as from }& a_1^{(4)}\to a_3^{(3)}\to a_1^{(2)}\to W_{11}^{(1)} \\
+\text{as well as from }& a_1^{(4)}\to a_3^{(3)}\to a_1^{(2)}\to W_{11}^{(1)} \\\\
+\end{align}$$
+
+$$\text{Correct use of chain rule:}$$
+
+$$
+\frac{\partial E}{\partial W_{11}^{(1)}} = \frac{\partial E}{\partial a_1^{(4)}} \cdot \frac{\partial a_1^{(4)}}{\partial z_1^{(4)}} \cdot \frac{\partial z_1^{(4)}}{\partial a_1^{(2)}} \cdot \frac{\partial a_1^{(2)}}{\partial z_1^{(2)}} \cdot \frac{\partial z_1^{(2)}}{\partial W_{11}^{(1)}} \\\\
+$$
+
+$$\text{Calculating partial derivatives:}$$
+
+$$\begin{align}
+\frac{\partial E}{\partial a_1^{(4)}}&=\frac{\partial}{\partial a_1^{(4)}}(-y\ln(a_1^{(4)})-(1-y)\ln(1-a_1^{(4)}))\\
+&=-y\cdot\frac{\partial}{\partial a_1^{(4)}}(\ln(a_1^{(4)})-(1-y)\cdot\frac{\partial}{\partial a_1^{(4)}}(\ln(1-a_1^{(4)}))\\
+&=-y\cdot\frac{1}{a_1^{(4)}}\cdot 1-(1-y)\cdot\frac{1}{1- a_1^{(4)}}\cdot -1\\
+&=\frac{a_1^{(4)}-y}{a_1^{(4)}(1-a_1^{(4)})} \\\\
+\end{align}$$
+
+$$\begin{align}
+\frac{\partial a_1^{(4)}}{\partial z_1^{(4)}} &= \frac{\partial }{\partial z_1^{(4)}}(\sigma(z_1^{(4)})) \\
+&= \sigma(z_1^{(4)})(1-\sigma(z_1^{(4)})) &&(\sigma'(x)=\sigma(x)(1-\sigma(x)) \\
+&= a_1^{(4)}(1-a_1^{(4)}) &&(a_1^{(4)}=\sigma(z_1^{(4)})) \\\\
 \end{align}$$
 
 (Work in Progress below... )
