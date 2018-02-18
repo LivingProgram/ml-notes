@@ -328,7 +328,19 @@ $$\begin{align}
 &= W_{11}^{(3)} \cdot a_1^{(3)}(1-a_1^{(3)}) \cdot \left(\frac{\partial }{\partial a_1^{(2)}}(W_{11}^{(2)}a_1^{(2)}) + 0 + 0 + 0 \right) \\
 &\phantom{0000} + W_{21}^{(3)} \cdot a_2^{(3)}(1-a_2^{(3)}) \cdot \left(\frac{\partial }{\partial a_1^{(2)}}(W_{12}^{(2)}a_1^{(2)}) + 0 + 0 + 0 \right) \\
 &\phantom{0000} + W_{31}^{(3)} \cdot a_3^{(3)}(1-a_3^{(3)}) \cdot \left(\frac{\partial }{\partial a_1^{(2)}}(W_{13}^{(2)}a_1^{(2)}) + 0 + 0 + 0 \right) \\
-&= \left(W_{11}^{(3)} \cdot a_1^{(3)}(1-a_1^{(3)}) \cdot W_{11}^{(2)}\right) + \left(W_{21}^{(3)} \cdot a_2^{(3)}(1-a_2^{(3)}) \cdot W_{12}^{(2)}\right) + \left(W_{31}^{(3)} \cdot a_3^{(3)}(1-a_3^{(3)}) \cdot W_{13}^{(2)}\right) \\
+&= \left(W_{11}^{(3)} \cdot a_1^{(3)}(1-a_1^{(3)}) \cdot W_{11}^{(2)}\right) + \left(W_{21}^{(3)} \cdot a_2^{(3)}(1-a_2^{(3)}) \cdot W_{12}^{(2)}\right) + \left(W_{31}^{(3)} \cdot a_3^{(3)}(1-a_3^{(3)}) \cdot W_{13}^{(2)}\right) \\\\
+\end{align}$$
+
+$$\begin{align}
+\frac{\partial a_1^{(2)}}{\partial z_1^{(2)}} &= \frac{\partial }{\partial z_1^{(2)}}(\sigma(z_1^{(2)})) \\
+&= \sigma(z_1^{(2)})(1-\sigma(z_1^{(2)})) \\
+&= a_1^{(2)}(1-a_1^{(2)}) \\\\
+\end{align}$$
+
+$$\begin{align}
+\frac{\partial z_1^{(2)}}{\partial W_{11}^{(1)}} &= \frac{\partial }{\partial W_{11}^{(1)}}(W_{11}^{(1)}a_1^{(1)} + W_{21}^{(1)}a_2^{(1)} + W_{31}^{(1)}a_3^{(1)}) \\
+&= \frac{\partial }{\partial W_{11}^{(1)}}(W_{11}^{(1)}a_1^{(1)}) + 0 + 0 \\
+&= a_1^{(1)} \\\\
 \end{align}$$
 
 (Work in Progress below... )
