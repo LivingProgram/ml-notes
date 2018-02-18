@@ -272,7 +272,23 @@ z_3^{(3)} &= W_{13}^{(2)}a_1^{(2)} + W_{23}^{(2)}a_2^{(2)} + W_{33}^{(2)}a_3^{(2
 a_3^{(3)} &= \sigma(z_3^{(3)}) \\
 z_1^{(4)} &= W_{11}^{(3)}a_1^{(3)} + W_{21}^{(3)}a_2^{(3)} + W_{31}^{(3)}a_3^{(3)} \\
 a_1^{(4)} &= \sigma(z_1^{(4)}) \\
-E &= -y\ln(a_1^{(4)})-(1-y)\ln(1-a_1^{(4)})
+E &= -y\ln(a_1^{(4)})-(1-y)\ln(1-a_1^{(4)})\\\\
+\end{align}$$
+
+$$\text{Recall chain rule:}$$
+
+$$\frac{\partial C}{\partial x} = \frac{\partial A}{\partial x} \cdot \frac{\partial B}{\partial A} \cdot \frac{\partial C}{\partial B}\\\\$$
+
+$$\text{The following is incorrect use of chain rule:}$$
+
+$$
+\frac{\partial E}{\partial W_{11}^{(1)}} = \frac{\partial E}{\partial a_1^{(4)}} \cdot \frac{\partial a_1^{(4)}}{\partial z_1^{(4)}} \cdot \frac{\partial z_1^{(4)}}{\partial a_1^{(3)}} \cdot \frac{\partial a_1^{(3)}}{\partial z_1^{(3)}} \cdot \frac{\partial z_1^{(3)}}{\partial a_1^{(2)}} \cdot \frac{\partial a_1^{(2)}}{\partial z_1^{(2)}} \cdot \frac{\partial z_1{(2)}}{\partial W_{11}^{(1)}} \\\\
+$$
+
+$$\begin{align}
+\text{Incorrect because it only propagates error from }& a_1^{(4)}\to a_1^{(3)}\to a_1^{(2)}\to W_{11}^{(1)} \\
+\text{And neglects error that also propagates from }& a_1^{(4)}\to a_2^{(3)}\to a_1^{(2)}\to W_{11}^{(1)} \\
+\text{as well as from }& a_1^{(4)}\to a_3^{(3)}\to a_1^{(2)}\to W_{11}^{(1)} \\
 \end{align}$$
 
 (Work in Progress below... )
