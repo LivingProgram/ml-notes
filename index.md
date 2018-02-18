@@ -230,16 +230,17 @@ $$\hat{y}_{i}=\sigma(W^{(L-1)}(\sigma(W^{(L-2)}(\ldots(\sigma(W^{(1)}X_{i}))))))
 $$\hat{y}_{i}=\sigma(W^{(3)}(\sigma(W^{(2)}(\sigma(W^{(1)}X_{i})))))$$
 
 ## NN Backpropagation
-- Method Overview:
-  - Perform feedforward
-  - Calculate error
-  - Propagate error backwards (spread error to all weights)
-  - Update all weights using propagated error
-  - Loop until satisfied with error
-- Intuitive Understanding:
-  - given a model's error, propagate error backwards by decreasing the weights of neurons that had stronger connections over those that had weaker connections
-  - the error is caused more by those neurons with strong connections (or large weights), and decreasing their weights will reduce the effects of the erroneous neuron
-  - same as single perceptrons, calculate gradient of error function (which is more complex now) and use the gradient to update weights to descend to local minima
+### Backprop Method Overview
+- Perform feedforward
+- Calculate error
+- Propagate error backwards (spread error to all weights)
+- Update all weights using propagated error
+- Loop until satisfied with error
+
+### Backprop Intuitive Understanding
+- given a model's error, propagate error backwards by decreasing the weights of neurons that had stronger connections over those that had weaker connections
+- the error is caused more by those neurons with strong connections (or large weights), and decreasing their weights will reduce the effects of the erroneous neuron
+- same as single perceptrons, calculate gradient of error function (which is more complex now) and use the gradient to update weights to descend to local minima
 
 ### Sample NN Diagram
 ![Example NN](https://livingprogram.github.io/ml-notes/images/ml-notes_21.jpg)
