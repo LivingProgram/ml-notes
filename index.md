@@ -220,7 +220,7 @@ $$\begin{align}\nabla E &= \frac{1}{m}\sum_{i=1}^{m}\nabla E_{i}\\
 - $$a^{(l)}_{j}$$ denotes the output of the $$j^{\text{th}}$$ neuron in the $$l^{\text{th}}$$ layer after applying sigmoid function
 - $$\text{subscript}\ \ i$$ : for specific training sample
 
-## NN Feedforward Equations
+## NN Forward Propagation Equations
 
 - Calculating NN predictions for train sample $$X_{i}$$:
 
@@ -232,7 +232,7 @@ $$\hat{y}_{i}=\sigma(W^{(3)}(\sigma(W^{(2)}(\sigma(W^{(1)}X_{i})))))$$
 
 ## NN Backpropagation
 ### Backprop Method Overview
-- Perform feedforward
+- Perform Forward Propagation
 - Calculate error
 - Propagate error backwards (spread error to all weights)
 - Update all weights using propagated error
@@ -451,7 +451,7 @@ $$
 - Number of neurons per layer is list = $$[s_1,s_2,\ldots,s_l,\ldots,s_L]$$
 - For every train sample $$(X_i,y_i)$$ in $$[(X_1,y_1),\ldots,(X_m,y_m)]$$:
   - Let $$a_1^{(1)}=x_1,\ a_2^{(1)}=x_2,\ \ldots,\ a_{s_1}^{(1)}=x_n$$
-  - Perform feedforward
+  - Perform Forward Propagation
 
 (put algorithm here with pseudo-code)
 
