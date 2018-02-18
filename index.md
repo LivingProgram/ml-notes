@@ -245,6 +245,36 @@ $$\hat{y}_{i}=\sigma(W^{(3)}(\sigma(W^{(2)}(\sigma(W^{(1)}X_{i})))))$$
 ### Sample NN Diagram
 ![Example NN](https://livingprogram.github.io/ml-notes/images/ml-notes_21.jpg)
 
+### Calculating $$\frac{\partial}{\partial W^{(1)}_{11}}E$$
+For the sample NN:
+
+$$\frac{\partial}{\partial W^{(1)}_{11}}E=\ldots$$
+
+#### Proof.
+
+$$\text{For simplicity, Let:}$$
+
+$$\begin{align}
+x_1=a_1^{(1)},\ x_2&=a_2^{(1)},\ x_3=a_3^{(1)}, \\
+\hat{y}&=a_1^{(4)}
+\end{align}$$
+
+$$\text{Equations from sample NN:}$$
+
+$$\begin{align}
+z_1^{(2)} &= W_{11}^{(1)}a_1^{(1)} + W_{21}^{(1)}a_2^{(1)} + W_{31}^{(1)}a_3^{(1)} \\
+a_1^{(2)} &= \sigma(z_1^{(2)}) \\
+z_1^{(3)} &= W_{11}^{(2)}a_1^{(2)} + W_{21}^{(2)}a_2^{(2)} + W_{31}^{(2)}a_3^{(2)} + W_{41}^{(2)}a_4^{(2)}\\
+a_1^{(3)} &= \sigma(z_1^{(3)}) \\
+z_2^{(3)} &= W_{12}^{(2)}a_1^{(2)} + W_{22}^{(2)}a_2^{(2)} + W_{32}^{(2)}a_3^{(2)} + W_{42}^{(2)}a_4^{(2)}\\
+a_2^{(3)} &= \sigma(z_2^{(3)}) \\
+z_3^{(3)} &= W_{13}^{(2)}a_1^{(2)} + W_{23}^{(2)}a_2^{(2)} + W_{33}^{(2)}a_3^{(2)} + W_{43}^{(2)}a_4^{(2)}\\
+a_3^{(3)} &= \sigma(z_3^{(3)}) \\
+z_1^{(4)} &= W_{11}^{(3)}a_1^{(3)} + W_{21}^{(3)}a_2^{(3)} + W_{31}^{(3)}a_3^{(3)} \\
+a_1^{(4)} &= \sigma(z_1^{(4)}) \\
+E &= -y\ln(a_1^{(4)})-(1-y)\ln(1-a_1^{(4)})
+\end{align}$$
+
 (Work in Progress below... )
 
 - Final Goal = Calculate the overall gradient of the error:
