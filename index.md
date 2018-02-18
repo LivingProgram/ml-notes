@@ -343,6 +343,17 @@ $$\begin{align}
 &= a_1^{(1)} \\\\
 \end{align}$$
 
+$$\text{Using calculated partial derivatives and chain rule:}$$
+
+$$\begin{align}
+\frac{\partial E}{\partial W_{11}^{(1)}} &= \frac{\partial E}{\partial a_1^{(4)}} \cdot \frac{\partial a_1^{(4)}}{\partial z_1^{(4)}} \cdot \frac{\partial z_1^{(4)}}{\partial a_1^{(2)}} \cdot \frac{\partial a_1^{(2)}}{\partial z_1^{(2)}} \cdot \frac{\partial z_1^{(2)}}{\partial W_{11}^{(1)}} \\\\
+&= \left(\frac{a_1^{(4)}-y}{a_1^{(4)}(1-a_1^{(4)})}\right) \\
+&\phantom{0000} \cdot \left(a_1^{(4)}(1-a_1^{(4)})\right) \\
+&\phantom{0000} \cdot \left(\left(W_{11}^{(3)} \cdot a_1^{(3)}(1-a_1^{(3)}) \cdot W_{11}^{(2)}\right) + \left(W_{21}^{(3)} \cdot a_2^{(3)}(1-a_2^{(3)}) \cdot W_{12}^{(2)}\right) + \left(W_{31}^{(3)} \cdot a_3^{(3)}(1-a_3^{(3)}) \cdot W_{13}^{(2)}\right)\right) \\
+&\phantom{0000} \cdot \left(a_1^{(2)}(1-a_1^{(2)})\right) \\
+&\phantom{0000} \cdot \left(a_1^{(1)}\right) \ \ \ \ \blacksquare\\\\
+\end{align}$$
+
 (Work in Progress below... )
 
 - Final Goal = Calculate the overall gradient of the error:
