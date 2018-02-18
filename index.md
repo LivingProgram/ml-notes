@@ -231,8 +231,9 @@ $$\hat{y}_{i}=\sigma(W^{(3)}(\sigma(W^{(2)}(\sigma(W^{(1)}X_{i})))))$$
   - the error is caused more by those neurons with strong connections (or large weights), and decreasing their weights will reduce the effects of the erroneous neuron
   - same as single perceptrons, calculate gradient of error function (which is more complex now) and use the gradient to update weights to descend to local minima
 
-### Example NN $$\nabla E$$ Calculation
-- Diagram of "Example NN": ![Example NN](https://livingprogram.github.io/ml-notes/images/ml-notes_20.jpg)
+### Sample NN Diagram
+![Example NN](https://livingprogram.github.io/ml-notes/images/ml-notes_21.jpg)
+
 - Notation:
   - $$x_{j}$$ denotes input feature $$j$$
   - $$X$$ denotes input vector
