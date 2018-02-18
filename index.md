@@ -214,7 +214,7 @@ $$\begin{align}\nabla E &= \frac{1}{m}\sum_{i=1}^{m}\nabla E_{i}\\
 - $$\sigma(x)$$ : sigmoid function
 - $$W^{(l)}_{ij}$$ : weight of layer $$l$$ that connects input neuron $$i$$ to output neuron $$j$$
 - $$W^{(l)}$$ : weights vector for layer $$l$$
-- $$L$$ : number of layers
+- $$L$$ : number of layers, including input layer
 - $$z^{(l)}_{j}$$ denotes the output of the $$j^{\text{th}}$$ neuron in the $$l^{\text{th}}$$ layer before applying sigmoid function
 - $$a^{(l)}_{j}$$ denotes the output of the $$j^{\text{th}}$$ neuron in the $$l^{\text{th}}$$ layer after applying sigmoid function
 - $$\text{subscript}\ \ i$$ : for specific training sample
@@ -223,9 +223,9 @@ $$\begin{align}\nabla E &= \frac{1}{m}\sum_{i=1}^{m}\nabla E_{i}\\
 
 - Calculating NN predictions for train sample $$X_{i}$$:
 
-$$\hat{y}_{i}=\sigma(W^{(n)}(\sigma(W^{(n-1)}(\ldots(\sigma(W^{(1)}X_{i}))))))$$
+$$\hat{y}_{i}=\sigma(W^{(L-1)}(\sigma(W^{(L-2)}(\ldots(\sigma(W^{(1)}X_{i}))))))$$
 
-- Example when $$n=3$$:
+- Example when $$L=4$$:
 
 $$\hat{y}_{i}=\sigma(W^{(3)}(\sigma(W^{(2)}(\sigma(W^{(1)}X_{i})))))$$
 
