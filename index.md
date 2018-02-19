@@ -45,12 +45,12 @@
 - if we use -log(), minimizing -log() = best model (because before, larger product = better model, and log(large_product) = small number, so now we need to minimize)
 
 ## Cross-Entropy Notation
-- $$m$$ denotes number of training samples
-- $$X_{i}$$ denotes a specific train sample $$i$$
-- $$n$$ denotes number of features
-- $$w_{j}$$ denotes a specific feature weight
-- $$x_{j}$$ denotes a specific input feature
-- $$\hat{y}_{i}$$ denotes prediction for a specific train sample $$i$$
+- $$m$$ : number of training samples
+- $$X_{i}$$ : a specific train sample $$i$$
+- $$n$$ : number of features
+- $$w_{j}$$ : a specific feature weight
+- $$x_{j}$$ : a specific input feature
+- $$\hat{y}_{i}$$ : prediction for a specific train sample $$i$$
 
 ## Cross-Entropy Equations
 - Calculate predictions:
@@ -214,10 +214,10 @@ $$\begin{align}\nabla E &= \frac{1}{m}\sum_{i=1}^{m}\nabla E_{i}\\
 - $$\sigma(x)$$ : sigmoid function
 - $$W^{(l)}_{ij}$$ : weight of layer $$l$$ that connects input neuron $$i$$ to output neuron $$j$$
 - $$W^{(l)}$$ : weights vector for layer $$l$$
-- $$s_{l}$$ denotes number of neurons in layer $$l$$
+- $$s_{l}$$ : number of neurons in layer $$l$$
 - $$L$$ : number of layers, including input layer
-- $$z^{(l)}_{j}$$ denotes the output of the $$j^{\text{th}}$$ neuron in the $$l^{\text{th}}$$ layer before applying sigmoid function
-- $$a^{(l)}_{j}$$ denotes the output of the $$j^{\text{th}}$$ neuron in the $$l^{\text{th}}$$ layer after applying sigmoid function
+- $$z^{(l)}_{j}$$ : the output of the $$j^{\text{th}}$$ neuron in the $$l^{\text{th}}$$ layer before applying sigmoid function
+- $$a^{(l)}_{j}$$ : the output of the $$j^{\text{th}}$$ neuron in the $$l^{\text{th}}$$ layer after applying sigmoid function
 - $$\text{subscript}\ \ i$$ : for specific training sample
 
 ## NN Forward Propagation Equations
