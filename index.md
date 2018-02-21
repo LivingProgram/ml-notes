@@ -446,7 +446,7 @@ $$
 ### (WIP) Backprop Algorithm Pseudo-Code
 #### Hyperparameters
 - $$M=$$ number of training examples
-- $$m=$$ batch size
+- $$m=$$ batch size (assuming $$M$$ divisible by $$m$$)
 - $$L=$$ number of NN layers
 - $$n=$$ number of features per train sample
 - $$[s_1,s_2,\ldots,s_l,\ldots,s_L] = $$ number of neurons per layer list
@@ -468,10 +468,9 @@ $$
   - Implies $$W[l][j].shape=(1,s_l)$$
 - Let $$X.shape=(M,n)=(M,s_1)$$
   - Implies $$X[i].shape=(1,s_1)$$
-- for M_i in range(1,M+1):
-  - Let $$X_i = X[M_i-1]$$
+- for $$M_i, X_i$$ in $$enumerate(X)$$:
   - compute gradient, add it to accumulated sum of gradients
-  - if M_i % m == 0:
+  - if $$(M_i+1)\ \%\ m == 0$$:
     - update weights for batch
     - reset sum of gradients
 
