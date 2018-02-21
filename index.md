@@ -459,7 +459,7 @@ $$
 - `np.ndarray.shape` : numpy array shape
 
 #### Training Data (Pythonic)
-- All training samples: $$X$$ numpy array
+- All training samples: $$X, y$$ numpy array
 - Each training sample has features: $$X[i]=[[x_1,x_2,\ldots,x_n]]$$
 
 #### Pseudo-Code (Pythonic)
@@ -468,7 +468,15 @@ $$
   - Implies $$W[l][j].shape=(1,s_l)$$
 - Let $$X.shape=(M,n)=(M,s_1)$$
   - Implies $$X[i].shape=(1,s_1)$$
-- For every train sample $$(X_i,y_i)$$ in $$[(X_1,y_1),\ldots,(X_m,y_m)]$$:
+- for M_i in range(1,M+1):
+  - Let $$X_i = X[M_i-1]$$
+  - compute gradient, add it to accumulated sum of gradients
+  - if M_i % m == 0:
+    - update weights for batch
+    - reset sum of gradients
+
+
+- For every train sample $$(X_i,y_i)$$ in $$X$$:
   - Let $$a_1^{(1)}=x_1,\ a_2^{(1)}=x_2,\ \ldots,\ a_{s_1}^{(1)}=x_n$$
   - Perform Forward Propagation to compute $$a^{(l)},\ \forall\ l\in\{2,3,\ldots,L\}$$
     - (put feedforward formula here with proper matrix multiplications)
@@ -477,11 +485,18 @@ $$
     - $$\delta^{(l)}=np.matmul(W^{(l)},\delta^{(l+1)}.T)*a^{(l)}*(1-a^{(l)})$$
 
 #### Training Data (Mathematical)
-- Mathematical Notation:
 - All training samples: $$(X_1,y_1),(X_2,y_2),\ldots,(X_M,y_M)$$
 - Each training sample has features: $$(x_1,x_2,\ldots,x_n)$$
 
 #### Pseudo-Code (Mathematical)
+- For every train sample $$(X_i,y_i)$$ in $$X$$:
+  - Let $$a_1^{(1)}=x_1,\ a_2^{(1)}=x_2,\ \ldots,\ a_{s_1}^{(1)}=x_n$$
+  - Perform Forward Propagation to compute $$a^{(l)},\ \forall\ l\in\{2,3,\ldots,L\}$$
+    - (put feedforward formula here with proper matrix multiplications)
+  - Compute $$\delta^{(L)}=a^{(L)}-y_i$$
+  - Compute $$\delta^{(L-1)},\delta^{(L-2)},\ldots,\delta^{(2)}$$
+    - $$\delta^{(l)}=np.matmul(W^{(l)},\delta^{(l+1)}.T)*a^{(l)}*(1-a^{(l)})$$
+
 (note * is matrix multiply and Hadamard product is element wise multiplication)
 
 #### Proof.
