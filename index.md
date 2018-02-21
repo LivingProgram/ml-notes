@@ -510,4 +510,7 @@ $$\nabla E = \left(\frac{\partial}{\partial W^{(1)}_{11}}E,\ldots,\frac{\partial
 - jupyter nbconvert notebook.ipynb --to slides --post serve: convert to slideshow and immediately see
 
 # Numpy Cheatsheet
-- `x = v[None, :]` ~ add new dimension to array
+- np array shapes:
+  - `(rows, columns)`
+  - `(layers, rows, columns)`
+- `x = v[None, :]` : add new dimension to array
