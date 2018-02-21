@@ -444,21 +444,30 @@ $$
 $$
 
 ### (WIP) Backprop Algorithm Pseudo-Code
-#### Pseudo-Code Notation
+#### Notation
 - same notation as NN Notation
 - `np.matmul()` : numpy matrix multiply function
 - `np.ndarray.T` : numpy matrix transpose
 - `*` : numpy element-wise multiplication
 - `np.ndarray.shape` : numpy array shape
 
-#### Actual Pseudo-Code
-- Given training data: $$(X_1,y_1),(X_2,y_2),\ldots,(X_m,y_m)$$
-  - Where each training sample has features: $$(x_1,x_2,\ldots,x_n)$$
-- Given batch size $$= m$$
-- Number of NN layers $$= L$$
-- Number of neurons per layer is list = $$[s_1,s_2,\ldots,s_l,\ldots,s_L]$$
-- Weights shape: $$W^{(l)}.shape=(1,s_l)$$
-- X shape: $$X.shape=(1,s_1)$$
+#### Hyperparameters
+- $$M=$$ number of training examples
+- $$m=$$ batch size
+- $$L=$$ number of NN layers
+- $$n=$$ number of features per train sample
+- $$[s_1,s_2,\ldots,s_l,\ldots,s_L] = $$ number of neurons per layer list
+
+#### Training Data (Pythonic Notation)
+- All training samples: $$X$$ numpy array
+- Each training sample has features: $$X[i]=[[x_1,x_2,\ldots,x_n]]$$
+
+#### Pseudo-Code (Pythonic Notation)
+- Let $$len(W)=L$$
+- Let $$W[l].shape=(s_{l+1},s_l)$$
+  - Implies $$W[l][j].shape=(1,s_l)$$
+- Let $$X.shape=(M,n)=(M,s_1)$$
+  - Implies $$X[i].shape=(1,s_1)$$
 - For every train sample $$(X_i,y_i)$$ in $$[(X_1,y_1),\ldots,(X_m,y_m)]$$:
   - Let $$a_1^{(1)}=x_1,\ a_2^{(1)}=x_2,\ \ldots,\ a_{s_1}^{(1)}=x_n$$
   - Perform Forward Propagation to compute $$a^{(l)},\ \forall\ l\in\{2,3,\ldots,L\}$$
@@ -466,6 +475,14 @@ $$
   - Compute $$\delta^{(L)}=a^{(L)}-y_i$$
   - Compute $$\delta^{(L-1)},\delta^{(L-2)},\ldots,\delta^{(2)}$$
     - $$\delta^{(l)}=np.matmul(W^{(l)},\delta^{(l+1)}.T)*a^{(l)}*(1-a^{(l)})$$
+
+#### Training Data (Mathematical Notation)
+- Mathematical Notation:
+- All training samples: $$(X_1,y_1),(X_2,y_2),\ldots,(X_M,y_M)$$
+- Each training sample has features: $$(x_1,x_2,\ldots,x_n)$$
+
+#### Pseudo-Code (Mathematical Notation)
+(note * is matrix multiply and Hadamard product is element wise multiplication)
 
 #### Proof.
 
@@ -514,3 +531,8 @@ $$\nabla E = \left(\frac{\partial}{\partial W^{(1)}_{11}}E,\ldots,\frac{\partial
   - `(rows, columns)`
   - `(layers, rows, columns)`
 - `x = v[None, :]` : add new dimension to array
+
+# LivingProgram Note-Taking Convention
+* When dealing with pseudo-code:
+  * Pythonic Notation: python code, subscripts for variables allowed
+  * Mathematical Notation: pure math
