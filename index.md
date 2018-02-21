@@ -444,13 +444,6 @@ $$
 $$
 
 ### (WIP) Backprop Algorithm Pseudo-Code
-#### Notation
-- same notation as NN Notation
-- `np.matmul()` : numpy matrix multiply function
-- `np.ndarray.T` : numpy matrix transpose
-- `*` : numpy element-wise multiplication
-- `np.ndarray.shape` : numpy array shape
-
 #### Hyperparameters
 - $$M=$$ number of training examples
 - $$m=$$ batch size
@@ -458,11 +451,18 @@ $$
 - $$n=$$ number of features per train sample
 - $$[s_1,s_2,\ldots,s_l,\ldots,s_L] = $$ number of neurons per layer list
 
-#### Training Data (Pythonic Notation)
+#### Notation (Pythonic)
+- same notation as NN Notation
+- `np.matmul()` : numpy matrix multiply function
+- `np.ndarray.T` : numpy matrix transpose
+- `*` : numpy element-wise multiplication
+- `np.ndarray.shape` : numpy array shape
+
+#### Training Data (Pythonic)
 - All training samples: $$X$$ numpy array
 - Each training sample has features: $$X[i]=[[x_1,x_2,\ldots,x_n]]$$
 
-#### Pseudo-Code (Pythonic Notation)
+#### Pseudo-Code (Pythonic)
 - Let $$len(W)=L$$
 - Let $$W[l].shape=(s_{l+1},s_l)$$
   - Implies $$W[l][j].shape=(1,s_l)$$
@@ -476,12 +476,12 @@ $$
   - Compute $$\delta^{(L-1)},\delta^{(L-2)},\ldots,\delta^{(2)}$$
     - $$\delta^{(l)}=np.matmul(W^{(l)},\delta^{(l+1)}.T)*a^{(l)}*(1-a^{(l)})$$
 
-#### Training Data (Mathematical Notation)
+#### Training Data (Mathematical)
 - Mathematical Notation:
 - All training samples: $$(X_1,y_1),(X_2,y_2),\ldots,(X_M,y_M)$$
 - Each training sample has features: $$(x_1,x_2,\ldots,x_n)$$
 
-#### Pseudo-Code (Mathematical Notation)
+#### Pseudo-Code (Mathematical)
 (note * is matrix multiply and Hadamard product is element wise multiplication)
 
 #### Proof.
@@ -532,7 +532,7 @@ $$\nabla E = \left(\frac{\partial}{\partial W^{(1)}_{11}}E,\ldots,\frac{\partial
   - `(layers, rows, columns)`
 - `x = v[None, :]` : add new dimension to array
 
-# LivingProgram Note-Taking Convention
+# LivingProgram Notes Convention
 * When dealing with pseudo-code:
   * Pythonic Notation: python code, subscripts for variables allowed
   * Mathematical Notation: pure math
