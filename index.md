@@ -61,15 +61,15 @@ $$\begin{align}\hat{y}_{i}&=\sigma(WX_{i}+b) \\
 
 - Cross Entropy (2 classes):
 
-$$E=-\frac{1}{m}\sum_{i=1}^{m}y_{i}ln(\hat{y}_{i})+(1-y_{i})ln(1-\hat{y}_{i})$$
+$$E=-\frac{1}{m}\sum_{i=1}^{m}y_{i}\ln(\hat{y}_{i})+(1-y_{i})\ln(1-\hat{y}_{i})$$
 
 - Cross Entropy (2 classes, with W = weights, b = bias):
 
-$$E(W,b)=-\frac{1}{m}\sum_{i=1}^{m}y_{i}ln(\sigma(WX_{i}+b))+(1-y_{i})ln(1-\sigma(WX_{i}+b))$$
+$$E(W,b)=-\frac{1}{m}\sum_{i=1}^{m}y_{i}\ln(\sigma(WX_{i}+b))+(1-y_{i})\ln(1-\sigma(WX_{i}+b))$$
 
 - Cross Entropy (n classes):
 
-$$E=-\sum_{i=1}^{m}\sum_{j=1}^{n}y_{ij}ln(\hat{y}_{ij})$$
+$$E=-\sum_{i=1}^{m}\sum_{j=1}^{n}y_{ij}\ln(\hat{y}_{ij})$$
 
 ## Cross-Entropy Explanations
 - y = 1 or 0, therefore only one term in the summation is chosen, and that term will calculate the ln() of the correct probability, then sum the negative ln’s
@@ -111,7 +111,7 @@ $$
 
 $$
 \text{Individual training sample error:}\\
-E_{i}=-y_{i}ln(\hat{y}_{i})-(1-y_{i})ln(1-\hat{y}_{i})
+E_{i}=-y_{i}\ln(\hat{y}_{i})-(1-y_{i})\ln(1-\hat{y}_{i})
 $$
 
 $$
@@ -142,8 +142,8 @@ $$
 $$\text{Partial derivative of error:}$$
 
 $$
-\begin{align}\frac{\partial}{\partial w_{j}}E_{i}&=\frac{\partial}{\partial w_{j}}(-y_{i}ln(\hat{y}_{i})-(1-y_{i})ln(1-\hat{y}_{i})) &&(E_{i}\text{ formula)}\\
-&= -y_{i}(\frac{\partial}{\partial w_{j}}(ln(\hat{y}_{i})))-(1-y_{i})(\frac{\partial}{\partial w_{j}}(ln(1-\hat{y}_{i})))\\
+\begin{align}\frac{\partial}{\partial w_{j}}E_{i}&=\frac{\partial}{\partial w_{j}}(-y_{i}\ln(\hat{y}_{i})-(1-y_{i})\ln(1-\hat{y}_{i})) &&(E_{i}\text{ formula)}\\
+&= -y_{i}(\frac{\partial}{\partial w_{j}}(\ln(\hat{y}_{i})))-(1-y_{i})(\frac{\partial}{\partial w_{j}}(\ln(1-\hat{y}_{i})))\\
 &= -y_{i}(\frac{1}{\hat{y}_{i}}\cdot\frac{\partial}{\partial w_{j}}(\hat{y}_{i}))-(1-y_{i})(\frac{1}{1-\hat{y}_{i}}\cdot\frac{\partial}{\partial w_{j}}(1-\hat{y}_{i})) &&\text{(chain rule)}\\
 &= -y_{i}(\frac{1}{\hat{y}_{i}}\cdot\hat{y}_{i}(1-\hat{y}_{i})x_{j})-(1-y_{i})(\frac{1}{1-\hat{y}_{i}}\cdot(-1)\hat{y}_{i}(1-\hat{y}_{i})x_{j})&&(\frac{\partial}{\partial w_{j}}\hat{y}_{i}\text{ formula)}\\
 &= -y_{i}(1-\hat{y}_{i})x_{j}+(1-y_{i})\hat{y}_{i}\cdot x_{j}\\
