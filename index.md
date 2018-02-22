@@ -478,6 +478,8 @@ $$
 - For $$l$$ in $$range(1,L+1)$$:
   - Let $$a^{(l)}.shape=(1,s_l)$$
   - Let $$\delta^{(l)}.shape=(1,s_l)$$
+- For $$l$$ in $$range(1,(L-1)+1)$$
+  - Let $$grad\_sum\_W^{(l)}=0$$
 - for $$M_i, (X[i],y[i])$$ in $$enumerate(zip(X,y))$$:
   - (compute gradient, add it to accumulated sum of gradients)
   - Let $$a^{(1)}=X[i][None,:]$$
@@ -486,9 +488,10 @@ $$
   - Compute $$\delta^{(L)}=a^{(L)}-y[i]$$
   - For $$l$$ in $$range(2,(L-1)+1)$$:
     - Compute $$\delta^{(l)}=np.matmul(\delta^{(l+1)},W^{(l)})*a^{(l)}*(1-a^{(l)})$$
+  - Compute $$grad\_sum\_W^{(l)}+=np.matmul(\delta^{(l+1)},a^{(L)}.T)$$
   - if $$(M_i+1)\ \%\ m == 0$$:
-    - update weights for batch
-    - reset sum of gradients
+    - (update weights for batch)
+    - Let grad_sum $$=0$$
 
 #### Training Data (Mathematical)
 - All training samples: $$(X_1,y_1),(X_2,y_2),\ldots,(X_M,y_M)$$
