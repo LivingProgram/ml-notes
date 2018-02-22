@@ -464,7 +464,7 @@ $$
 - Each training sample has features: $$X[i]=[[x_1,x_2,\ldots,x_n]]$$
 - Each training sample has labels: $$y[i]=[[y_1,y_2,\ldots,y_c]]$$
 
-#### Pseudo-Code (Pythonic)
+#### Object Attributes (Pythonic)
 - Let $$len(W)=L$$
 - Let $$W[l].shape=(s_{l+1},s_l)$$
   - Implies $$W[l][j].shape=(s_l,)$$
@@ -478,6 +478,8 @@ $$
 - For $$l$$ in $$range(1,L+1)$$:
   - Let $$a^{(l)}.shape=(1,s_l)$$
   - Let $$\delta^{(l)}.shape=(1,s_l)$$
+
+#### Pseudo-Code (Pythonic)
 - For $$l$$ in $$range(1,(L-1)+1)$$
   - Let $$grad\_sum\_W^{(l)}=0$$
 - for $$M_i, (X[i],y[i])$$ in $$enumerate(zip(X,y))$$:
