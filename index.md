@@ -473,17 +473,15 @@ $$
 - for $$M_i, X_i$$ in $$enumerate(X)$$:
   - (compute gradient, add it to accumulated sum of gradients)
   - Let $$a_1^{(1)}=X_i[1],\ a_2^{(1)}=X_i[2],\ \ldots,\ a_{s_1}^{(1)}=X_i[n]$$
-
-  - if $$(M_i+1)\ \%\ m == 0$$:
-    - update weights for batch
-    - reset sum of gradients
-
-
-  - Perform Forward Propagation to compute $$a^{(l)},\ \forall\ l\in\{2,3,\ldots,L\}$$
+  - For $$l$$ in $$range(2,L)$$, perform forward propagation to compute $$a^{(l)}$$:
     - (put feedforward formula here with proper matrix multiplications)
+    - $$a^{(l)}=np.matmul(a^{(l-1)},)$$
   - Compute $$\delta^{(L)}=a^{(L)}-y_i$$
   - Compute $$\delta^{(L-1)},\delta^{(L-2)},\ldots,\delta^{(2)}$$
     - $$\delta^{(l)}=np.matmul(W^{(l)},\delta^{(l+1)}.T)*a^{(l)}*(1-a^{(l)})$$
+  - if $$(M_i+1)\ \%\ m == 0$$:
+    - update weights for batch
+    - reset sum of gradients
 
 #### Training Data (Mathematical)
 - All training samples: $$(X_1,y_1),(X_2,y_2),\ldots,(X_M,y_M)$$
