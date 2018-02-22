@@ -488,10 +488,11 @@ $$
   - For $$l$$ in $$range(2,(L-1)+1)$$:
     - Compute $$\delta^{(l)}=np.matmul(\delta^{(l+1)},W[l])*a^{(l)}*(1-a^{(l)})$$
   - For $$l$$ in $$range(1,(L-1)+1)$$
-    - Compute $$grad\_sum\_W^{(l)}+=np.matmul(\delta^{(l+1)},a^{(l)}.T)$$
+    - Compute $$grad\_sum\_W^{(l)}+=np.matmul(\delta^{(l+1)}.T,a^{(l)})$$
   - if $$(M_i+1)\ \%\ m == 0$$:
-    - (update weights for batch)
-    - Let grad_sum $$=0$$
+    - For $$l$$ in $$range(1,(L-1)+1)$$
+      - Compute $$W[l]=W[l]-grad\_sum\_W^{(l)}$$
+      - Let $$grad\_sum\_W^{(l)}=0$$
 
 #### Training Data (Mathematical)
 - All training samples: $$(X_1,y_1),(X_2,y_2),\ldots,(X_M,y_M)$$
