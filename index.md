@@ -453,7 +453,7 @@ $$
 
 #### Notation (Pythonic)
 - same notation as NN Notation
-- `np.matmul()` : numpy matrix multiply function
+- `np.dot()` : numpy dot product of vectors
 - `np.ndarray.T` : numpy matrix transpose
 - `*` : numpy element-wise multiplication
 - `np.ndarray.shape` : numpy array shape
@@ -465,18 +465,20 @@ $$
 #### Pseudo-Code (Pythonic)
 - Let $$len(W)=L$$
 - Let $$W[l].shape=(s_{l+1},s_l)$$
-  - Implies $$W[l][j].shape=(1,s_l)$$
+  - Implies $$W[l][j].shape=(s_l,)$$
+  - Implies $$W[l][j]=\text{vector of length}\ s_l$$
 - Let $$X.shape=(M,n)=(M,s_1)$$
-  - Implies $$X[i].shape=(1,s_1)$$
+  - Implies $$X[i].shape=(s_1,)$$
+  - Implies $$X[i]=\text{vector of length}\ s_1$$
 - for $$M_i, X_i$$ in $$enumerate(X)$$:
-  - compute gradient, add it to accumulated sum of gradients
+  - (compute gradient, add it to accumulated sum of gradients)
+  - Let $$a_1^{(1)}=X_i[1],\ a_2^{(1)}=X_i[2],\ \ldots,\ a_{s_1}^{(1)}=X_i[n]$$
+
   - if $$(M_i+1)\ \%\ m == 0$$:
     - update weights for batch
     - reset sum of gradients
 
 
-- For every train sample $$(X_i,y_i)$$ in $$X$$:
-  - Let $$a_1^{(1)}=x_1,\ a_2^{(1)}=x_2,\ \ldots,\ a_{s_1}^{(1)}=x_n$$
   - Perform Forward Propagation to compute $$a^{(l)},\ \forall\ l\in\{2,3,\ldots,L\}$$
     - (put feedforward formula here with proper matrix multiplications)
   - Compute $$\delta^{(L)}=a^{(L)}-y_i$$
