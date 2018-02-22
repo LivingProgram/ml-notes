@@ -470,15 +470,16 @@ $$
 - Let $$X.shape=(M,n)=(M,s_1)$$
   - Implies $$X[i].shape=(s_1,)$$
   - Implies $$X[i]=\text{vector of length}\ s_1$$
-- for $$M_i, X_i$$ in $$enumerate(X)$$:
+- For $$l$$ in $$range(1,L+1)$$:
+  - Let $$a^{(l)}.shape=(1,s_l)$$
+- for $$M_i, (X[i],y[i])$$ in $$enumerate(zip(X,y))$$:
   - (compute gradient, add it to accumulated sum of gradients)
-  - Let $$a_1^{(1)}=X_i[1],\ a_2^{(1)}=X_i[2],\ \ldots,\ a_{s_1}^{(1)}=X_i[n]$$
-  - For $$l$$ in $$range(2,L)$$, perform forward propagation to compute $$a^{(l)}$$:
-    - (put feedforward formula here with proper matrix multiplications)
-    - $$a^{(l)}=np.matmul(a^{(l-1)},)$$
-  - Compute $$\delta^{(L)}=a^{(L)}-y_i$$
-  - Compute $$\delta^{(L-1)},\delta^{(L-2)},\ldots,\delta^{(2)}$$
-    - $$\delta^{(l)}=np.matmul(W^{(l)},\delta^{(l+1)}.T)*a^{(l)}*(1-a^{(l)})$$
+  - Let $$a^{(1)}=X[i][None,:]$$
+  - For $$l$$ in $$range(2,L+1)$$:
+    - Compute $$a^{(l)}=np.matmul(a^{(l-1)},W[l-1].T)$$
+  - Compute $$\delta^{(L)}=a^{(L)}-y[i]$$
+  - For $$l$$ in $$range(2,(L-1)+1)$$:
+    - Compute $$\delta^{(l)}=np.matmul(W^{(l)},\delta^{(l+1)}.T)*a^{(l)}*(1-a^{(l)})$$
   - if $$(M_i+1)\ \%\ m == 0$$:
     - update weights for batch
     - reset sum of gradients
