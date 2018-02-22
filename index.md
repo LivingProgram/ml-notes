@@ -481,14 +481,14 @@ $$
 - For $$l$$ in $$range(1,(L-1)+1)$$
   - Let $$grad\_sum\_W^{(l)}=0$$
 - for $$M_i, (X[i],y[i])$$ in $$enumerate(zip(X,y))$$:
-  - (compute gradient, add it to accumulated sum of gradients)
   - Let $$a^{(1)}=X[i][None,:]$$
   - For $$l$$ in $$range(2,L+1)$$:
     - Compute $$a^{(l)}=np.matmul(a^{(l-1)},W[l-1].T)$$
   - Compute $$\delta^{(L)}=a^{(L)}-y[i]$$
   - For $$l$$ in $$range(2,(L-1)+1)$$:
-    - Compute $$\delta^{(l)}=np.matmul(\delta^{(l+1)},W^{(l)})*a^{(l)}*(1-a^{(l)})$$
-  - Compute $$grad\_sum\_W^{(l)}+=np.matmul(\delta^{(l+1)},a^{(L)}.T)$$
+    - Compute $$\delta^{(l)}=np.matmul(\delta^{(l+1)},W[l])*a^{(l)}*(1-a^{(l)})$$
+  - For $$l$$ in $$range(1,(L-1)+1)$$
+    - Compute $$grad\_sum\_W^{(l)}+=np.matmul(\delta^{(l+1)},a^{(l)}.T)$$
   - if $$(M_i+1)\ \%\ m == 0$$:
     - (update weights for batch)
     - Let grad_sum $$=0$$
