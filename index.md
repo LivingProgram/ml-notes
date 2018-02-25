@@ -467,7 +467,7 @@ $$
 
 #### Object Attributes (Pythonic)
 - Let $$len(W)=L$$
-- For $$l$$ in $$range(1,(L-1)+1)$$
+- for $$l$$ in $$range(1,(L-1)+1)$$
   - Let $$W[l].shape=(s_{l+1},s_l)$$
     - Implies $$W[l][j].shape=(s_l,)$$
     - Implies $$W[l][j]=\text{vector of length}\ s_l$$
@@ -478,25 +478,25 @@ $$
 - Let $$Y.shape=(M,c)=(M,s_L)$$
   - Implies $$Y[i].shape=(s_L,)$$
   - Implies $$Y[i]=\text{vector of length}\ s_L$$
-- For $$l$$ in $$range(1,L+1)$$:
+- for $$l$$ in $$range(1,L+1)$$:
   - Let $$a[l].shape=(1,s_l)$$
   - Let $$\delta[l].shape=(1,s_l)$$
 
 #### Pseudo-Code (Pythonic)
-- For $$l$$ in $$range(1,(L-1)+1)$$
+- for $$l$$ in $$range(1,(L-1)+1)$$
   - Let $$grad\_sum\_W[l]=0$$
 - for $$e$$ in $$range(1,E+1)$$:
   - for $$M_i, (x,y)$$ in $$enumerate(zip(X,Y))$$:
     - Let $$a[1]=x[None,:]$$
-    - For $$l$$ in $$range(2,L+1)$$:
+    - for $$l$$ in $$range(2,L+1)$$:
       - Compute $$a[l]=np.matmul(a[l-1],W[l-1].T)$$
     - Compute $$\delta[L]=a[L]-y$$
-    - For $$l$$ in $$range(2,(L-1)+1)$$:
+    - for $$l$$ in $$range(2,(L-1)+1)$$:
       - Compute $$\delta[l]=np.matmul(\delta[l+1],W[l])*a[l]*(1-a[l])$$
-    - For $$l$$ in $$range(1,(L-1)+1)$$
+    - for $$l$$ in $$range(1,(L-1)+1)$$
       - Compute $$grad\_sum\_W[l]+=np.matmul(\delta[l+1].T,a[l])$$
     - if $$(M_i+1)\ \%\ m == 0$$:
-      - For $$l$$ in $$range(1,(L-1)+1)$$
+      - for $$l$$ in $$range(1,(L-1)+1)$$
         - Compute $$W[l]=W[l]-grad\_sum\_W[l]$$
         - Let $$grad\_sum\_W[l]=0$$
 
