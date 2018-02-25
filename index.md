@@ -466,9 +466,11 @@ $$
 
 #### Object Attributes (Pythonic)
 - Let $$len(W)=L$$
-- Let $$W[l].shape=(s_{l+1},s_l)$$
-  - Implies $$W[l][j].shape=(s_l,)$$
-  - Implies $$W[l][j]=\text{vector of length}\ s_l$$
+- For $$l$$ in $$range(1,(L-1)+1)$$
+  - Let $$W[l].shape=(s_{l+1},s_l)$$
+    - Implies $$W[l][j].shape=(s_l,)$$
+    - Implies $$W[l][j]=\text{vector of length}\ s_l$$
+  - Let $$grad\_sum\_W[l].shape=(s_{l+1},s_l)$$
 - Let $$X.shape=(M,n)=(M,s_1)$$
   - Implies $$X[i].shape=(s_1,)$$
   - Implies $$X[i]=\text{vector of length}\ s_1$$
