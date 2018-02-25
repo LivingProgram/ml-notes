@@ -460,9 +460,9 @@ $$
 - `np.ndarray.shape` : numpy array shape
 
 #### Training Data (Pythonic)
-- All training samples: $$X, y$$ numpy array
+- All training samples: $$X, Y$$ numpy array
 - Each training sample has features: $$X[i]=[[x_1,x_2,\ldots,x_n]]$$
-- Each training sample has labels: $$y[i]=[[y_1,y_2,\ldots,y_c]]$$
+- Each training sample has labels: $$Y[i]=[[y_1,y_2,\ldots,y_c]]$$
 
 #### Object Attributes (Pythonic)
 - Let $$len(W)=L$$
@@ -472,9 +472,9 @@ $$
 - Let $$X.shape=(M,n)=(M,s_1)$$
   - Implies $$X[i].shape=(s_1,)$$
   - Implies $$X[i]=\text{vector of length}\ s_1$$
-- Let $$y.shape=(M,c)=(M,s_L)$$
-  - Implies $$y[i].shape=(s_L,)$$
-  - Implies $$y[i]=\text{vector of length}\ s_L$$
+- Let $$Y.shape=(M,c)=(M,s_L)$$
+  - Implies $$Y[i].shape=(s_L,)$$
+  - Implies $$Y[i]=\text{vector of length}\ s_L$$
 - For $$l$$ in $$range(1,L+1)$$:
   - Let $$a^{(l)}.shape=(1,s_l)$$
   - Let $$\delta^{(l)}.shape=(1,s_l)$$
@@ -482,11 +482,11 @@ $$
 #### Pseudo-Code (Pythonic)
 - For $$l$$ in $$range(1,(L-1)+1)$$
   - Let $$grad\_sum\_W^{(l)}=0$$
-- for $$M_i, (X[i],y[i])$$ in $$enumerate(zip(X,y))$$:
+- for $$M_i, (X[i],Y[i])$$ in $$enumerate(zip(X,Y))$$:
   - Let $$a^{(1)}=X[i][None,:]$$
   - For $$l$$ in $$range(2,L+1)$$:
     - Compute $$a^{(l)}=np.matmul(a^{(l-1)},W[l-1].T)$$
-  - Compute $$\delta^{(L)}=a^{(L)}-y[i]$$
+  - Compute $$\delta^{(L)}=a^{(L)}-Y[i]$$
   - For $$l$$ in $$range(2,(L-1)+1)$$:
     - Compute $$\delta^{(l)}=np.matmul(\delta^{(l+1)},W[l])*a^{(l)}*(1-a^{(l)})$$
   - For $$l$$ in $$range(1,(L-1)+1)$$
