@@ -500,20 +500,24 @@ $$
         - Compute $$W[l]=W[l]-grad\_sum\_W[l]$$
         - Let $$grad\_sum\_W[l]=0$$
 
+#### Notation (Mathematical)
+- same notation as NN Notation
+- $$AB$$ : matrix multiplication of matrices $$A$$ and $$B$$
+- $$A \circ B$$: element wise multiplication of matrices $$A$$ and $$B$$
+
 #### Training Data (Mathematical)
-- All training samples: $$(X_1,y_1),(X_2,y_2),\ldots,(X_M,y_M)$$
+- All training samples: $$(X_1,Y_1),(X_2,Y_2),\ldots,(X_M,Y_M)$$
 - Each training sample has features: $$(x_1,x_2,\ldots,x_n)$$
+- Each training sample has labels: $$(y_1,y_2,\ldots,y_n)$$
 
 #### Pseudo-Code (Mathematical)
-- For every train sample $$(X_i,y_i)$$ in $$X$$:
+- For every train sample $$(X_i,Y_i)$$ in $$(X_1,Y_1),\ldots,(X_M,Y_M)$$:
   - Let $$a_1^{(1)}=x_1,\ a_2^{(1)}=x_2,\ \ldots,\ a_{s_1}^{(1)}=x_n$$
   - Perform Forward Propagation to compute $$a^{(l)},\ \forall\ l\in\{2,3,\ldots,L\}$$
     - (put feedforward formula here with proper matrix multiplications)
   - Compute $$\delta^{(L)}=a^{(L)}-y_i$$
   - Compute $$\delta^{(L-1)},\delta^{(L-2)},\ldots,\delta^{(2)}$$
     - $$\delta^{(l)}=np.matmul(W^{(l)},\delta^{(l+1)}.T)*a^{(l)}*(1-a^{(l)})$$
-
-(note * is matrix multiply and Hadamard product is element wise multiplication)
 
 #### Proof.
 
