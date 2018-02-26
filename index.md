@@ -459,6 +459,7 @@ $$
 - `np.ndarray.T` : numpy matrix transpose
 - `*` : numpy element-wise multiplication
 - `np.ndarray.shape` : numpy array shape
+- `sigmoid()` : sigmoid function
 
 #### Training Data (Pythonic)
 - All training samples: $$X, Y$$ numpy array
@@ -489,7 +490,7 @@ $$
   - for $$M_i, (x,y)$$ in $$enumerate(zip(X,Y))$$:
     - Let $$a[1]=x[None,:]$$
     - for $$l$$ in $$range(2,L+1)$$:
-      - Compute $$a[l]=np.matmul(a[l-1],W[l-1].T)$$
+      - Compute $$a[l]=sigmoid(np.matmul(a[l-1],W[l-1].T))$$
     - Compute $$\delta[L]=a[L]-y$$
     - for $$l$$ in $$range(2,(L-1)+1)$$:
       - Compute $$\delta[l]=np.matmul(\delta[l+1],W[l])*a[l]*(1-a[l])$$
@@ -502,6 +503,7 @@ $$
 
 #### Notation (Mathematical)
 - same notation as NN Notation
+- $$A^{T}$$ : matrix transpose
 - $$AB$$ : matrix multiplication of matrices $$A$$ and $$B$$
 - $$A \circ B$$: element wise multiplication of matrices $$A$$ and $$B$$
 
@@ -511,13 +513,13 @@ $$
 - Each training sample has labels: $$(y_1,y_2,\ldots,y_n)$$
 
 #### Pseudo-Code (Mathematical)
-- For every train sample $$(X_i,Y_i)$$ in $$(X_1,Y_1),\ldots,(X_M,Y_M)$$:
-  - Let $$a_1^{(1)}=x_1,\ a_2^{(1)}=x_2,\ \ldots,\ a_{s_1}^{(1)}=x_n$$
-  - Perform Forward Propagation to compute $$a^{(l)},\ \forall\ l\in\{2,3,\ldots,L\}$$
-    - (put feedforward formula here with proper matrix multiplications)
-  - Compute $$\delta^{(L)}=a^{(L)}-y_i$$
-  - Compute $$\delta^{(L-1)},\delta^{(L-2)},\ldots,\delta^{(2)}$$
-    - $$\delta^{(l)}=np.matmul(W^{(l)},\delta^{(l+1)}.T)*a^{(l)}*(1-a^{(l)})$$
+- For every epoch:
+  - For every train sample $$(X_i,Y_i)$$ in $$(X_1,Y_1),\ldots,(X_M,Y_M)$$:
+    - Let $$a_1^{(1)}=x_1,\ a_2^{(1)}=x_2,\ \ldots,\ a_{s_1}^{(1)}=x_n$$
+    - $$\forall\ l\in\{2,3,\ldots,L\},$$ Compute $$a^{(l)}=a^{(l-1)}W^{(l-1)T}$$
+    - Compute $$\delta^{(L)}=a^{(L)}-y_i$$
+    - Compute $$\delta^{(L-1)},\delta^{(L-2)},\ldots,\delta^{(2)}$$
+      - $$\delta^{(l)}=np.matmul(W^{(l)},\delta^{(l+1)}.T)*a^{(l)}*(1-a^{(l)})$$
 
 #### Proof.
 
