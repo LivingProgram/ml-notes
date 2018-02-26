@@ -515,14 +515,22 @@ $$
 - Each training sample has labels: $$(y_1,y_2,\ldots,y_n)$$
 
 #### Pseudo-Code (Mathematical)
-- $$\forall\ l\in\{1,\ldots,L-1\},$$ Let $$\frac{\partial}{\partial W^{(l)}}E = 0$$
+- $$\forall\ l\in\{1,\ldots,L-1\}$$,
+  - Let $$\frac{\partial}{\partial W^{(l)}}E = 0$$
 - For every epoch:
   - For every train sample $$(X_i,Y_i)$$ in $$(X_1,Y_1),\ldots,(X_M,Y_M)$$:
     - Let $$a_1^{(1)}=x_1,\ a_2^{(1)}=x_2,\ \ldots,\ a_{s_1}^{(1)}=x_n$$
-    - $$\forall\ l\in\{2,\ldots,L\},$$ Compute $$a^{(l)}=\sigma(a^{(l-1)}W^{(l-1)T})$$
+    - $$\forall\ l\in\{2,\ldots,L\}$$,
+      - Compute $$a^{(l)}=\sigma(a^{(l-1)}W^{(l-1)T})$$
     - Compute $$\delta^{(L)}=a^{(L)}-Y_i$$
-    - $$\forall\ l\in\{2,\ldots,L-1\},$$ Compute $$\delta^{(l)} = \delta^{(l+1)}W^{(l)} \circ a^{(l)} \circ (1-a^{(l)})$$
-    - Update $$\frac{\partial}{\partial W^{(l)}}E = \frac{\partial}{\partial W^{(l)}}E+\delta^{(l+1)T}a^{(l)}$$
+    - $$\forall\ l\in\{2,\ldots,L-1\}$$,
+      - Compute $$\delta^{(l)} = \delta^{(l+1)}W^{(l)} \circ a^{(l)} \circ (1-a^{(l)})$$
+    - $$\forall\ l\in\{1,\ldots,L-1\}$$,
+      -  Update $$\frac{\partial}{\partial W^{(l)}}E = \frac{\partial}{\partial W^{(l)}}E+\delta^{(l+1)T}a^{(l)}$$
+    - If computed gradients for $$m$$ training samples:
+      - $$\forall\ l\in\{1,\ldots,L-1\}$$,
+        - Update $$W^{(l)}\leftarrow W^{(l)}-\alpha\frac{1}{m}\frac{\partial}{\partial W^{(l)}}E$$
+        - Let $$\frac{\partial}{\partial W^{(l)}}E = 0$$
 
 #### Proof.
 
