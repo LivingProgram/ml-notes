@@ -533,10 +533,10 @@ Y_i &= \begin{bmatrix}
 y_1 & y_2 & y_3 & \ldots & y_c
 \end{bmatrix} \\\\
 a^{(l)} &= \begin{bmatrix}
-a^{(l)}_1 & a^{(l)}_2 & a^{(l)}_3 & \ldots & a^{(l)}_{s_{l}}
+a^{(l)}_1 \\ a^{(l)}_2 \\ a^{(l)}_3 \\ \ldots \\ a^{(l)}_{s_{l}}
 \end{bmatrix} \\\\
 \delta^{(l)} &= \begin{bmatrix}
-\delta^{(l)}_1 & \delta^{(l)}_2 & \delta^{(l)}_3 & \ldots & \delta^{(l)}_{s_{l}}
+\delta^{(l)}_1 \\ \delta^{(l)}_2 \\ \delta^{(l)}_3 \\ \ldots \\ \delta^{(l)}_{s_{l}}
 \end{bmatrix} \\\\
 \frac{\partial}{\partial W^{(l)}}E &= \begin{bmatrix}
 \frac{\partial}{\partial W^{(l)}_{11}}E & \frac{\partial}{\partial W^{(l)}_{21}}E & \frac{\partial}{\partial W^{(l)}_{31}}E & \ldots & \frac{\partial}{\partial W^{(l)}_{s_l1}}E \\
@@ -554,15 +554,15 @@ a^{(l)}_1 & a^{(l)}_2 & a^{(l)}_3 & \ldots & a^{(l)}_{s_{l}}
   - For every train sample $$(X_i,Y_i)$$ in $$(X_1,Y_1),\ldots,(X_M,Y_M)$$:
     - Let $$a_1^{(1)}=x_1,\ a_2^{(1)}=x_2,\ \ldots,\ a_{s_1}^{(1)}=x_n$$
     - $$\forall\ l\in\{2,\ldots,L\}$$,
-      - Compute $$a^{(l)}=\sigma(a^{(l-1)}W^{(l-1)T})$$
-    - Compute $$\delta^{(L)}=a^{(L)}-Y_i$$
+      - Compute $$a^{(l)}=\sigma(W^{(l-1)}a^{(l-1)})$$
+    - Compute $$\delta^{(L)}=a^{(L)}-Y_i^T$$
     - $$\forall\ l\in\{2,\ldots,L-1\}$$,
-      - Compute $$\delta^{(l)} = \delta^{(l+1)}W^{(l)} \circ a^{(l)} \circ (1-a^{(l)})$$
+      - Compute $$\delta^{(l)} = W^{(l)T}\delta^{(l+1)} \circ a^{(l)} \circ (1-a^{(l)})$$
     - $$\forall\ l\in\{1,\ldots,L-1\}$$,
-      -  Update $$\frac{\partial}{\partial W^{(l)}}E = \frac{\partial}{\partial W^{(l)}}E+\delta^{(l+1)T}a^{(l)}$$
+      -  Update $$\frac{\partial}{\partial W^{(l)}}E = \frac{\partial}{\partial W^{(l)}}E+\delta^{(l+1)}a^{(l)T}$$
     - If computed gradients for $$m$$ training samples:
       - $$\forall\ l\in\{1,\ldots,L-1\}$$,
-        - Update $$W^{(l)}\leftarrow W^{(l)}-\alpha\frac{1}{m}\frac{\partial}{\partial W^{(l)}}E$$
+        - Update $$W^{(l)}\leftarrow W^{(l)}-\alpha\circ\frac{1}{m}\circ\frac{\partial}{\partial W^{(l)}}E$$
         - Let $$\frac{\partial}{\partial W^{(l)}}E = 0$$
 
 #### "Proof".
