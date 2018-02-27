@@ -491,14 +491,14 @@ $$
   - Let $$grad\_sum\_W[l]=0$$
 - for $$e$$ in $$range(1,E+1)$$:
   - for $$M_i, (x,y)$$ in $$enumerate(zip(X,Y))$$:
-    - Let $$a[1]=x[None,:]$$
+    - Let $$a[1]=x[:,None]$$
     - for $$l$$ in $$range(2,L+1)$$:
-      - Compute $$a[l]=sigmoid(np.matmul(a[l-1],W[l-1].T))$$
-    - Compute $$\delta[L]=a[L]-y$$
+      - Compute $$a[l]=sigmoid(np.matmul(W[l-1],a[l-1]))$$
+    - Compute $$\delta[L]=a[L]-y[:,None]$$
     - for $$l$$ in $$range(2,(L-1)+1)$$:
-      - Compute $$\delta[l]=np.matmul(\delta[l+1],W[l])*a[l]*(1-a[l])$$
+      - Compute $$\delta[l]=np.matmul(W[l].T,\delta[l+1])*a[l]*(1-a[l])$$
     - for $$l$$ in $$range(1,(L-1)+1)$$
-      - Compute $$grad\_sum\_W[l]+=np.matmul(\delta[l+1].T,a[l])$$
+      - Compute $$grad\_sum\_W[l]+=np.matmul(\delta[l+1],a[l].T)$$
     - if $$(M_i+1)\ \%\ m == 0$$:
       - for $$l$$ in $$range(1,(L-1)+1)$$
         - Compute $$W[l]=W[l]-\alpha*\frac{1}{m}*grad\_sum\_W[l]$$
