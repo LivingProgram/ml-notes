@@ -498,7 +498,7 @@ $$
     - for $$l$$ in $$range(2,(L-1)+1)$$:
       - Compute $$\delta[l]=np.matmul(W[l].T,\delta[l+1])*a[l]*(1-a[l])$$
     - for $$l$$ in $$range(1,(L-1)+1)$$
-      - Compute $$grad\_sum\_W[l]+=np.matmul(\delta[l+1],a[l].T)$$
+      - Update $$grad\_sum\_W[l]+=np.matmul(\delta[l+1],a[l].T)$$
     - if $$(M_i+1)\ \%\ m == 0$$:
       - for $$l$$ in $$range(1,(L-1)+1)$$
         - Compute $$W[l]=W[l]-\alpha*\frac{1}{m}*grad\_sum\_W[l]$$
