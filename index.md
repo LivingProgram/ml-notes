@@ -516,6 +516,37 @@ $$
 - Each training sample has features: $$(x_1,x_2,\ldots,x_n)$$
 - Each training sample has labels: $$(y_1,y_2,\ldots,y_n)$$
 
+#### Matrix Visualizations (Mathematical)
+
+$$\begin{align}
+W^{(l)} &= \begin{bmatrix}
+W^{(l)}_{11} & W^{(l)}_{21} & W^{(l)}_{31} & \ldots & W^{(l)}_{s_l1} \\
+W^{(l)}_{12} & W^{(l)}_{22} & W^{(l)}_{32} \\
+W^{(l)}_{13} & W^{(l)}_{23} & W^{(l)}_{33} \\
+\vdots & & &\ddots \\
+W^{(l)}_{1s_{l+1}} & & & & W^{(l)}_{s_ls_{l+1}} \\
+\end{bmatrix} \\\\
+X_i &= \begin{bmatrix}
+x_1 & x_2 & x_3 & \ldots & x_n
+\end{bmatrix} \\\\
+Y_i &= \begin{bmatrix}
+y_1 & y_2 & y_3 & \ldots & y_c
+\end{bmatrix} \\\\
+a^{(l)} &= \begin{bmatrix}
+a^{(l)}_1 & a^{(l)}_2 & a^{(l)}_3 & \ldots & a^{(l)}_{s_{l}}
+\end{bmatrix} \\\\
+\delta^{(l)} &= \begin{bmatrix}
+\delta^{(l)}_1 & \delta^{(l)}_2 & \delta^{(l)}_3 & \ldots & \delta^{(l)}_{s_{l}}
+\end{bmatrix} \\\\
+\frac{\partial}{\partial W^{(l)}}E &= \begin{bmatrix}
+\frac{\partial}{\partial W^{(l)}_{11}}E & \frac{\partial}{\partial W^{(l)}_{21}}E & \frac{\partial}{\partial W^{(l)}_{31}}E & \ldots & \frac{\partial}{\partial W^{(l)}_{s_l1}}E \\
+\frac{\partial}{\partial W^{(l)}_{12}}E & \frac{\partial}{\partial W^{(l)}_{22}}E & \frac{\partial}{\partial W^{(l)}_{32}}E \\
+\frac{\partial}{\partial W^{(l)}_{13}}E & \frac{\partial}{\partial W^{(l)}_{23}}E & \frac{\partial}{\partial W^{(l)}_{33}}E \\
+\vdots & & &\ddots \\
+\frac{\partial}{\partial W^{(l)}_{1s_{l+1}}}E & & & & \frac{\partial}{\partial W^{(l)}_{s_ls_{l+1}}}E \\
+\end{bmatrix} \\\\
+\end{align}$$
+
 #### Pseudo-Code (Mathematical)
 - $$\forall\ l\in\{1,\ldots,L-1\}$$,
   - Let $$\frac{\partial}{\partial W^{(l)}}E = 0$$
