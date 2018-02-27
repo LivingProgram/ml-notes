@@ -598,9 +598,64 @@ grad\_sum\_W[l] &+= np.matmul(\delta[l+1].T,a[l]) \\
 #### "Proof".
 
 $$\text{WWTP: pseudo-code calculates partial derivatives correctly} \\
-\text{Nonformal proof, } \\
+\text{Informal proof, } \\
 \text{use pseudo-code to calculate partial derivatives for sample NN,} \\
-\text{check results match with raw calculations.}$$
+\text{check results match with raw calculations.}\\\\$$
+
+$$\text{WWTP: Pseudo-Code yields}$$
+
+$$\begin{align}
+\frac{\partial}{\partial W^{(1)}_{11}}E &= \left(\frac{a_1^{(4)}-y}{a_1^{(4)}(1-a_1^{(4)})}\right) \\
+&\phantom{0000} \cdot \left(a_1^{(4)}(1-a_1^{(4)})\right) \\
+&\phantom{0000} \cdot \left(\left(W_{11}^{(3)} \cdot a_1^{(3)}(1-a_1^{(3)}) \cdot W_{11}^{(2)}\right) + \left(W_{21}^{(3)} \cdot a_2^{(3)}(1-a_2^{(3)}) \cdot W_{12}^{(2)}\right) + \left(W_{31}^{(3)} \cdot a_3^{(3)}(1-a_3^{(3)}) \cdot W_{13}^{(2)}\right)\right) \\
+&\phantom{0000} \cdot \left(a_1^{(2)}(1-a_1^{(2)})\right) \\
+&\phantom{0000} \cdot \left(a_1^{(1)}\right)
+\end{align}$$
+
+$$\text{Executing Pseudo-Code (Mathematical):}$$
+
+$$\begin{align}
+a^{(1)} &= \begin{bmatrix}
+x_1 & x_2 & x_3
+\end{bmatrix} \\
+a^{(2)} &= \sigma(a^{(1)}W^{(1)T}) \\
+&=\sigma\left(
+\begin{bmatrix}
+x_1 & x_2 & x_3
+\end{bmatrix}
+\begin{bmatrix}
+W^{(1)}_{11} & W^{(1)}_{21} & W^{(1)}_{31} \\
+W^{(1)}_{12} & W^{(1)}_{22} & W^{(1)}_{32} \\
+W^{(1)}_{13} & W^{(1)}_{23} & W^{(1)}_{33} \\
+W^{(1)}_{14} & W^{(1)}_{24} & W^{(1)}_{34} \\
+\end{bmatrix}^{T}
+\right) \\
+&=\sigma\left(
+\begin{bmatrix}
+x_1 & x_2 & x_3
+\end{bmatrix}
+\begin{bmatrix}
+W^{(1)}_{11} & W^{(1)}_{12} & W^{(1)}_{13} & W^{(1)}_{14} \\
+W^{(1)}_{21} & W^{(1)}_{22} & W^{(1)}_{23} & W^{(1)}_{24} \\
+W^{(1)}_{31} & W^{(1)}_{32} & W^{(1)}_{33} & W^{(1)}_{34} \\
+\end{bmatrix}
+\right) \\
+&=\sigma\left(
+\begin{bmatrix}
+\left(W^{(1)}_{11}x_1 + W^{(1)}_{21}x_2 + W^{(1)}_{31}x_3\right) &
+\left(W^{(1)}_{12}x_1 + W^{(1)}_{22}x_2 + W^{(1)}_{32}x_3\right) &
+\left(W^{(1)}_{13}x_1 + W^{(1)}_{23}x_2 + W^{(1)}_{33}x_3\right) &
+\left(W^{(1)}_{14}x_1 + W^{(1)}_{24}x_2 + W^{(1)}_{34}x_3\right) \\
+\end{bmatrix}
+\right)
+\end{align}$$
+
+for convenience:
+\begin{bmatrix}
+W^{(1)}_{} & W^{(1)}_{} & W^{(1)}_{} & W^{(1)}_{} \\
+W^{(1)}_{} & W^{(1)}_{} & W^{(1)}_{} & W^{(1)}_{} \\
+W^{(1)}_{} & W^{(1)}_{} & W^{(1)}_{} & W^{(1)}_{} \\
+\end{bmatrix}
 
 # Jupyter Cheatsheet
 - tab: allows you to complete variable names or list functions of a package within code cell
