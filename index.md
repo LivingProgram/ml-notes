@@ -803,12 +803,7 @@ $$\begin{align}
 \end{bmatrix}
 \end{align}$$
 
-for convenience:
-\begin{bmatrix}
-W^{(1)}_{} & W^{(1)}_{} & W^{(1)}_{} & W^{(1)}_{} \\
-W^{(1)}_{} & W^{(1)}_{} & W^{(1)}_{} & W^{(1)}_{} \\
-W^{(1)}_{} & W^{(1)}_{} & W^{(1)}_{} & W^{(1)}_{} \\
-\end{bmatrix}
+$$\text{Calculating partial derivatives using errors:}$$
 
 # Jupyter Cheatsheet
 - tab: allows you to complete variable names or list functions of a package within code cell
