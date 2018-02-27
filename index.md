@@ -552,7 +552,7 @@ a^{(l)}_1 & a^{(l)}_2 & a^{(l)}_3 & \ldots & a^{(l)}_{s_{l}}
   - Let $$\frac{\partial}{\partial W^{(l)}}E = 0$$
 - For every epoch:
   - For every train sample $$(X_i,Y_i)$$ in $$(X_1,Y_1),\ldots,(X_M,Y_M)$$:
-    - Let $$a_1^{(1)}=x_1,\ a_2^{(1)}=x_2,\ \ldots,\ a_{s_l}^{(1)}=x_n$$
+    - Let $$a_1^{(1)}=x_1,\ a_2^{(1)}=x_2,\ \ldots,\ a_{s_1}^{(1)}=x_n$$
     - $$\forall\ l\in\{2,\ldots,L\}$$,
       - Compute $$a^{(l)}=\sigma(a^{(l-1)}W^{(l-1)T})$$
     - Compute $$\delta^{(L)}=a^{(L)}-Y_i$$
