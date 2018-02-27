@@ -666,7 +666,26 @@ W^{(2)}_{13}a^{(2)}_1 + W^{(2)}_{23}a^{(2)}_2 + W^{(2)}_{33}a^{(2)}_3 + W^{(2)}_
 \sigma\left(W^{(2)}_{12}a^{(2)}_1 + W^{(2)}_{22}a^{(2)}_2 + W^{(2)}_{32}a^{(2)}_3 + W^{(2)}_{42}a^{(2)}_4\right) \\
 \sigma\left(W^{(2)}_{13}a^{(2)}_1 + W^{(2)}_{23}a^{(2)}_2 + W^{(2)}_{33}a^{(2)}_3 + W^{(2)}_{43}a^{(2)}_4\right) \\
 \end{bmatrix} \\\\
+a^{(4)} &= \sigma(W^{(3)}a^{(3)}) \\
+&=\sigma\left(
+\begin{bmatrix}
+W^{(3)}_{11} & W^{(3)}_{21} & W^{(3)}_{31} \\
+\end{bmatrix}
+\begin{bmatrix}
+a^{(3)}_1 \\ a^{(3)}_2 \\ a^{(3)}_3
+\end{bmatrix}
+\right) \\
+&=\sigma\left(
+\begin{bmatrix}
+W^{(3)}_{11}a^{(3)}_1 + W^{(3)}_{21}a^{(3)}_2 + W^{(3)}_{31}a^{(3)}_3 \\
+\end{bmatrix}
+\right) \\
+&=\begin{bmatrix}
+\sigma\left(W^{(3)}_{11}a^{(3)}_1 + W^{(3)}_{21}a^{(3)}_2 + W^{(3)}_{31}a^{(3)}_3\right) \\
+\end{bmatrix} \\\\
 \end{align}$$
+
+
 
 for convenience:
 \begin{bmatrix}
