@@ -397,7 +397,7 @@ $$
 For the sample NN:
 
 $$\begin{align}
-\frac{\partial}{\partial W^{(1)}_{21}}E &= \left(\frac{a_1^{(4)}-y}{a_1^{(4)}(1-a_1^{(4)})}\right) \cdot \left(a_1^{(4)}(1-a_1^{(4)}\right) \cdot \left( a_1^{(3)}\right)
+\frac{\partial}{\partial W^{(3)}_{11}}E &= \left(\frac{a_1^{(4)}-y}{a_1^{(4)}(1-a_1^{(4)})}\right) \cdot \left(a_1^{(4)}(1-a_1^{(4)})\right) \cdot \left( a_1^{(3)}\right)
 \end{align}$$
 
 #### Proof.
@@ -440,7 +440,7 @@ $$\begin{align}
 \end{align}$$
 
 $$
-\frac{\partial E}{\partial W_{11}^{(3)}} = \left(\frac{a_1^{(4)}-y}{a_1^{(4)}(1-a_1^{(4)})}\right) \cdot \left(a_1^{(4)}(1-a_1^{(4)}\right) \cdot \left( a_1^{(3)}\right) \ \ \ \ \blacksquare\\\\
+\frac{\partial E}{\partial W_{11}^{(3)}} = \left(\frac{a_1^{(4)}-y}{a_1^{(4)}(1-a_1^{(4)})}\right) \cdot \left(a_1^{(4)}(1-a_1^{(4)})\right) \cdot \left( a_1^{(3)}\right) \ \ \ \ \blacksquare\\\\
 $$
 
 ### (WIP) Backprop Algorithm Pseudo-Code
@@ -620,7 +620,8 @@ $$\begin{align}
 \end{align}$$
 
 $$\begin{align}
-\frac{\partial}{\partial W^{(1)}_{21}}E &= \left(\frac{a_1^{(4)}-y}{a_1^{(4)}(1-a_1^{(4)})}\right) \cdot \left(a_1^{(4)}(1-a_1^{(4)}\right) \cdot \left( a_1^{(3)}\right) \\\\
+\frac{\partial}{\partial W^{(3)}_{11}}E &= \left(\frac{a_1^{(4)}-y}{a_1^{(4)}(1-a_1^{(4)})}\right) \cdot \left(a_1^{(4)}(1-a_1^{(4)})\right) \cdot \left( a_1^{(3)}\right) \\\\
+&=(a_1^{(4)}-y)a_1^{(3)} \\\\
 \end{align}$$
 
 $$\text{Executing Pseudo-Code (Mathematical):} \\
@@ -804,6 +805,10 @@ $$\begin{align}
 \end{align}$$
 
 $$\text{Calculating partial derivatives using errors:}$$
+
+$$\begin{align}
+\frac{\partial}{\partial W^{(3)}}E &= \delta^{(4)}a^{(3)T} \\
+\end{align}$$
 
 # Jupyter Cheatsheet
 - tab: allows you to complete variable names or list functions of a package within code cell
