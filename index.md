@@ -699,9 +699,51 @@ $$\begin{align}
 \end{bmatrix}
 -\begin{bmatrix}y_1\end{bmatrix} \\
 &= \begin{bmatrix}
-\sigma\left(W^{(3)}_{11}a^{(3)}_1 + W^{(3)}_{21}a^{(3)}_2 + W^{(3)}_{31}a^{(3)}_3\right) - y_1 \\
+a^{(4)}_1 - y_1 \\
+\end{bmatrix}\\\\
+\delta^{(3)} &= W^{(3)T}\delta^{(4)} \circ a^{(3)} \circ (1-a^{(3)}) \\
+&= \begin{bmatrix}
+W^{(3)}_{11} & W^{(3)}_{21} & W^{(3)}_{31} \\
+\end{bmatrix}^T
+\begin{bmatrix}
+a^{(4)}_1 - y_1 \\
 \end{bmatrix}
+\circ a^{(3)} \circ (1-a^{(3)}) \\
+&= \begin{bmatrix}
+W^{(3)}_{11} \\ W^{(3)}_{21} \\ W^{(3)}_{31} \\
+\end{bmatrix}
+\begin{bmatrix}
+a^{(4)}_1 - y_1 \\
+\end{bmatrix}
+\circ a^{(3)} \circ (1-a^{(3)}) \\
+&= \begin{bmatrix}
+W^{(3)}_{11}(a^{(4)}_1 - y_1) \\
+W^{(3)}_{21}(a^{(4)}_1 - y_1) \\
+W^{(3)}_{31}(a^{(4)}_1 - y_1) \\
+\end{bmatrix}
+\circ a^{(3)} \circ (1-a^{(3)}) \\
+&= \begin{bmatrix}
+W^{(3)}_{11}(a^{(4)}_1 - y_1) \\
+W^{(3)}_{21}(a^{(4)}_1 - y_1) \\
+W^{(3)}_{31}(a^{(4)}_1 - y_1) \\
+\end{bmatrix}
+\circ \begin{bmatrix}a^{(3)}_1 \\ a^{(3)}_2 \\ a^{(3)}_3 \end{bmatrix}
+\circ (1 - \begin{bmatrix}a^{(3)}_1 \\ a^{(3)}_2 \\ a^{(3)}_3 \end{bmatrix}) \\
+&= \begin{bmatrix}
+W^{(3)}_{11}(a^{(4)}_1 - y_1) \\
+W^{(3)}_{21}(a^{(4)}_1 - y_1) \\
+W^{(3)}_{31}(a^{(4)}_1 - y_1) \\
+\end{bmatrix}
+\circ \begin{bmatrix}a^{(3)}_1 \\ a^{(3)}_2 \\ a^{(3)}_3 \end{bmatrix}
+\circ \begin{bmatrix}1 - a^{(3)}_1 \\ 1 - a^{(3)}_2 \\ 1 - a^{(3)}_3 \end{bmatrix} \\
+&= \begin{bmatrix}
+W^{(3)}_{11}(a^{(4)}_1 - y_1)a^{(3)}_1(1 - a^{(3)}_1) \\
+W^{(3)}_{21}(a^{(4)}_1 - y_1)a^{(3)}_2(1 - a^{(3)}_2) \\
+W^{(3)}_{31}(a^{(4)}_1 - y_1)a^{(3)}_3(1 - a^{(3)}_3) \\
+\end{bmatrix}\\\\
 \end{align}$$
+
+
 
 for convenience:
 \begin{bmatrix}
