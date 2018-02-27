@@ -611,7 +611,8 @@ $$\begin{align}
 &\phantom{0000} \cdot \left(a_1^{(1)}\right)
 \end{align}$$
 
-$$\text{Executing Pseudo-Code (Mathematical):}$$
+$$\text{Executing Pseudo-Code (Mathematical):} \\
+\text{Forward Propagation, calculating activations:}$$
 
 $$\begin{align}
 a^{(1)} &= \begin{bmatrix}
@@ -685,7 +686,22 @@ W^{(3)}_{11}a^{(3)}_1 + W^{(3)}_{21}a^{(3)}_2 + W^{(3)}_{31}a^{(3)}_3 \\
 \end{bmatrix} \\\\
 \end{align}$$
 
+$$\text{Backpropagation, calculating errors:}$$
 
+$$\begin{align}
+\delta^{(4)} &= a^{(4)}-Y_i^T \\
+&= \begin{bmatrix}
+\sigma\left(W^{(3)}_{11}a^{(3)}_1 + W^{(3)}_{21}a^{(3)}_2 + W^{(3)}_{31}a^{(3)}_3\right) \\
+\end{bmatrix}
+-\begin{bmatrix}y_1\end{bmatrix}^T \\\
+&= \begin{bmatrix}
+\sigma\left(W^{(3)}_{11}a^{(3)}_1 + W^{(3)}_{21}a^{(3)}_2 + W^{(3)}_{31}a^{(3)}_3\right) \\
+\end{bmatrix}
+-\begin{bmatrix}y_1\end{bmatrix} \\
+&= \begin{bmatrix}
+\sigma\left(W^{(3)}_{11}a^{(3)}_1 + W^{(3)}_{21}a^{(3)}_2 + W^{(3)}_{31}a^{(3)}_3\right) - y_1 \\
+\end{bmatrix}
+\end{align}$$
 
 for convenience:
 \begin{bmatrix}
