@@ -483,8 +483,8 @@ $$
   - Implies $$Y[i].shape=(s_L,)$$
   - Implies $$Y[i]=\text{vector of length}\ s_L$$
 - for $$l$$ in $$range(1,L+1)$$:
-  - Let $$a[l].shape=(1,s_l)$$
-  - Let $$\delta[l].shape=(1,s_l)$$
+  - Let $$a[l].shape=(s_l,1)$$
+  - Let $$\delta[l].shape=(s_l,1)$$
 
 #### Pseudo-Code (Pythonic)
 - for $$l$$ in $$range(1,(L-1)+1)$$
