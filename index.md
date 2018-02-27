@@ -444,6 +444,8 @@ $$
 $$
 
 ### (WIP) Backprop Algorithm Pseudo-Code
+*for simplicity, bias units and regularization are left out*
+
 #### Hyperparameters
 - $$M=$$ number of training examples
 - $$m=$$ batch size (assuming $$M$$ divisible by $$m$$)
@@ -499,7 +501,7 @@ $$
       - Compute $$grad\_sum\_W[l]+=np.matmul(\delta[l+1].T,a[l])$$
     - if $$(M_i+1)\ \%\ m == 0$$:
       - for $$l$$ in $$range(1,(L-1)+1)$$
-        - Compute $$W[l]=W[l]-\alpha\frac{1}{m}grad\_sum\_W[l]$$
+        - Compute $$W[l]=W[l]-\alpha*\frac{1}{m}*grad\_sum\_W[l]$$
         - Let $$grad\_sum\_W[l]=0$$
 
 #### Notation (Mathematical)
@@ -532,17 +534,35 @@ $$
         - Update $$W^{(l)}\leftarrow W^{(l)}-\alpha\frac{1}{m}\frac{\partial}{\partial W^{(l)}}E$$
         - Let $$\frac{\partial}{\partial W^{(l)}}E = 0$$
 
-#### Proof.
+#### "Proof".
 
-(put algorithm here with pseudo-code)
+$$\text{WWTP: all matrix multiplications make sense} \\
+\text{Take pythonic expression, "plug" in the shapes: }
+$$
 
-- (insert this in detailed section of overview with math included) After calculating gradient, Update weight:
+$$\begin{align}
+a[l] &= sigmoid(np.matmul(a[l-1],W[l-1].T)) \\
+(1,s_l) &= sigmoid(np.matmul((1,s_{l-1}),(s_l,s_{l-1}).T)) \\
+(1,s_l) &= sigmoid(np.matmul((1,s_{l-1}),(s_l,s_{l-1}).T)) \\
+(1,s_l) &= sigmoid(np.matmul((1,s_{l-1}),(s_{l-1},s_l))) \\
+(1,s_l) &= sigmoid((1,s_l)) \\
+(1,s_l) &= (1,s_l) \ \ \ \ \blacksquare\\\\
+\end{align}$$
 
-$$W^{(k)}_{ij}\leftarrow W^{(k)}_{ij}-\alpha\frac{\partial}{\partial W^{(k)}_{ij}}E$$
+$$\begin{align}
+\delta[l] &= np.matmul(\delta[l+1],W[l])*a[l]*(1-a[l]) \\
+(1,s_l) &= np.matmul((1,s_{l+1}),(s_{l+1},s_l))*(1,s_l)*(1-(1,s_l)) \\
+(1,s_l) &= (1,s_l)*(1,s_l)*(1-(1,s_l)) \\
+(1,s_l) &= (1,s_l)*(1,s_l)*(1,s_l) \\
+(1,s_l) &= (1,s_l) \ \ \ \ \blacksquare\\\\
+\end{align}$$
 
-(put proof here with WWTP: partial derivative of E for any Wl,i,j)
-
-$$\nabla E = \left(\frac{\partial}{\partial W^{(1)}_{11}}E,\ldots,\frac{\partial}{\partial W^{(l)}_{ij}}E,\ldots,\frac{\partial}{\partial W^{(L)}_{s_{L-1}s_{L}}}E\right)$$
+$$\begin{align}
+grad\_sum\_W[l] &+= np.matmul(\delta[l+1].T,a[l]) \\
+(s_{l+1},s_l) &+= np.matmul((1,s_{l+1}).T,(1,s_l)) \\
+(s_{l+1},s_l) &+= np.matmul((s_{l+1},1),(1,s_l)) \\
+(s_{l+1},s_l) &+= (s_{l+1},s_l) \ \ \ \ \blacksquare\\\\
+\end{align}$$
 
 # Jupyter Cheatsheet
 - tab: allows you to complete variable names or list functions of a package within code cell
