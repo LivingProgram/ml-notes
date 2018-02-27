@@ -616,8 +616,8 @@ $$\text{Executing Pseudo-Code (Mathematical):}$$
 $$\begin{align}
 a^{(1)} &= \begin{bmatrix}
 x_1 \\ x_2 \\ x_3
-\end{bmatrix} \\
-a^{(2)} &= \sigma(a^{(1)}W^{(1)T}) \\
+\end{bmatrix} \\\\
+a^{(2)} &= \sigma(W^{(1)}a^{(1)}) \\
 &=\sigma\left(
 \begin{bmatrix}
 W^{(1)}_{11} & W^{(1)}_{21} & W^{(1)}_{31} \\
@@ -636,7 +636,13 @@ W^{(1)}_{12}x_1 + W^{(1)}_{22}x_2 + W^{(1)}_{32}x_3 \\
 W^{(1)}_{13}x_1 + W^{(1)}_{23}x_2 + W^{(1)}_{33}x_3 \\
 W^{(1)}_{14}x_1 + W^{(1)}_{24}x_2 + W^{(1)}_{34}x_3 \\
 \end{bmatrix}
-\right)
+\right) \\
+&=\begin{bmatrix}
+\sigma\left(W^{(1)}_{11}x_1 + W^{(1)}_{21}x_2 + W^{(1)}_{31}x_3\right) \\
+\sigma\left(W^{(1)}_{12}x_1 + W^{(1)}_{22}x_2 + W^{(1)}_{32}x_3\right) \\
+\sigma\left(W^{(1)}_{13}x_1 + W^{(1)}_{23}x_2 + W^{(1)}_{33}x_3\right) \\
+\sigma\left(W^{(1)}_{14}x_1 + W^{(1)}_{24}x_2 + W^{(1)}_{34}x_3\right) \\
+\end{bmatrix} \\\\
 \end{align}$$
 
 for convenience:
