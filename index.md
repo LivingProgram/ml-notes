@@ -572,25 +572,24 @@ $$\text{WWTP: all matrix multiplications make sense} \\
 $$
 
 $$\begin{align}
-a[l] &= sigmoid(np.matmul(a[l-1],W[l-1].T)) \\
-(1,s_l) &= sigmoid(np.matmul((1,s_{l-1}),(s_l,s_{l-1}).T)) \\
-(1,s_l) &= sigmoid(np.matmul((1,s_{l-1}),(s_l,s_{l-1}).T)) \\
-(1,s_l) &= sigmoid(np.matmul((1,s_{l-1}),(s_{l-1},s_l))) \\
-(1,s_l) &= sigmoid((1,s_l)) \\
-(1,s_l) &= (1,s_l) \ \ \ \ \blacksquare\\\\
+a[l] &= sigmoid(np.matmul(W[l-1],a[l-1])) \\
+(s_l,1) &= sigmoid(np.matmul((s_l,s_{l-1}),(s_{l-1},1))) \\
+(s_l,1) &= sigmoid((s_l,1)) \\
+(s_l,1) &= (s_l,1) \ \ \ \ \blacksquare\\\\
 \end{align}$$
 
 $$\begin{align}
-\delta[l] &= np.matmul(\delta[l+1],W[l])*a[l]*(1-a[l]) \\
-(1,s_l) &= np.matmul((1,s_{l+1}),(s_{l+1},s_l))*(1,s_l)*(1-(1,s_l)) \\
-(1,s_l) &= (1,s_l)*(1,s_l)*(1-(1,s_l)) \\
-(1,s_l) &= (1,s_l)*(1,s_l)*(1,s_l) \\
-(1,s_l) &= (1,s_l) \ \ \ \ \blacksquare\\\\
+\delta[l] &= np.matmul(W[l].T,\delta[l+1])*a[l]*(1-a[l]) \\
+(s_l,1) &= np.matmul((s_{l+1},s_l).T,(s_{l+1},1))*(s_l,1)*(1-(s_l,1)) \\
+(s_l,1) &= np.matmul((s_l,s_{l+1}),(s_{l+1},1))*(s_l,1)*(1-(s_l,1)) \\
+(s_l,1) &= (s_l,1)*(s_l,1)*(1-(s_l,1)) \\
+(s_l,1) &= (s_l,1)*(s_l,1)*(s_l,1) \\
+(s_l,1) &= (s_l,1) \ \ \ \ \blacksquare\\\\
 \end{align}$$
 
 $$\begin{align}
-grad\_sum\_W[l] &+= np.matmul(\delta[l+1].T,a[l]) \\
-(s_{l+1},s_l) &+= np.matmul((1,s_{l+1}).T,(1,s_l)) \\
+grad\_sum\_W[l] &+= np.matmul(\delta[l+1],a[l].T) \\
+(s_{l+1},s_l) &+= np.matmul((s_{l+1},1),(s_l,1).T) \\
 (s_{l+1},s_l) &+= np.matmul((s_{l+1},1),(1,s_l)) \\
 (s_{l+1},s_l) &+= (s_{l+1},s_l) \ \ \ \ \blacksquare\\\\
 \end{align}$$
