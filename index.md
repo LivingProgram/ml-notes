@@ -595,6 +595,13 @@ grad\_sum\_W[l] &+= np.matmul(\delta[l+1].T,a[l]) \\
 (s_{l+1},s_l) &+= (s_{l+1},s_l) \ \ \ \ \blacksquare\\\\
 \end{align}$$
 
+#### "Proof".
+
+$$\text{WWTP: pseudo-code calculates partial derivatives correctly} \\
+\text{Nonformal proof, } \\
+\text{use pseudo-code to calculate partial derivatives for sample NN,} \\
+\text{check results match with raw calculations.}$$
+
 # Jupyter Cheatsheet
 - tab: allows you to complete variable names or list functions of a package within code cell
 - shift + tab: lets you see function documentation, variable values
