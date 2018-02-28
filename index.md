@@ -243,6 +243,16 @@ $$\hat{y}_{i}=\sigma(W^{(3)}(\sigma(W^{(2)}(\sigma(W^{(1)}X_{i})))))$$
 - the error is caused more by those neurons with strong connections (or large weights), and decreasing their weights will reduce the effects of the erroneous neuron
 - same as single perceptrons, calculate gradient of error function (which is more complex now) and use the gradient to update weights to descend to local minima
 
+### Why Understand Backprop?
+* [reference](https://medium.com/@karpathy/yes-you-should-understand-backprop-e2f06eab496b)
+* must understand backpropagation intuition and math as if you do not, you can unintentionally stop NN training
+* if you have sigmoid, relu, or any type of function that “cuts gradient flow”, like a hard thresholding of values (no matter if forward or backward propagation), then gradient will compute to 0 as taking derivative of something with 0 slope yields 0
+* To Prevent Issues: 
+  * initialize weights properly
+  * do not incorporate anything into NN that will “cut gradient flow” (the derivative of the thing yields 0 and that is being multiplied to calculate gradient)
+  * check to make sure neurons are learning and gradients do not = 0
+
+
 ### Sample NN Diagram
 ![Example NN](https://livingprogram.github.io/ml-notes/images/ml-notes_21.jpg)
 
