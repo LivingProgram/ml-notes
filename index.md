@@ -245,9 +245,10 @@ $$\hat{y}_{i}=\sigma(W^{(3)}(\sigma(W^{(2)}(\sigma(W^{(1)}X_{i})))))$$
 
 ### Why Understand Backprop?
 * [reference](https://medium.com/@karpathy/yes-you-should-understand-backprop-e2f06eab496b)
+* vanishing gradient problem: when error is back propagated through a NN, the gradient will decrease the further you move towards input layers (due to sigmoid activation function)
 * must understand backpropagation intuition and math as if you do not, you can unintentionally stop NN training
 * if you have sigmoid, relu, or any type of function that “cuts gradient flow”, like a hard thresholding of values (no matter if forward or backward propagation), then gradient will compute to 0 as taking derivative of something with 0 slope yields 0
-* To Prevent Issues: 
+* To Prevent Issues:
   * initialize weights properly
   * do not incorporate anything into NN that will “cut gradient flow” (the derivative of the thing yields 0 and that is being multiplied to calculate gradient)
   * check to make sure neurons are learning and gradients do not = 0
