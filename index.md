@@ -892,6 +892,21 @@ $$\begin{align}
 
 $$\text{Therefore the results from pseudo-code match raw calculations} \ \ \ \ \blacksquare\\\\$$
 
+# NN Toolkit
+- Early stopping: choose model with lowest testing error, which indicates best generalization (result: model can avoid under and overfitting)
+- Regularization: penalize larger weight values with higher error (result: prevent overfitting)
+  - L1 Regularization:
+    - $$E = -\frac{1}{m} \sum_{i=1}^m (1-y_i)\ln(1-\hat{y}_i) + y_i\ln(\hat{y}_i) + \lambda(|w_1|+\ldots+|w_n|)$$
+    - why L1? End up with sparse vectors $$\implies$$ small weights tend to go to 0 $$\implies$$ reduction in number of weights (also $$\implies$$ good for feature selection, as non-zero weight indicates important feature)
+  - L2 Regularization:
+    - $$E = -\frac{1}{m} \sum_{i=1}^m (1-y_i)\ln(1-\hat{y}_i) + y_i\ln(\hat{y}_i) + \lambda(w_1^2+\ldots+w_n^2)$$
+    - why L2? Makes all weights equally small $$\implies$$ doesn’t favor sparse vectors $$\implies$$ better results for training models
+    - why absolute value of L1 causes sparse vectors? it treats the weights $$(1,0)$$ and $$(0.5,0.5)$$ as equal errors of $$\|1\|+\|0\|=\|0.5\|+\|0.5\|=1$$ whereas L2 treats $$(1,0)=1^2+0^2=1$$ as worse error compared to $$(0.5,0.5)=0.5^2+0.5^2=0.5$$
+- Dropout: set probability, probability designates whether neuron is dropped each epoch, the dropped neuron does not train causing other neurons to receive more training (result: reduces overfitting)
+- Activation Functions:
+  - tanh (hyperbolic tangent function): larger gradients, towards ends, compared to sigmoid $$tanh(x)=\frac{e^x-e^{-x}}{e^x+e^{-x}}$$
+  - ReLU (rectified linear unit): $$relu(x)=\begin{cases}x & \text{if $x\geq0$}.\\0 & \text{if $x<0$}.\end{cases}$$
+
 # Jupyter Cheatsheet
 - tab: allows you to complete variable names or list functions of a package within code cell
 - shift + tab: lets you see function documentation, variable values
