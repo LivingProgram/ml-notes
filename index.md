@@ -906,6 +906,14 @@ $$\text{Therefore the results from pseudo-code match raw calculations} \ \ \ \ \
 - Activation Functions:
   - tanh (hyperbolic tangent function): larger gradients, towards ends, compared to sigmoid $$tanh(x)=\frac{e^x-e^{-x}}{e^x+e^{-x}}$$
   - ReLU (rectified linear unit): $$relu(x)=\begin{cases}x & \text{if $x\geq0$}.\\0 & \text{if $x<0$}.\end{cases}$$
+- Batch gradient descent: computes the gradient using the whole dataset
+- Stochastic gradient descent (SGD): computes the gradient using a single sample, or minibatch of samples (larger minibatch size allows you to avoid local minima)
+- Random restart: train from different initializations of same model
+- Momentum:
+  - as you descend gradient, "gain momentum" and barrel through local minima to global minima
+  - average most recent gradients to calculate "momentum"
+  - with the more recent gradients having larger weights in a weighted average
+  - $$\beta$$ parameter : $$\text{step}(n) = \text{step}(n) + \beta\text{step}(n-1)+\beta^2\text{step}(n-2)+\ldots$$
 
 # Jupyter Cheatsheet
 - tab: allows you to complete variable names or list functions of a package within code cell
