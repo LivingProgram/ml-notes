@@ -457,7 +457,7 @@ $$
 ### Backprop Algorithm Pseudo-Code
 *for simplicity, bias units and regularization are left out*
 
-[Bike Sharing Dataset With Implemented Pseudo-Code](/assets/code/bike-sharing-dataset/)
+[Bike Sharing Dataset With Implemented Pseudo-Code](assets/code/bike-sharing-dataset/)
 
 #### Hyperparameters
 - $$M=$$ number of training examples
