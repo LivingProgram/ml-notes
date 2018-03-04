@@ -6,6 +6,7 @@ Goal: develop NN for the purpose of predicting daily bike rental ridership
 * `livingprogram_my_answers.py` : neural network programmed using LivingProgram's pseudocode (passes unit tests, fails udactiy project assistant)
 * `Your_first_neural_network.ipynb` : original IPython notebook
 * `*` : html IPython notebook
+* `Bike-Sharing-Dataset`, `neural_network.png`, `requirements.txt` : dependencies of IPython notebook
 
 ## Running IPython Notebook
 * Install [Anaconda](https://www.anaconda.com/distribution/)
