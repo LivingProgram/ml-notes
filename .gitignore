@@ -4,3 +4,4 @@ Gemfile.lock
 *.gem
 
 .ipynb_checkpoints
+__pycache__
