@@ -61,24 +61,25 @@ class NeuralNetwork(object):
             X: features batch
 
         '''
+
+        '''
+        Useful shapes :
+            X.shape = (n,)
+            X[None,:].shape = (1,n) = (1,s_1)
+            self.weights_input_to_hidden.shape = (s_1,s_2)
+            self.weights_hidden_to_output.shape = (s_2,s_3)
+        '''
+
         #### Implement the forward pass here ####
         ### Forward pass ###
 
-        # Useful shapes:
-        # X.shape = (n,)
-        # X[None,:].shape = (1,n) = (1,s_1)
-        # self.weights_input_to_hidden.shape = (s_1,s_2)
-        # self.weights_hidden_to_output.shape = (s_2,s_3)
-
         # TODO: Hidden layer - Replace these values with your calculations.
-
         # (1,s_1) x (s_1,s_2) = (1,s_2)
         hidden_inputs = np.matmul(X[None,:],self.weights_input_to_hidden) # signals into hidden layer
         hidden_outputs = self.activation_function(hidden_inputs) # signals from hidden layer
         # hidden_inputs.shape = hidden_outputs.shape = (1,s_2)
 
         # TODO: Output layer - Replace these values with your calculations.
-
         # (1,s_2) x (s_2,s_3) = (1,s_3)
         final_inputs = np.matmul(hidden_outputs,self.weights_hidden_to_output) # signals into final output layer
         # final_outputs = self.activation_function(final_inputs)
@@ -98,20 +99,23 @@ class NeuralNetwork(object):
             delta_weights_h_o: change in weights from hidden to output layers
 
         '''
+
+        '''
+        Useful shapes :
+            hidden_outputs = (1,s_2)
+            final_outputs.shape = (1,s_3)
+            X.shape = (n,)
+            X[None,:].shape = (1,n) = (1,s_1)
+            y.shape = (s_L,) = (s_3,)
+            y[None, :].shape = (1,s_L) = (1,s_3)
+            self.weights_input_to_hidden.shape = (s_1,s_2)
+            self.weights_hidden_to_output.shape = (s_2,s_3)
+            delta_weights_i_h.shape = (s_1,s_2)
+            delta_weights_h_o.shape = (s_2,s_3)
+        '''
+
         #### Implement the backward pass here ####
         ### Backward pass ###
-
-        # Useful shapes
-        # hidden_outputs = (1,s_2)
-        # final_outputs.shape = (1,s_3)
-        # X.shape = (n,)
-        # X[None,:].shape = (1,n) = (1,s_1)
-        # y.shape = (s_L,) = (s_3,)
-        # y[None, :].shape = (1,s_L) = (1,s_3)
-        # self.weights_input_to_hidden.shape = (s_1,s_2)
-        # self.weights_hidden_to_output.shape = (s_2,s_3)
-        # delta_weights_i_h.shape = (s_1,s_2)
-        # delta_weights_h_o.shape = (s_2,s_3)
 
         # TODO: Output error - Replace this value with your calculations.
         # (1,s_3) - (1,s_3) = (1,s_3)
@@ -184,7 +188,7 @@ class NeuralNetwork(object):
 #########################################################
 # Set your hyperparameters here
 ##########################################################
-iterations = 1600
+iterations = 1888
 learning_rate = 1
 hidden_nodes = 7
 output_nodes = 1
