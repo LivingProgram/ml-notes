@@ -946,10 +946,20 @@ $$\text{Therefore the results from pseudo-code match raw calculations} \ \ \ \ \
 - jupyter nbconvert notebook.ipynb --to slides --post serve: convert to slideshow and immediately see
 
 # Numpy Cheatsheet
-- np array shapes:
+- Numpy array shapes :
   - `(rows, columns)`
   - `(layers, rows, columns)`
 - `x = v[None, :]` : add new dimension to array
+- Numpy tricks :
+  - ```
+    if p.shape = (a,), q.shape = (a,b)
+    np.dot(p,q).shape = (b,)
+    ```
+  - ```
+    if p = (a,) and q = (b,)
+    then p * q[:,None] = (a,) * (b,)[:,None] = (a,) * (b,1) = (b,a)
+    ```
+  - [Sample code implementing tricks](assets/code/bike-sharing-dataset/Your_first_neural_network.html)
 
 # LivingProgram Notes Convention
 * When dealing with pseudo-code:
