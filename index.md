@@ -454,8 +454,10 @@ $$
 \frac{\partial E}{\partial W_{11}^{(3)}} = \left(\frac{a_1^{(4)}-y}{a_1^{(4)}(1-a_1^{(4)})}\right) \cdot \left(a_1^{(4)}(1-a_1^{(4)})\right) \cdot \left( a_1^{(3)}\right) \ \ \ \ \blacksquare\\\\
 $$
 
-### (WIP) Backprop Algorithm Pseudo-Code
+### Backprop Algorithm Pseudo-Code
 *for simplicity, bias units and regularization are left out*
+
+[Bike Sharing Dataset With Implemented Pseudo-Code](/assets/code/bike-sharing-dataset/)
 
 #### Hyperparameters
 - $$M=$$ number of training examples
@@ -959,7 +961,7 @@ $$\text{Therefore the results from pseudo-code match raw calculations} \ \ \ \ \
     if p = (a,) and q = (b,)
     then p * q[:,None] = (a,) * (b,)[:,None] = (a,) * (b,1) = (b,a)
     ```
-  - [Sample code implementing tricks](assets/code/bike-sharing-dataset/Your_first_neural_network.html)
+  - [Sample code implementing tricks](assets/code/bike-sharing-dataset/)
 
 # LivingProgram Notes Convention
 * When dealing with pseudo-code:
