@@ -894,6 +894,68 @@ $$\begin{align}
 
 $$\text{Therefore the results from pseudo-code match raw calculations} \ \ \ \ \blacksquare\\\\$$
 
+### Backprop Clarifying Discrepancies
+According to pseudo-code:
+
+$$\text{error} = \text{pred} - \text{label}$$
+
+$$\begin{align}
+\text{weights } &-= \text{learnrate} * \text{partial derivative} \\
+&-= \text{learnrate} * (\text{pred} - \text{label})\ldots \\
+\end{align}$$
+
+A variation that yields the same results (as seen in Udacity DL course):
+
+$$\text{error} = \text{label} - \text{pred}$$
+
+$$\begin{align}
+\text{weights } &+= \text{learnrate} * \text{partial derivative} \\
+&+= \text{learnrate} * (\text{label} - \text{pred})\ldots \\
+\end{align}$$
+
+Both versions of pseudo-code yield identical results.
+
+#### "Proof".
+
+$$
+\text{In the end the pseudo-code's purpose,} \\
+\text{is to calculate the partial derivative of error with respect to weights,} \\
+\text{and this is done using the chain rule, for example:} \\
+$$
+
+$$\begin{align}
+\frac{\partial E}{\partial \hat{y}}&=\frac{\partial}{\partial \hat{y}}(-y\ln(\hat{y})-(1-y)\ln(1-\hat{y}))\\
+&=\frac{\hat{y}-y}{\hat{y}(1-\hat{y})} \\\\
+\end{align}$$
+
+$$
+\text{Therefore the following has to be true:} \\
+\text{error} = \text{pred} - \text{label}
+$$
+
+$$\text{And to update the weights, we subtract the partial derivative from weight:}$$
+
+$$\begin{align}
+\text{weights } &-= \text{learnrate} * \text{partial derivative} \\
+&-= \text{learnrate} * (\text{pred} - \text{label})\ldots \\\\
+\end{align}$$
+
+$$
+\text{The previous steps validated the pseudo-code, but not the variation,} \\
+\text{The variation is essentially the same, except the negative is "distributed":} \\
+$$
+
+$$\begin{align}
+\text{weights } &-= \text{learnrate} * \text{partial derivative} \\
+&-= \text{learnrate} * (\text{pred} - \text{label})\ldots \\
+&+= \text{learnrate} * -1(\text{pred} - \text{label})\ldots \\
+&+= \text{learnrate} * (\text{label}-\text{pred})\ldots \\
+&\implies \text{error} = \text{label}-\text{pred}
+\end{align}$$
+
+$$\text{And we find the variation yields the same results as the original.} \ \ \ \ \blacksquare\\\\$$
+
+
 # NN Toolkit
 - Early stopping: choose model with lowest testing error, which indicates best generalization (result: model can avoid under and overfitting)
 - Regularization: penalize larger weight values with higher error (result: prevent overfitting)
