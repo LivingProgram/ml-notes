@@ -955,6 +955,12 @@ $$\begin{align}
 
 $$\text{And we find the variation yields the same results as the original.} \ \ \ \ \blacksquare\\\\$$
 
+### Discovering Backprop Formula From Scratch
+1. Try manually computing single partial derivative (like before using the chain rule) for some sample neural network
+2. Try computing multiple partial derivatives
+3. Note the patterns, transform every part in chain rule into matrix multiplication to calculate all partial derivatives for a layer, for the sample NN
+4. Generalize calculations to NN of any size
+   * Notice how coming up with any algorithm requires: performing manually, then generalizing results
 
 # NN Toolkit
 - Early stopping: choose model with lowest testing error, which indicates best generalization (result: model can avoid under and overfitting)
