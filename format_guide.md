@@ -20,6 +20,7 @@
 - Each problem gets a bullet and number `1.)`
 - Solution for problem is sub-bulleted (equations get their own bullet)
 - Solution must end with bullet `Answer:` and the corresponding answer
+- Applications derivation of answer section formatted same as normal proof
 - Example:
 
 ```md
