@@ -962,7 +962,7 @@ $$\text{And we find the variation yields the same results as the original.} \ \ 
 4. Generalize calculations to NN of any size
    * Notice how coming up with any algorithm requires: performing manually, then generalizing results
 
-# NN Toolkit
+## NN Toolkit
 - Early stopping: choose model with lowest testing error, which indicates best generalization (result: model can avoid under and overfitting)
 - Regularization: penalize larger weight values with higher error (result: prevent overfitting)
   - L1 Regularization:
@@ -984,6 +984,20 @@ $$\text{And we find the variation yields the same results as the original.} \ \ 
   - average most recent gradients to calculate "momentum"
   - with the more recent gradients having larger weights in a weighted average
   - $$\beta$$ parameter : $$\text{step}(n) = \text{step}(n) + \beta\text{step}(n-1)+\beta^2\text{step}(n-2)+\ldots$$
+
+## Creating NN
+- outline how you (as a human) would solve problem
+- validate your assumptions through the data (never make any assumptions, about data, models, etc…, unless you can fully justify)
+- build initial NN to capture signal (signal = useful info)
+- debug and improve NN :
+  - (do not focus on tune hyperparamters)
+  - re-structure either data, or NN to make it easier for the NN to find right signals (the ones you use to solve the problem) and reduce noise
+  - (literally like the sentiment NN, using your head, changing one “+” sign drastically increased results)
+  - (goes to show you sometimes the key to winning is really using your mind, especially in kaggle competitions, the parameter tuning stuff you can learn how to do)
+  - if (satisfied with accuracy) and (need faster):
+    - simplify neural network to maintain same amount of signal, and reduce training time
+
+
 
 # Jupyter Cheatsheet
 - tab: allows you to complete variable names or list functions of a package within code cell
