@@ -14,15 +14,21 @@
   - time series prediction (traffic = waze, movie selection = netflix, stock market conditions = hedge funds)
   - NLP (translation)
   - gesture recognition (recognizing human gesture from video)
-- misc
-  - CNN/RNN : first few layers conv, flatten, then LSTM recurrent layers, and you can have convolutional neural networks that have memory
-  - differences (RNN and normal NN)
+- differences (RNN and normal NN)
   - train with sequences : previous input matters
   - memory elements : output of hidden layer that serve as input to network at next train step
   - s (not h) : for hidden layers to represent states of memory
 - representing RNNs
   - folded : compact representation where the memory is shown as a state that simply loops back
   - unfolded : less compact representation where each output is shown connect to hidden nodes, and hidden nodes connect to corresponding inputs and previous hidden nodes
-  - xt : inputs at time t
-  - yt : outputs at time t
-  - st : state (memory) at time t
+  - Diagram: ![ml-notes_22](/images/ml-notes_22.png)
+  - $$\bar{x}_{t}$$ : inputs at time $$t$$
+  - $$\bar{y}_{t}$$ : outputs at time $$t$$
+  - $$\bar{s}_{t}$$ : state (memory) at time $$t$$
+  - $$W_{x}, W_{s}, W_{y}$$ : weights of input to state, state, and state to output respectively
+  - $$\bar{s}_{t}=\phi(\bar{x}_{t}\cdot W_{x} + \bar{s}_{t-1}\cdot W_{s})$$
+  - $$\bar{y}_{t}=\bar{s}_{t}\cdot W_{y}$$
+- RNN variations
+  - CNN/RNN : first few layers conv, flatten, then LSTM recurrent layers, and you can have convolutional neural networks that have memory
+  - RNN with multiple inputs or outputs, RNN connected to another RNN
+- misc
