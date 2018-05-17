@@ -1,0 +1,28 @@
+# Recurrent Neural Networks
+
+- intro
+  - have memory, can use past inputs to generate current outputs
+  - temporal dependencies : involve current and past inputs
+- history
+  - temporal data in world is abundant in video, speech, text, and feedforward was bad at capturing temporal relationships
+  - time delay NN : tried to capture temporal info, but was limited to set time window size
+  - simple RNN (elman network) : suffered from vanishing gradient problem
+  - vanishing gradient problem : cannot capture information 8-10 steps backward, due to backpropagation and the fact that the gradient is multiplied by derivatives, if derivatives are <1, a convergent geometric series is created and the gradient diminishes rapidly
+  - LSTM : address vanishing gradient problem
+- applications
+  - speech recognition
+  - time series prediction (traffic = waze, movie selection = netflix, stock market conditions = hedge funds)
+  - NLP (translation)
+  - gesture recognition (recognizing human gesture from video)
+- misc
+  - CNN/RNN : first few layers conv, flatten, then LSTM recurrent layers, and you can have convolutional neural networks that have memory
+  - differences (RNN and normal NN)
+  - train with sequences : previous input matters
+  - memory elements : output of hidden layer that serve as input to network at next train step
+  - s (not h) : for hidden layers to represent states of memory
+- representing RNNs
+  - folded : compact representation where the memory is shown as a state that simply loops back
+  - unfolded : less compact representation where each output is shown connect to hidden nodes, and hidden nodes connect to corresponding inputs and previous hidden nodes
+  - xt : inputs at time t
+  - yt : outputs at time t
+  - st : state (memory) at time t
