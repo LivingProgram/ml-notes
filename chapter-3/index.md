@@ -20,12 +20,15 @@
   - s (not h) : for hidden layers to represent states of memory
 - representing RNNs
   - folded : compact representation where the memory is shown as a state that simply loops back
-  - unfolded : less compact representation where each output is shown connect to hidden nodes, and hidden nodes connect to corresponding inputs and previous hidden nodes
+  - unfolded : less compact representation where each output is shown connect to hidden nodes, and hidden nodes connect to corresponding inputs and previous hidden nodes (showing time at $$t-1,t,t+1,\ldots$$)
   - Diagram: ![ml-notes_22](/images/ml-notes_22.png)
   - $$\bar{x}_{t}$$ : inputs at time $$t$$
   - $$\bar{y}_{t}$$ : outputs at time $$t$$
   - $$\bar{s}_{t}$$ : state (memory) at time $$t$$
-  - $$W_{x}, W_{s}, W_{y}$$ : weights of input to state, state, and state to output respectively
+  - $$W_{x}$$ : weights of input to state
+  - $$W_{s}$$ : weights of previous state to current state
+  - $$W_{y}$$ : weights of state to output respectively
+  - $$\phi$$ : arbitrary activation function
   - $$\bar{s}_{t}=\phi(\bar{x}_{t}\cdot W_{x} + \bar{s}_{t-1}\cdot W_{s})$$
   - $$\bar{y}_{t}=\bar{s}_{t}\cdot W_{y}$$
 - RNN variations
