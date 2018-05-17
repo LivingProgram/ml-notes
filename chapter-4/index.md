@@ -45,3 +45,14 @@
     then p * q[:,None] = (a,) * (b,)[:,None] = (a,) * (b,1) = (b,a)
     ```
   - [Sample code implementing tricks](assets/code/bike-sharing-dataset/)
+
+# Keras
+- define model layers, compile loss optimizer metrics, and train on data
+
+# Tensorflow
+- different from keras, yet conceptually the same, with more boilerplate code
+- `tf.Variable` : for holding values that will change when training (weights, biases)
+- `tf.placeholder` : for holding values that will not change when training, but vary (hyperparameters, inputs to the model), when running `sess` must set all placeholder values using the `feed_dict={}`
+- `tf.Session()` : use `sess` to first initialize all variables, then train model over epochs and batches by feeding input data to optimizer (optimizer, loss functions built into tf), and it will update the variables (weights, biases) for you
+- crafting the model architecture has more detail compared to keras (but is similar to Sequential models), you have to use `tf.add`, `tf.matmul` and additionally features like `tf.nn.relu` or `tf.nn.dropout`
+- saving and loading models is similar to keras
