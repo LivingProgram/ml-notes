@@ -20,8 +20,9 @@
   - s (not h) : for hidden layers to represent states of memory
 - representing RNNs
   - folded : compact representation where the memory is shown as a state that simply loops back
+  - Folded Diagram: ![ml-notes_22](/images/ml-notes_22.png)
   - unfolded : less compact representation where each output is shown connect to hidden nodes, and hidden nodes connect to corresponding inputs and previous hidden nodes (showing time at $$t-1,t,t+1,\ldots$$)
-  - Diagram: ![ml-notes_22](/images/ml-notes_22.png)
+  - Un-folded Diagram: ![ml-notes_23](/images/ml-notes_23.png)
   - $$\bar{x}_{t}$$ : inputs at time $$t$$
   - $$\bar{y}_{t}$$ : outputs at time $$t$$
   - $$\bar{s}_{t}$$ : state (memory) at time $$t$$
@@ -35,3 +36,45 @@
   - CNN/RNN : first few layers conv, flatten, then LSTM recurrent layers, and you can have convolutional neural networks that have memory
   - RNN with multiple inputs or outputs, RNN connected to another RNN
 - misc
+
+## Backpropagation through time
+*method to train RNN at specific time point $$t$$, while taking into account previous time points*
+
+*given the simple RNN provided in diagrams above*
+
+### Sample Calculation
+![ml-notes_24](/images/ml-notes_24.png)
+
+The partial derivatives of error, specifically at time $$t=3$$, with respect to every weight matrix :
+
+$$\begin{align}
+  \frac{\partial E_3}{\partial W_y} &= \frac{\partial E_3}{\partial \bar{y}_3}\frac{\partial \bar{y}_3}{\partial W_y}\\\\
+  \frac{\partial E_3}{\partial W_s} &= \frac{\partial E_3}{\partial \bar{y}_3}\frac{\partial \bar{y}_3}{\partial \bar{s}_3}\frac{\partial \bar{s}_3}{\partial W_s} +\\
+    &\phantom{000}\frac{\partial}{\partial}\\\\
+  \frac{\partial}{\partial} &= \\
+
+\end{align}$$
+
+#### Proof.
+
+### General Formula
+The partial derivatives of error, specifically at time $$t=3$$, with respect to every weight matrix :
+
+$$\begin{align}
+  \frac{\partial E_N}{\partial W_y} &= \frac{\partial E_N}{\partial \bar{y}_N}\frac{\partial \bar{y}_N}{\partial W_y}\\\\
+  \frac{\partial}{\partial} &= \\\\
+  \frac{\partial}{\partial} &= \\
+
+\end{align}$$
+
+Note) in the general formula for partial derivative of E at any time t, the latter two derivatives of the summation term can be expanded using chain rule to partial derivatives of every state in terms of previous state
+
+#### Proof.
+
+
+
+### Generalizing to Other Weights
+- updating weights from input to state is virtually the same except for single partial dervative, the derivative of the state in terms of the weight
+
+### Theory In Application
+  - to avoid calculating these partial derivatives over and over, since after you pass time interval it is static, you just need to calculate partial derivative of s in terms of weight and s in terms of previous s, then storing all these values, you can multiply/add and use chain rule to get appropriate partial derivative of E in terms of Ws at a specific time point
