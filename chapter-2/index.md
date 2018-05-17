@@ -1,0 +1,57 @@
+# Convolutional Neural Networks
+
+- MLP issues
+  - 1.) excessive amount of parameters
+  - 2.) doesn’t capture 2D input
+  - 3.) cannot understand slightly shifted images
+- convolutional layers
+  - locally connected layers : significantly reduce number of parameters by only having nearby nodes connect to output node (addresses MLP issue 1)
+  - matrix inputs : capture 2D input, correlations between nearby pixels (MLP 2)
+  - shared weights : provides translational invariance (MLP 3)
+  - filter : matrix of weights to convolve with input
+  - activation map (feature map) : after convolving input with filter
+  - edge detector : filters can be edge detectors if you have 1’s on one side of filter, 0’s on the other side
+  - 3D filters : allow analysis of color images (multiple layer of filters)
+  - multiple filters : following conv layer, each layer will be output of convolving of different set of filters
+  - multiple conv layers : find patterns within the patterns (multiple layers of filters)
+  - visualize filters : allows to understand what pattern the filter is trained to detect
+  - [interesting visualization of filters](http://setosa.io/ev/image-kernels/)
+- hyperparameters
+  - filter size, number of filters per layer
+  - stride : amount of space between filters (determines size of consecutive layer)
+  - padding : adding “fake” pixels around image for filters to take in correct sizes on edges of image
+- pooling layer
+  - reduce dimensionality, number parameters
+  - max pooling : moves window around feature map, taking maximum of values within window, returning reduced height, width output
+  - global average pooling : takes average of entire feature map, single output
+- in implementation
+  - fixed size input, power of 2 (for easy dimensionality reduction)
+  - conv followed by max pool (conv layers: increase depth of feature map, max pooling : reduce spatial dimensions of feature map)
+  - flatten to vector, fully connected (decode content)
+- data augmentation : reduces overfitting and provides scale, translation invariance
+- famous CNNs
+  - alexnet: relu, dropout
+  - vgg: 3x3 conv, 2x2 max pool, 3 FC layers
+  - resnet: large amount of layers, skip connections (allow gradient signal to backprop better, solving vanishing gradients problem)
+- visualizing CNNs
+  - allows seeing what it sees, fixing its mistakes
+  - google deep dream : applies filters to images to create new images
+- transfer learning
+  - larger dataset : fine tune all weights
+  - smaller dataset : freeze transferred weights, train only new weights (to avoid overfitting)
+  - similar dataset (to transferred network) : keep most conv layers, including the ones that detect higher level features
+  - different dataset : keep most initial conv layers (edge, shape detectors), remove conv layers with high level features
+  - in general : add new FC layers, initialized randomly
+  - bottleneck features : crafting new dataset to train new FC layers by running forward propagation on all images in dataset, and saving results (allowing focus on training FC layers)
+  - significantly better performance even if completely unrelated dataset (i.e. training on imagenet with horses, cars, and applying to skin cancer diagnosis)
+- Weight Initialization
+  - all 0 1 : bad, backprop algorithm cannot update weights effectively since they all have same value, gradients are the same
+  - uniform distribution : equally probable to pick weight values from any values within a range (sample values within range [-y,y], where y = 1/sqrt(n), n = number of inputs to given neuron)
+  - normal distribution : higher likelihood to pick number close to mean
+  - truncated normal distribution : normal distribution sampling, but sample within predefined range (avoid excessively large negative or positive values), typically no more than 2 STD from Mean
+  - best technique : sample random numbers from truncated normal distribution (no more than 2 STD from mean)
+- autoencoders
+  - for data compression (compression, decompression learned from data)
+  - input, encoder, compressed representation, decoder, output
+  - NN : trains to minimize difference between input and output (bottleneck layer in the middle is compressed representation)
+  - good : image denoising, dimensionality reduction (bad at compression)
