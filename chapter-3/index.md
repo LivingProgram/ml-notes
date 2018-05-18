@@ -161,10 +161,27 @@ LSTM neuron:
 ![ml-notes_28](/images/ml-notes_28.png)
 
 LSTM Advantages:
-- learning over many time steps
+- learning over many time steps (long term memory)
 - fully differentiable ($$\sigma, \text{tanh}, \times, +$$)
 - easy to train using backprop, SGD
 - sigmoid allows all data to flow through when = 1, and no data when = 0, much like real biological neuron
   - can decide which information to store and forget, when to use, when to move previous state to next state's information
   - is a "gating function"
   - can be trained using backprop by adjusting the weights that multiply times inputs before going into sigmoid
+
+## LSTMs
+### Basic Architecture
+- Inputs:
+  - Long Term Memory (LTM)
+  - Short Term Memory (STM)
+  - Specific Input (event) for time t
+- Outputs:
+  - New Long Term Memory (LTM)
+  - New Short Term Memory (STM)
+  - Specific Output for time t
+- Forget Gate : what LTM to forget
+- Learn Gate : combines event with STM, chooses relevant info
+- Remember Gate : puts together LTM, learn gate output, spits out new LTM
+- Use Gate : uses forget gate output, learn gate output, combines information to decide what to use to generate specific output (which is also the new STM)
+- Simplification of LSTM: ![ml-notes_29](/images/ml-notes_29.png)
+- Actual LSTM: ![ml-notes_30](/images/ml-notes_30.png)
