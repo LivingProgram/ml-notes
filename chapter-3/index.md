@@ -112,9 +112,13 @@ Generalizing the results from the sample calculation it is clear that:
 
 In the general formula for partial derivative of E at any time $$N$$, the latter two derivatives of the summation term ($$\frac{\partial \bar{y}_N}{\partial \bar{s}_i}\frac{\partial \bar{s}_i}{\partial W_s}$$) can be expanded using chain rule to partial derivatives of every state in terms of previous state. $$\blacksquare$$
 
-
 ### Generalizing to Other Weights
 - updating weights from input to state is virtually the same except for single partial dervative, the derivative of the state in terms of the weight
 
 ### Theory In Application
-  - to avoid calculating these partial derivatives over and over, since after you pass time interval it is static, you just need to calculate partial derivative of s in terms of weight and s in terms of previous s, then storing all these values, you can multiply/add and use chain rule to get appropriate partial derivative of E in terms of Ws at a specific time point
+To avoid calculating the partial derivatives for each state over and over (since after you pass time interval it is static):
+1. For each time point $$i$$ (and corresponding state, $$\bar{s}_i$$):
+   1. Calculate $$\frac{\partial \bar{s}_i}{\partial W_s}$$
+   2. Calculate $$\frac{\partial \bar{s}_i}{\partial \bar{s}_{i-1}}$$
+   3. Store calculations
+   4. Multiply/add the stored partial derivatives, and current partial derivatives (using chain rule) to get appropriate $$\frac{\partial E}{\partial W_s}$$ at current time $$i$$
