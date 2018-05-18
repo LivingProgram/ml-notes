@@ -192,4 +192,9 @@ LSTM Advantages:
 3. multiply $$N_t\cdot i_t$$ element-wise : to ignore irrelevant information, decide what to keep
 ![ml-notes_31](/images/ml-notes_31.png)
 
+### Forget Gate
+1. compute forget factor ($$f_t$$): combine vectors of event ($$E_t$$) and STM ($$STM_{t-1}$$), multiply by weights ($$W_f$$), adds bias ($$b_f$$), apply sigmoid ($$sigma()$$) to squash between 0-1
+2. multiply $$LTM_{t-1}\cdot f_t$$ : to decide what LTM to forget
+![ml-notes_32](/images/ml-notes_32.png)
+
 ### Intuitive Understanding of LSTM $$\sigma, \text{tanh}, \times, +$$
