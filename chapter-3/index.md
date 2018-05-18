@@ -191,7 +191,10 @@ LSTM Advantages:
   - where input vectors may be merged
   - multiply by unique weights, add bias
   - apply tanh or sigmoid
-- Why use sigmoid function in some cases, and tanh in other?
+- Why use sigmoid function in some cases, and tanh in other? Why multiply, add sometimes, apply complex non-linear function (mini-NN)?
+  - like other ML things, it is like this because it works
+  - there are other simpler, complex architectures that also work well
+  - area under heavy research, you could find better one too
 
 ### Learn Gate
 1. compute information vector ($$N_t$$): combine vectors of event ($$E_t$$) and STM ($$STM_{t-1}$$), multiply by weights ($$W_n$$), add bias ($$b_n$$), apply $$\text{tanh()}$$
