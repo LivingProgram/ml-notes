@@ -20,7 +20,7 @@
   - s (not h) : for hidden layers to represent states of memory
 - representing RNNs
   - folded : compact representation where the memory is shown as a state that simply loops back
-  - Folded Diagram: ![ml-notes_22](/images/ml-notes_22.png)
+  - Folded Diagram: ![ml-notes_22](assets/images/ml-notes_22.png)
   - unfolded : less compact representation where each output is shown connect to hidden nodes, and hidden nodes connect to corresponding inputs and previous hidden nodes (showing time at $$t-1,t,t+1,\ldots$$)
   - Un-folded Diagram: ![ml-notes_23](/images/ml-notes_23.png)
   - $$\bar{x}_{t}$$ : inputs at time $$t$$
