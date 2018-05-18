@@ -218,3 +218,5 @@ LSTM Advantages:
 ![ml-notes_34](/images/ml-notes_34.png)
 
 ### LSTM Variations
+- Gated Recurring Unit (GRU) : single memory store (instead of both LTM and STM)
+- Peephole Connection : take in LTM to calculate every forget factor (i.e. sigmoid of forget, learn, use gates) , so LTM has more say in what is forgotten
