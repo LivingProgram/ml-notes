@@ -22,7 +22,7 @@
   - folded : compact representation where the memory is shown as a state that simply loops back
   - Folded Diagram: ![ml-notes_22](../images/ml-notes_22.png)
   - unfolded : less compact representation where each output is shown connect to hidden nodes, and hidden nodes connect to corresponding inputs and previous hidden nodes (showing time at $$t-1,t,t+1,\ldots$$)
-  - Un-folded Diagram: ![ml-notes_23](/images/ml-notes_23.png)
+  - Un-folded Diagram: ![ml-notes_23](../images/ml-notes_23.png)
   - $$\bar{x}_{t}$$ : inputs at time $$t$$
   - $$\bar{y}_{t}$$ : outputs at time $$t$$
   - $$\bar{s}_{t}$$ : state (memory) at time $$t$$
@@ -43,8 +43,8 @@
 *given the simple RNN provided in diagrams above*
 
 ### Sample Calculation
-![ml-notes_24](/images/ml-notes_24.png)
-![ml-notes_25](/images/ml-notes_25.png)
+![ml-notes_24](../images/ml-notes_24.png)
+![ml-notes_25](../images/ml-notes_25.png)
 
 The partial derivatives of error, specifically at time $$t=3$$, with respect to every weight matrix :
 
@@ -129,7 +129,7 @@ If you have an RNN feeding into another RNN memory block:
 - including paths that go through current state of 2nd RNN into previous state of that same 2nd RNN into the previous state of the 1st RNN
 - so you must accumulate gradients from all possible paths
 
-![ml-notes_26](/images/ml-notes_26.png)
+![ml-notes_26](../images/ml-notes_26.png)
 
 ### MiniBatch Gradient Descent
 - update weights once every $$M$$ samples by accumulating gradients and updating with average of accumulation
@@ -151,14 +151,14 @@ Simple RNN neuron:
 - computes input times weights, previous state times weights, adds those together, applies activation function ($$\phi$$)
 - outputs to next state
 - outputs to output after multiplying by output weights
-![ml-notes_27](/images/ml-notes_27.png)
+![ml-notes_27](../images/ml-notes_27.png)
 
 LSTM neuron:
 - 1st calculation : sigmoid function ($$\sigma$$)
 - 2nd : hyperbolic tangent function (*tanh*)
 - 3rd : multiplication ($$\times$$)
 - 4th : addition ($$+$$)
-![ml-notes_28](/images/ml-notes_28.png)
+![ml-notes_28](../images/ml-notes_28.png)
 
 LSTM Advantages:
 - learning over many time steps
