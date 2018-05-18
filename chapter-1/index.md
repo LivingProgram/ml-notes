@@ -16,6 +16,10 @@
 - measures the model's performance
 - must be continuous, not discrete, there should always be a direction towards a more optimal error
 
+# Importance of Activation Functions
+- add non-linearity to a neural network, or else the entire neural network could be represented more simply by a single linear neuron
+- squashes unbounded linear outputs from neuron so they do not explode
+
 # Sigmoid Activation Function
 - sigmoid graph and equation: ![sigmoid function](https://livingprogram.github.io/ml-notes/images/ml-notes_2.jpg)
 - takes in all real numbers and outputs a probability between 0 and 1
