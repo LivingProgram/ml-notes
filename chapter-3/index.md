@@ -186,6 +186,13 @@ LSTM Advantages:
 - Simplification of LSTM: ![ml-notes_29](/images/ml-notes_29.png)
 - Actual LSTM: ![ml-notes_30](/images/ml-notes_30.png)
 
+### Intuitive Understanding of LSTM $$\sigma, \text{tanh}, \times, +$$
+- Every output goes through a "mini-NN"
+  - where input vectors may be merged
+  - multiply by unique weights, add bias
+  - apply tanh or sigmoid
+- Why use sigmoid function in some cases, and tanh in other?
+
 ### Learn Gate
 1. compute information vector ($$N_t$$): combine vectors of event ($$E_t$$) and STM ($$STM_{t-1}$$), multiply by weights ($$W_n$$), add bias ($$b_n$$), apply $$\text{tanh()}$$
 2. compute ignore factor ($$i_t$$): combine vectors of event ($$E_t$$) and STM ($$STM_{t-1}$$), multiply by weights ($$W_i$$), adds bias ($$b_i$$), apply sigmoid ($$sigma()$$) to squash between 0-1
@@ -197,4 +204,12 @@ LSTM Advantages:
 2. multiply $$LTM_{t-1}\cdot f_t$$ : to decide what LTM to forget
 ![ml-notes_32](/images/ml-notes_32.png)
 
-### Intuitive Understanding of LSTM $$\sigma, \text{tanh}, \times, +$$
+### Remember Gate
+1. add output of Learn and Forget Gates
+![ml-notes_33](/images/ml-notes_33.png)
+
+### Use Gate
+1. compute useful information of output of Forget Gate ($$U_t$$) : apply mini-NN to output of Forget Gate
+2. compute useful information from STM and event ($$V_t$$) : apply mini-NN to $$STM_{t-1},E_t$$
+3. multiply $$U_t \cdot V_t$$
+![ml-notes_34](/images/ml-notes_34.png)
