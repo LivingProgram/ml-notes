@@ -137,9 +137,34 @@ If you have an RNN feeding into another RNN memory block:
 - reduces complexity
 - reduces noise
 
-### Weaknesses
-- many time steps, many layers of hidden neurons (>8 to 10) : cannot accumulate gradient contributions from every time step due to vanishing gradient problem (gradient is too small)
-  - use LSTM
+## Addressing Weaknesses of Simple RNN
 - exploding gradient problem : gradient grows uncontrollably
   - [gradient clipping](https://arxiv.org/abs/1211.5063) : addresses problem by normalizing gradients that are above threshold (penalize large gradients)
   - if $$\delta > \text{ threshold}$$: $$\delta = \frac{\text{ threshold}}{\delta}\cdot\delta$$
+- many time steps, many layers of hidden neurons (>8 to 10) : cannot accumulate gradient contributions from every time step due to vanishing gradient problem (gradient is too small)
+    - solution : LSTM cells instead of standard neurons
+
+## Differences Between Simple RNN and LSTM
+*LSTM is simple RNN where all the neurons are replaced with different internal structure, but the unfolded representation is the same, i.e. one state can pass to future states*
+
+Simple RNN neuron:
+- computes input times weights, previous state times weights, adds those together, applies activation function ($$\phi$$)
+- outputs to next state
+- outputs to output after multiplying by output weights
+![ml-notes_27](/images/ml-notes_27.png)
+
+LSTM neuron:
+- 1st calculation : sigmoid function ($$\sigma$$)
+- 2nd : hyperbolic tangent function (*tanh*)
+- 3rd : multiplication ($$\times$$)
+- 4th : addition ($$+$$)
+![ml-notes_28](/images/ml-notes_28.png)
+
+LSTM Advantages:
+- learning over many time steps
+- fully differentiable ($$\sigma, \text{tanh}, \times, +$$)
+- easy to train using backprop, SGD
+- sigmoid allows all data to flow through when = 1, and no data when = 0, much like real biological neuron
+  - can decide which information to store and forget, when to use, when to move previous state to next state's information
+  - is a "gating function"
+  - can be trained using backprop by adjusting the weights that multiply times inputs before going into sigmoid
