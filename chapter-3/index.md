@@ -37,25 +37,65 @@
   - RNN with multiple inputs or outputs, RNN connected to another RNN
 - misc
 
-## Backpropagation through time
+## Backpropagation Through Time (BTT)
 *method to train RNN at specific time point $$t$$, while taking into account previous time points*
 
 *given the simple RNN provided in diagrams above*
 
 ### Sample Calculation
 ![ml-notes_24](/images/ml-notes_24.png)
+![ml-notes_25](/images/ml-notes_25.png)
 
 The partial derivatives of error, specifically at time $$t=3$$, with respect to every weight matrix :
 
 $$\begin{align}
   \frac{\partial E_3}{\partial W_y} &= \frac{\partial E_3}{\partial \bar{y}_3}\frac{\partial \bar{y}_3}{\partial W_y}\\\\
   \frac{\partial E_3}{\partial W_s} &= \frac{\partial E_3}{\partial \bar{y}_3}\frac{\partial \bar{y}_3}{\partial \bar{s}_3}\frac{\partial \bar{s}_3}{\partial W_s} +\\
-    &\phantom{000}\frac{\partial}{\partial}\\\\
-  \frac{\partial}{\partial} &= \\
-
+    &\phantom{000}\frac{\partial E_3}{\partial \bar{y}_3}\frac{\partial \bar{y}_3}{\partial \bar{s}_3}\frac{\partial \bar{s}_3}{\partial \bar{s}_2}\frac{\partial \bar{s}_2}{\partial W_s}+\\
+    &\phantom{000}\frac{\partial E_3}{\partial \bar{y}_3}\frac{\partial \bar{y}_3}{\partial \bar{s}_3}\frac{\partial \bar{s}_3}{\partial \bar{s}_2}\frac{\partial \bar{s}_2}{\partial \bar{s}_1}\frac{\partial \bar{s}_1}{\partial W_s}\\\\
+  \frac{\partial E_3}{\partial W_x} &= \frac{\partial E_3}{\partial \bar{y}_3}\frac{\partial \bar{y}_3}{\partial \bar{s}_3}\frac{\partial \bar{s}_3}{\partial W_x} +\\
+    &\phantom{000}\frac{\partial E_3}{\partial \bar{y}_3}\frac{\partial \bar{y}_3}{\partial \bar{s}_3}\frac{\partial \bar{s}_3}{\partial \bar{s}_2}\frac{\partial \bar{s}_2}{\partial W_x}+\\
+    &\phantom{000}\frac{\partial E_3}{\partial \bar{y}_3}\frac{\partial \bar{y}_3}{\partial \bar{s}_3}\frac{\partial \bar{s}_3}{\partial \bar{s}_2}\frac{\partial \bar{s}_2}{\partial \bar{s}_1}\frac{\partial \bar{s}_1}{\partial W_x}\\
 \end{align}$$
 
-#### Proof.
+#### "Proof."
+Just like the [NN chapter](/chapter-1/), when we calculate partial derivative of error with respect to specific set of weights simply:
+1. List all equations that are used to calculate hidden nodes, output nodes, error, using the inputs
+2. Plug all equations into the error equation, replacing variables
+3. Take partial derivative of that error with respect to desired weight
+4. Use derivative properties to simplify (especially chain rule)
+
+An alternative to the above method is to:
+1. For every neuron (state) where the desired weight contributes to that state, and the state contributes to the error:
+   - Use chain rule to construct partial derivative of error with respect to specific desired weight and neuron (state)
+2. Calculate overall partial derivative of error with respect to desired weight by:
+   - Adding every partial derivative calculated from previous step (we are **accumulating** the **gradient contributions** from all states)
+
+For example:
+
+$$\text{Given the desired weight, } W_s \text{ , calculating } \frac{\partial E_3}{\partial W_s}\text{ :}$$
+
+$$
+  s_3 \text{ is a state where } W_s \text{ contributes to } s_3 \text{ , and } s_3 \text{ contributes to } E \\
+  \frac{\partial E_3}{\partial W_s} = \frac{\partial E_3}{\partial \bar{y}_3}\frac{\partial \bar{y}_3}{\partial \bar{s}_3}\frac{\partial \bar{s}_3}{\partial W_s}
+$$
+
+$$
+  s_2 \text{ is a state where } W_s \text{ contributes to } s_2 \text{ , and } s_2 \text{ contributes to } E \\
+  \frac{\partial E_3}{\partial W_s} = \frac{\partial E_3}{\partial \bar{y}_3}\frac{\partial \bar{y}_3}{\partial \bar{s}_3}\frac{\partial \bar{s}_3}{\partial \bar{s}_2}\frac{\partial \bar{s}_2}{\partial W_s}
+$$
+
+$$
+  s_1 \text{ is a state where } W_s \text{ contributes to } s_1 \text{ , and } s_1 \text{ contributes to } E \\
+  \frac{\partial E_3}{\partial W_s} = \frac{\partial E_3}{\partial \bar{y}_3}\frac{\partial \bar{y}_3}{\partial \bar{s}_3}\frac{\partial \bar{s}_3}{\partial \bar{s}_2}\frac{\partial \bar{s}_2}{\partial \bar{s}_1}\frac{\partial \bar{s}_1}{\partial W_s}
+$$
+
+$$\text{Accumulating gradient contributions from every state:}\\\\$$
+$$\begin{align}
+  \frac{\partial E_3}{\partial W_s} &= \frac{\partial E_3}{\partial \bar{y}_3}\frac{\partial \bar{y}_3}{\partial \bar{s}_3}\frac{\partial \bar{s}_3}{\partial W_s} +\\
+    &\phantom{000}\frac{\partial E_3}{\partial \bar{y}_3}\frac{\partial \bar{y}_3}{\partial \bar{s}_3}\frac{\partial \bar{s}_3}{\partial \bar{s}_2}\frac{\partial \bar{s}_2}{\partial W_s}+\\
+    &\phantom{000}\frac{\partial E_3}{\partial \bar{y}_3}\frac{\partial \bar{y}_3}{\partial \bar{s}_3}\frac{\partial \bar{s}_3}{\partial \bar{s}_2}\frac{\partial \bar{s}_2}{\partial \bar{s}_1}\frac{\partial \bar{s}_1}{\partial W_s}\ \ \ \ \blacksquare\\\\
+\end{align}$$
 
 ### General Formula
 The partial derivatives of error, specifically at time $$t=3$$, with respect to every weight matrix :
