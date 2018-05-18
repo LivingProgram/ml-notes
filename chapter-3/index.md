@@ -102,15 +102,15 @@ The partial derivatives of error, specifically at time $$t=3$$, with respect to 
 
 $$\begin{align}
   \frac{\partial E_N}{\partial W_y} &= \frac{\partial E_N}{\partial \bar{y}_N}\frac{\partial \bar{y}_N}{\partial W_y}\\\\
-  \frac{\partial}{\partial} &= \\\\
-  \frac{\partial}{\partial} &= \\
+  \frac{\partial E_N}{\partial W_s} &= \sum_{i=1}^{N}\frac{\partial E_N}{\partial \bar{y}_N}\frac{\partial \bar{y}_N}{\partial \bar{s}_i}\frac{\partial \bar{s}_i}{\partial W_s}\\\\
+  \frac{\partial E_N}{\partial W_x} &= \sum_{i=1}^{N}\frac{\partial E_N}{\partial \bar{y}_N}\frac{\partial \bar{y}_N}{\partial \bar{s}_i}\frac{\partial \bar{s}_i}{\partial W_x}\\
 
 \end{align}$$
 
-Note) in the general formula for partial derivative of E at any time t, the latter two derivatives of the summation term can be expanded using chain rule to partial derivatives of every state in terms of previous state
+#### "Proof."
+Generalizing the results from the sample calculation it is clear that:
 
-#### Proof.
-
+In the general formula for partial derivative of E at any time $$N$$, the latter two derivatives of the summation term ($$\frac{\partial \bar{y}_N}{\partial \bar{s}_i}\frac{\partial \bar{s}_i}{\partial W_s}$$) can be expanded using chain rule to partial derivatives of every state in terms of previous state. $$\blacksquare$$
 
 
 ### Generalizing to Other Weights
