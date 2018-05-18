@@ -7,7 +7,7 @@
   - temporal data in world is abundant in video, speech, text, and feedforward was bad at capturing temporal relationships
   - time delay NN : tried to capture temporal info, but was limited to set time window size
   - simple RNN (elman network) : suffered from vanishing gradient problem
-  - vanishing gradient problem : cannot capture information 8-10 steps backward, due to backpropagation and the fact that the gradient is multiplied by derivatives, if derivatives are <1, a convergent geometric series is created and the gradient diminishes rapidly
+  - **vanishing gradient problem : cannot capture information 8-10 steps backward, due to backpropagation and the fact that the gradient is multiplied by derivatives, if derivatives are <1, a convergent geometric series is created and the gradient diminishes rapidly**
   - LSTM : address vanishing gradient problem
 - applications
   - speech recognition
@@ -130,3 +130,16 @@ If you have an RNN feeding into another RNN memory block:
 - so you must accumulate gradients from all possible paths
 
 ![ml-notes_26](/images/ml-notes_26.png)
+
+### MiniBatch Gradient Descent
+- update weights once every $$M$$ samples by accumulating gradients and updating with average of accumulation
+- $$\delta_{ij}=\frac 1 M \sum_{k=1}^{M}\delta_{ij_k}$$
+- reduces complexity
+- reduces noise
+
+### Weaknesses
+- many time steps, many layers of hidden neurons (>8 to 10) : cannot accumulate gradient contributions from every time step due to vanishing gradient problem (gradient is too small)
+  - use LSTM
+- exploding gradient problem : gradient grows uncontrollably
+  - [gradient clipping](https://arxiv.org/abs/1211.5063) : addresses problem by normalizing gradients that are above threshold (penalize large gradients)
+  - if $$\delta > \text{ threshold}$$: $$\delta = \frac{\text{ threshold}}{\delta}\cdot\delta$$
