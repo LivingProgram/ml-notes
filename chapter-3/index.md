@@ -122,3 +122,11 @@ To avoid calculating the partial derivatives for each state over and over (since
    2. Calculate $$\frac{\partial \bar{s}_i}{\partial \bar{s}_{i-1}}$$
    3. Store calculations
    4. Multiply/add the stored partial derivatives, and current partial derivatives (using chain rule) to get appropriate $$\frac{\partial E}{\partial W_s}$$ at current time $$i$$
+
+### Multi-RNN
+If you have an RNN feeding into another RNN memory block:
+- the gradients will contribute from __all__ possible states
+- including paths that go through current state of 2nd RNN into previous state of that same 2nd RNN into the previous state of the 1st RNN
+- so you must accumulate gradients from all possible paths
+
+![ml-notes_26](/images/ml-notes_26.png)
