@@ -216,3 +216,5 @@ LSTM Advantages:
 2. compute useful information from STM and event ($$V_t$$) : apply mini-NN to $$STM_{t-1},E_t$$
 3. multiply $$U_t \cdot V_t$$
 ![ml-notes_34](/images/ml-notes_34.png)
+
+### LSTM Variations
