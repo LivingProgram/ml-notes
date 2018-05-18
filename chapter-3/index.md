@@ -187,8 +187,9 @@ LSTM Advantages:
 - Actual LSTM: ![ml-notes_30](/images/ml-notes_30.png)
 
 ### Learn Gate
-1. combines vectors of event ($$E_t$$) and STM ($$STM_{t-1}$$), multiplies by weights ($$W_n$$), adds bias ($$b_n$$), applies $$\text{tanh()}$$
-2. ignores irrelevant information, does same to event and STM with different weights and biases ($$W_i, b_i$$) and applies sigmoid ($$sigma()$$) to multiply element-wise times the "information" from step 1 to decide what information to keep
+1. compute information vector ($$N_t$$): combine vectors of event ($$E_t$$) and STM ($$STM_{t-1}$$), multiply by weights ($$W_n$$), add bias ($$b_n$$), apply $$\text{tanh()}$$
+2. compute ignore factor ($$i_t$$): combine vectors of event ($$E_t$$) and STM ($$STM_{t-1}$$), multiply by weights ($$W_i$$), adds bias ($$b_i$$), apply sigmoid ($$sigma()$$) to squash between 0-1
+3. multiply $$N_t\cdot i_t$$ element-wise : to ignore irrelevant information, decide what to keep
 ![ml-notes_31](/images/ml-notes_31.png)
 
 ### Intuitive Understanding of LSTM $$\sigma, \text{tanh}, \times, +$$
