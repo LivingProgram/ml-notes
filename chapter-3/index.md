@@ -183,8 +183,8 @@ LSTM Advantages:
 - Learn Gate : combines event with STM, chooses relevant info
 - Remember Gate : puts together LTM, learn gate output, spits out new LTM
 - Use Gate : uses forget gate output, learn gate output, combines information to decide what to use to generate specific output (which is also the new STM)
-- Simplification of LSTM: ![ml-notes_29](/images/ml-notes_29.png)
-- Actual LSTM: ![ml-notes_30](/images/ml-notes_30.png)
+- Simplification of LSTM: ![ml-notes_29](../images/ml-notes_29.png)
+- Actual LSTM: ![ml-notes_30](../images/ml-notes_30.png)
 
 ### Intuitive Understanding of LSTM $$\sigma, \text{tanh}, \times, +$$
 - Every output goes through a "mini-NN"
@@ -200,22 +200,22 @@ LSTM Advantages:
 1. compute information vector ($$N_t$$): combine vectors of event ($$E_t$$) and STM ($$STM_{t-1}$$), multiply by weights ($$W_n$$), add bias ($$b_n$$), apply $$\text{tanh()}$$
 2. compute ignore factor ($$i_t$$): combine vectors of event ($$E_t$$) and STM ($$STM_{t-1}$$), multiply by weights ($$W_i$$), adds bias ($$b_i$$), apply sigmoid ($$sigma()$$) to squash between 0-1
 3. multiply $$N_t\cdot i_t$$ element-wise : to ignore irrelevant information, decide what to keep
-![ml-notes_31](/images/ml-notes_31.png)
+![ml-notes_31](../images/ml-notes_31.png)
 
 ### Forget Gate
 1. compute forget factor ($$f_t$$): combine vectors of event ($$E_t$$) and STM ($$STM_{t-1}$$), multiply by weights ($$W_f$$), adds bias ($$b_f$$), apply sigmoid ($$sigma()$$) to squash between 0-1
 2. multiply $$LTM_{t-1}\cdot f_t$$ : to decide what LTM to forget
-![ml-notes_32](/images/ml-notes_32.png)
+![ml-notes_32](../images/ml-notes_32.png)
 
 ### Remember Gate
 1. add output of Learn and Forget Gates
-![ml-notes_33](/images/ml-notes_33.png)
+![ml-notes_33](../images/ml-notes_33.png)
 
 ### Use Gate
 1. compute useful information of output of Forget Gate ($$U_t$$) : apply mini-NN to output of Forget Gate
 2. compute useful information from STM and event ($$V_t$$) : apply mini-NN to $$STM_{t-1},E_t$$
 3. multiply $$U_t \cdot V_t$$
-![ml-notes_34](/images/ml-notes_34.png)
+![ml-notes_34](../images/ml-notes_34.png)
 
 ### LSTM Variations
 - Gated Recurring Unit (GRU) : single memory store (instead of both LTM and STM)
